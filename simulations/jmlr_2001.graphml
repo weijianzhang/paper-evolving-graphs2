@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="weight" attr.type="double" for="edge" id="d0" />
+  <graph edgedefault="directed">
+    <node id="Manevitz, Larry M." />
+    <node id="Gates, Kevin E." />
+    <node id="Vapnik, Vladimir" />
+    <node id="Singer, Yoram" />
+    <node id="Masters, Annette" />
+    <node id="Genton, Marc G." />
+    <node id="Downs, Tom" />
+    <node id="Pekalska, Elzbieta" />
+    <node id="Yousef, Malik" />
+    <node id="Ben-Hur, Asa" />
+    <node id="Tax, David M.J." />
+    <node id="Horn, David" />
+    <node id="Gentile, Claudio" />
+    <node id="Siegelmann, Hava T." />
+    <node id="Paclik, Pavel" />
+    <node id="Duin, Robert P.W." />
+    <node id="Rosipal, Roman" />
+    <node id="Fine, Shai" />
+    <node id="Crammer, Koby" />
+    <node id="Trejo, Leonard J." />
+    <node id="Scheinberg, Katya" />
+    <edge source="Manevitz, Larry M." target="Yousef, Malik">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manevitz, Larry M." target="Manevitz, Larry M.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Gates, Kevin E." target="Masters, Annette">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Gates, Kevin E." target="Downs, Tom">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Vapnik, Vladimir" target="Siegelmann, Hava T.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Vapnik, Vladimir" target="Ben-Hur, Asa">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Vapnik, Vladimir" target="Horn, David">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Singer, Yoram" target="Crammer, Koby">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Masters, Annette" target="Gates, Kevin E.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Masters, Annette" target="Downs, Tom">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Genton, Marc G." target="Genton, Marc G.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Downs, Tom" target="Masters, Annette">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Downs, Tom" target="Ben-Hur, Asa">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Downs, Tom" target="Gates, Kevin E.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Downs, Tom" target="Downs, Tom">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Pekalska, Elzbieta" target="Duin, Robert P.W.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pekalska, Elzbieta" target="Pekalska, Elzbieta">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Pekalska, Elzbieta" target="Paclik, Pavel">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yousef, Malik" target="Manevitz, Larry M.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ben-Hur, Asa" target="Siegelmann, Hava T.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ben-Hur, Asa" target="Ben-Hur, Asa">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Ben-Hur, Asa" target="Vapnik, Vladimir">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ben-Hur, Asa" target="Horn, David">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ben-Hur, Asa" target="Downs, Tom">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Tax, David M.J." target="Duin, Robert P.W.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tax, David M.J." target="Tax, David M.J.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Horn, David" target="Siegelmann, Hava T.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Horn, David" target="Ben-Hur, Asa">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Horn, David" target="Vapnik, Vladimir">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Gentile, Claudio" target="Gentile, Claudio">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Siegelmann, Hava T." target="Ben-Hur, Asa">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Siegelmann, Hava T." target="Vapnik, Vladimir">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Siegelmann, Hava T." target="Horn, David">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Paclik, Pavel" target="Pekalska, Elzbieta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Paclik, Pavel" target="Duin, Robert P.W.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Duin, Robert P.W." target="Pekalska, Elzbieta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Duin, Robert P.W." target="Tax, David M.J.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Duin, Robert P.W." target="Paclik, Pavel">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rosipal, Roman" target="Trejo, Leonard J.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rosipal, Roman" target="Rosipal, Roman">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Fine, Shai" target="Fine, Shai">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Fine, Shai" target="Scheinberg, Katya">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Crammer, Koby" target="Singer, Yoram">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Crammer, Koby" target="Crammer, Koby">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Trejo, Leonard J." target="Rosipal, Roman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Scheinberg, Katya" target="Fine, Shai">
+      <data key="d0">2.0</data>
+    </edge>
+  </graph>
+</graphml>

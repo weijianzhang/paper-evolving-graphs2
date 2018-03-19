@@ -1,0 +1,2409 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="weight" attr.type="double" for="edge" id="d0" />
+  <graph edgedefault="directed">
+    <node id="Animashree Anandkumar" />
+    <node id="Zongming Ma" />
+    <node id="Matthew Olson" />
+    <node id="Lori Ziegelmeier" />
+    <node id="Ding-Xuan Zhou" />
+    <node id="Tegan Emerson" />
+    <node id="Naonori Ueda" />
+    <node id="Maxim Egorov" />
+    <node id="Sofya Chepushtanova" />
+    <node id="Alexander G. de G. Matthews" />
+    <node id="Weston D. Viles" />
+    <node id="Adel Javanmard" />
+    <node id="Akiko Takeda" />
+    <node id="Maria Florina Balcan" />
+    <node id="Takafumi Kanamori" />
+    <node id="Yannis Papanikolaou" />
+    <node id="Igor Melnyk" />
+    <node id="Andrew Roth" />
+    <node id="Alexandre Gramfort" />
+    <node id="Takashi Takenouchi" />
+    <node id="Aikaterini Mitrokotsa" />
+    <node id="Ulrike von Luxburg" />
+    <node id="Chris Holmes" />
+    <node id="Konstantin Voevodski" />
+    <node id="Inderjit S. Dhillon" />
+    <node id="Tianlin Shi" />
+    <node id="Benjamin F. Swanson" />
+    <node id="Muhammad Ammad-ud-din" />
+    <node id="Tom Nickson" />
+    <node id="Jennifer G. Dy" />
+    <node id="Kenji Fukumizu" />
+    <node id="Si Si" />
+    <node id="Hongyuan Zha" />
+    <node id="Sandra Zilles" />
+    <node id="Shao-Bo Lin" />
+    <node id="Lars Kotthoff" />
+    <node id="Arthur Gretton" />
+    <node id="Dustin Tran" />
+    <node id="Elena Popovici" />
+    <node id="Shuang Li" />
+    <node id="Cho-Jui Hsieh" />
+    <node id="Cosma Rohilla Shalizi" />
+    <node id="François Caron" />
+    <node id="Grigorios Tsoumakas" />
+    <node id="Morteza Ashraphijuo" />
+    <node id="Erik B. Sudderth" />
+    <node id="Gavin Cawley" />
+    <node id="Yaohua Hu" />
+    <node id="Eric D. Kolaczyk" />
+    <node id="Mehrdad Farajtabar" />
+    <node id="Daniel J. McDonald" />
+    <node id="Debarghya Ghoshdastidar" />
+    <node id="Santtu Tikka" />
+    <node id="Nabanita Mukherjee" />
+    <node id="Ery Arias-Castro" />
+    <node id="Yuekai Sun" />
+    <node id="Daniel Nevo" />
+    <node id="Ambedkar Dukkipati" />
+    <node id="Herbert Jaeger" />
+    <node id="James Hensman" />
+    <node id="Teng Zhang" />
+    <node id="Jure Leskovec" />
+    <node id="Stephen Boyd" />
+    <node id="Zuhe Zhang" />
+    <node id="Aryeh Kontorovich" />
+    <node id="Christos K. Aridas" />
+    <node id="Yann Ollivier" />
+    <node id="Fernando Nogueira" />
+    <node id="Anne Auger" />
+    <node id="Kevin Leyton-Brown" />
+    <node id="Christos Dimitrakakis" />
+    <node id="Henry Adams" />
+    <node id="Chris Thornton" />
+    <node id="Hans U. Simon" />
+    <node id="Edward Raff" />
+    <node id="Francis Motta" />
+    <node id="Tim A. Wheeler" />
+    <node id="Christopher J. Rozell" />
+    <node id="Yichen Wang" />
+    <node id="Eric Moulines" />
+    <node id="Guo Yu" />
+    <node id="Issei Sato" />
+    <node id="Juha Karvanen" />
+    <node id="Rachel Neville" />
+    <node id="Anderson Y. Zhang" />
+    <node id="Mykel J. Kochenderfer" />
+    <node id="Benjamin I. P. Rubinstein" />
+    <node id="Chao Gao" />
+    <node id="Jacob Bien" />
+    <node id="Xiaodong Wang" />
+    <node id="Patrick Shipman" />
+    <node id="Qiang Liu" />
+    <node id="Blaine Nelson" />
+    <node id="Nikolaus Hansen" />
+    <node id="Nakul Verma" />
+    <node id="Shiau Hong Lim" />
+    <node id="Arindam Banerjee" />
+    <node id="Adam S. Charles" />
+    <node id="Thibault Espinasse" />
+    <node id="Hanwen Huang" />
+    <node id="Manuel Gomez-Rodriguez" />
+    <node id="Maria-Florina Balcan" />
+    <node id="Rajesh Ranganath" />
+    <node id="Mehmet Eren Ahsen" />
+    <node id="Prakash Balachandran" />
+    <node id="Frank Hutter" />
+    <node id="Jonathan E. Taylor" />
+    <node id="Matthäus Kleindessner" />
+    <node id="Paul Rochet" />
+    <node id="Deepayan Chakrabarti" />
+    <node id="Ludovic Arnold" />
+    <node id="Edward Balaban" />
+    <node id="Murat Akcakaya" />
+    <node id="Aapo Hyvärinen" />
+    <node id="Jacques Wainer" />
+    <node id="Fabian Pedregosa" />
+    <node id="Revant Kumar" />
+    <node id="Dong Yin" />
+    <node id="Frank Wood" />
+    <node id="Francis Bach" />
+    <node id="Manuel Davy" />
+    <node id="Daniele Durante" />
+    <node id="Abraham J. Wyner" />
+    <node id="Alp Kucukelbir" />
+    <node id="Gilad Lerman" />
+    <node id="Rémi Bardenet" />
+    <node id="Federico Ricci-Tersenghi" />
+    <node id="Andrew Gelman" />
+    <node id="Niharika Challapalli" />
+    <node id="Michael Kirby" />
+    <node id="Michael C. Hughes" />
+    <node id="Yudong Chen" />
+    <node id="Yves F. Atchadé" />
+    <node id="Samory Kpotufe" />
+    <node id="Martin S. Copenhaver" />
+    <node id="David Mease" />
+    <node id="Eemeli Leppäaho" />
+    <node id="Chong Li" />
+    <node id="Eric Hanson" />
+    <node id="Jing Qin" />
+    <node id="Rong Ge" />
+    <node id="Ziyuan Gao" />
+    <node id="Jayesh K. Gupta" />
+    <node id="Todd K. Leen" />
+    <node id="Kaiwen Meng" />
+    <node id="Xiaoqi Yang" />
+    <node id="Pablo León-Villagrá" />
+    <node id="Katsuhiko Ishiguro" />
+    <node id="Rok Sosič" />
+    <node id="Mark Schervish" />
+    <node id="Naoki Ito" />
+    <node id="Samuel Kaski" />
+    <node id="Lee-Ad Gottlieb" />
+    <node id="Rebecca C. Steorts" />
+    <node id="Daeil Kim" />
+    <node id="Alexandre Bouchard-Côté" />
+    <node id="Zachary N. Sunberg" />
+    <node id="Jun Zhu" />
+    <node id="Guillaume  Lemaître" />
+    <node id="Sofus A. Macskassy" />
+    <node id="Zoubin Ghahramani" />
+    <node id="Yohann De Castro" />
+    <node id="Nan Du" />
+    <node id="Christoph Ries" />
+    <node id="David M. Blei" />
+    <node id="Gersende Fort" />
+    <node id="Jason D. Lee" />
+    <node id="Kim-Chuan Toh" />
+    <node id="Jack Raymond" />
+    <node id="Bharath Sriperumbudur" />
+    <node id="Harrison H. Zhou" />
+    <node id="Yingyu Liang" />
+    <node id="Holger H. Hoos" />
+    <node id="Ya'acov Ritov" />
+    <node id="Pinhas Nisnevitch" />
+    <node id="Timothy N. Rubin" />
+    <node id="Chris Peterson" />
+    <node id="Christopher Wong" />
+    <node id="Deniz Erdogmus" />
+    <node id="Keisuke Fujii" />
+    <node id="Alexis Boukouvalas" />
+    <node id="Arnaud Doucet" />
+    <node id="Willie Neiswanger" />
+    <node id="Abhijit Sharang" />
+    <node id="Dimitris Bertsimas" />
+    <node id="Ohad Shamir" />
+    <node id="David Hallac" />
+    <node id="Steven Diamond" />
+    <node id="Rahul Mazumder" />
+    <node id="Jonathan Chang" />
+    <node id="Mathukumalli Vidyasagar" />
+    <node id="Le Song" />
+    <node id="Pranjal Awasthi" />
+    <node id="Xiangyu Chang" />
+    <node id="James R. Foulds" />
+    <node id="Jamshid Sourati" />
+    <node id="Mark van der Wilk" />
+    <node id="Stanislav Funiak" />
+    <node id="Justin Bleich" />
+    <node id="Huan Xu" />
+    <node id="Majid Janzamin" />
+    <edge source="Animashree Anandkumar" target="Animashree Anandkumar">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Animashree Anandkumar" target="Majid Janzamin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Animashree Anandkumar" target="Rong Ge">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zongming Ma" target="Anderson Y. Zhang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zongming Ma" target="Harrison H. Zhou">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zongming Ma" target="Chao Gao">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Matthew Olson" target="Justin Bleich">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Matthew Olson" target="David Mease">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Matthew Olson" target="Abraham J. Wyner">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lori Ziegelmeier" target="Francis Motta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lori Ziegelmeier" target="Henry Adams">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lori Ziegelmeier" target="Eric Hanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lori Ziegelmeier" target="Tegan Emerson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lori Ziegelmeier" target="Rachel Neville">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lori Ziegelmeier" target="Sofya Chepushtanova">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lori Ziegelmeier" target="Chris Peterson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lori Ziegelmeier" target="Michael Kirby">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lori Ziegelmeier" target="Patrick Shipman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ding-Xuan Zhou" target="Shao-Bo Lin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ding-Xuan Zhou" target="Xiangyu Chang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tegan Emerson" target="Francis Motta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tegan Emerson" target="Henry Adams">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tegan Emerson" target="Lori Ziegelmeier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tegan Emerson" target="Eric Hanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tegan Emerson" target="Rachel Neville">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tegan Emerson" target="Sofya Chepushtanova">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tegan Emerson" target="Chris Peterson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tegan Emerson" target="Michael Kirby">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tegan Emerson" target="Patrick Shipman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Naonori Ueda" target="Issei Sato">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Naonori Ueda" target="Katsuhiko Ishiguro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maxim Egorov" target="Maxim Egorov">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Maxim Egorov" target="Zachary N. Sunberg">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maxim Egorov" target="Mykel J. Kochenderfer">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maxim Egorov" target="Jayesh K. Gupta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maxim Egorov" target="Edward Balaban">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maxim Egorov" target="Tim A. Wheeler">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofya Chepushtanova" target="Henry Adams">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofya Chepushtanova" target="Lori Ziegelmeier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofya Chepushtanova" target="Eric Hanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofya Chepushtanova" target="Tegan Emerson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofya Chepushtanova" target="Rachel Neville">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofya Chepushtanova" target="Francis Motta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofya Chepushtanova" target="Chris Peterson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofya Chepushtanova" target="Michael Kirby">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofya Chepushtanova" target="Patrick Shipman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexander G. de G. Matthews" target="Tom Nickson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexander G. de G. Matthews" target="Alexis Boukouvalas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexander G. de G. Matthews" target="James Hensman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexander G. de G. Matthews" target="Alexander G. de G. Matthews">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Alexander G. de G. Matthews" target="Zoubin Ghahramani">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexander G. de G. Matthews" target="Mark van der Wilk">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexander G. de G. Matthews" target="Pablo León-Villagrá">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexander G. de G. Matthews" target="Keisuke Fujii">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Weston D. Viles" target="Prakash Balachandran">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Weston D. Viles" target="Eric D. Kolaczyk">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Adel Javanmard" target="Adel Javanmard">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Akiko Takeda" target="Naoki Ito">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Akiko Takeda" target="Kim-Chuan Toh">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maria Florina Balcan" target="Konstantin Voevodski">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maria Florina Balcan" target="Pranjal Awasthi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Takafumi Kanamori" target="Takashi Takenouchi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yannis Papanikolaou" target="Timothy N. Rubin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yannis Papanikolaou" target="Yannis Papanikolaou">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Yannis Papanikolaou" target="Katsuhiko Ishiguro">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Yannis Papanikolaou" target="Grigorios Tsoumakas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yannis Papanikolaou" target="James R. Foulds">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Igor Melnyk" target="Arindam Banerjee">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Igor Melnyk" target="Igor Melnyk">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Andrew Roth" target="Arnaud Doucet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Andrew Roth" target="Alexandre Bouchard-Côté">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexandre Gramfort" target="Francis Bach">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexandre Gramfort" target="Fabian Pedregosa">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Takashi Takenouchi" target="Takashi Takenouchi">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Takashi Takenouchi" target="Takafumi Kanamori">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Aikaterini Mitrokotsa" target="Christos Dimitrakakis">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Aikaterini Mitrokotsa" target="Benjamin I. P. Rubinstein">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Aikaterini Mitrokotsa" target="Zuhe Zhang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Aikaterini Mitrokotsa" target="Blaine Nelson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ulrike von Luxburg" target="Matthäus Kleindessner">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Holmes" target="Rémi Bardenet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Holmes" target="Arnaud Doucet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Konstantin Voevodski" target="Pranjal Awasthi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Konstantin Voevodski" target="Maria Florina Balcan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Inderjit S. Dhillon" target="Si Si">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Inderjit S. Dhillon" target="Cho-Jui Hsieh">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tianlin Shi" target="Tianlin Shi">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Tianlin Shi" target="Jun Zhu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Benjamin F. Swanson" target="Daeil Kim">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Benjamin F. Swanson" target="Erik B. Sudderth">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Benjamin F. Swanson" target="Michael C. Hughes">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Muhammad Ammad-ud-din" target="Samuel Kaski">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Muhammad Ammad-ud-din" target="Eemeli Leppäaho">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tom Nickson" target="Alexis Boukouvalas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tom Nickson" target="James Hensman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tom Nickson" target="Alexander G. de G. Matthews">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tom Nickson" target="Zoubin Ghahramani">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tom Nickson" target="Mark van der Wilk">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tom Nickson" target="Pablo León-Villagrá">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tom Nickson" target="Keisuke Fujii">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jennifer G. Dy" target="Jamshid Sourati">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jennifer G. Dy" target="Deniz Erdogmus">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jennifer G. Dy" target="Murat Akcakaya">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jennifer G. Dy" target="Todd K. Leen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kenji Fukumizu" target="Arthur Gretton">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kenji Fukumizu" target="Revant Kumar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kenji Fukumizu" target="Bharath Sriperumbudur">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kenji Fukumizu" target="Aapo Hyvärinen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Si Si" target="Inderjit S. Dhillon">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Si Si" target="Cho-Jui Hsieh">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Si Si" target="Si Si">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Hongyuan Zha" target="Yingyu Liang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hongyuan Zha" target="Le Song">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hongyuan Zha" target="Manuel Gomez-Rodriguez">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hongyuan Zha" target="Maria-Florina Balcan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hongyuan Zha" target="Mehrdad Farajtabar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hongyuan Zha" target="Shuang Li">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hongyuan Zha" target="Yichen Wang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hongyuan Zha" target="Nan Du">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sandra Zilles" target="Ziyuan Gao">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sandra Zilles" target="Hans U. Simon">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sandra Zilles" target="Christoph Ries">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shao-Bo Lin" target="Ding-Xuan Zhou">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shao-Bo Lin" target="Xiangyu Chang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lars Kotthoff" target="Holger H. Hoos">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lars Kotthoff" target="Kevin Leyton-Brown">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lars Kotthoff" target="Lars Kotthoff">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Lars Kotthoff" target="Frank Hutter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lars Kotthoff" target="Chris Thornton">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arthur Gretton" target="Aapo Hyvärinen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arthur Gretton" target="Revant Kumar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arthur Gretton" target="Kenji Fukumizu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arthur Gretton" target="Bharath Sriperumbudur">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dustin Tran" target="Andrew Gelman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dustin Tran" target="Rajesh Ranganath">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dustin Tran" target="Alp Kucukelbir">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dustin Tran" target="David M. Blei">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Elena Popovici" target="Elena Popovici">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Shuang Li" target="Mehrdad Farajtabar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shuang Li" target="Yichen Wang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shuang Li" target="Manuel Gomez-Rodriguez">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shuang Li" target="Hongyuan Zha">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shuang Li" target="Le Song">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cho-Jui Hsieh" target="Inderjit S. Dhillon">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cho-Jui Hsieh" target="Si Si">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cosma Rohilla Shalizi" target="Mark Schervish">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cosma Rohilla Shalizi" target="Daniel J. McDonald">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="François Caron" target="François Caron">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="François Caron" target="Arnaud Doucet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="François Caron" target="Willie Neiswanger">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="François Caron" target="Alexandre Bouchard-Côté">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="François Caron" target="Frank Wood">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="François Caron" target="Manuel Davy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Grigorios Tsoumakas" target="Timothy N. Rubin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Grigorios Tsoumakas" target="Yannis Papanikolaou">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Grigorios Tsoumakas" target="James R. Foulds">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Morteza Ashraphijuo" target="Morteza Ashraphijuo">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Morteza Ashraphijuo" target="Xiaodong Wang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Erik B. Sudderth" target="Daeil Kim">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Erik B. Sudderth" target="Benjamin F. Swanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Erik B. Sudderth" target="Michael C. Hughes">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Gavin Cawley" target="Jacques Wainer">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yaohua Hu" target="Mehmet Eren Ahsen">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Yaohua Hu" target="Chong Li">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yaohua Hu" target="Yaohua Hu">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Yaohua Hu" target="Jing Qin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yaohua Hu" target="Kaiwen Meng">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yaohua Hu" target="Xiaoqi Yang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric D. Kolaczyk" target="Weston D. Viles">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric D. Kolaczyk" target="Prakash Balachandran">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mehrdad Farajtabar" target="Hongyuan Zha">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mehrdad Farajtabar" target="Le Song">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mehrdad Farajtabar" target="Yichen Wang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mehrdad Farajtabar" target="Mehrdad Farajtabar">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Mehrdad Farajtabar" target="Shuang Li">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mehrdad Farajtabar" target="Manuel Gomez-Rodriguez">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daniel J. McDonald" target="Mark Schervish">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daniel J. McDonald" target="Daniel J. McDonald">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Daniel J. McDonald" target="Cosma Rohilla Shalizi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Debarghya Ghoshdastidar" target="Ambedkar Dukkipati">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Debarghya Ghoshdastidar" target="Debarghya Ghoshdastidar">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Santtu Tikka" target="Santtu Tikka">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Santtu Tikka" target="Juha Karvanen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nabanita Mukherjee" target="Daniele Durante">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nabanita Mukherjee" target="Rebecca C. Steorts">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ery Arias-Castro" target="Teng Zhang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ery Arias-Castro" target="Ery Arias-Castro">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Ery Arias-Castro" target="Gilad Lerman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yuekai Sun" target="Qiang Liu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yuekai Sun" target="Jonathan E. Taylor">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yuekai Sun" target="Jason D. Lee">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daniel Nevo" target="Ya'acov Ritov">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daniel Nevo" target="Daniel Nevo">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Ambedkar Dukkipati" target="Debarghya Ghoshdastidar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Herbert Jaeger" target="Herbert Jaeger">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="James Hensman" target="Tom Nickson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="James Hensman" target="Alexis Boukouvalas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="James Hensman" target="Alexander G. de G. Matthews">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="James Hensman" target="Zoubin Ghahramani">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="James Hensman" target="Mark van der Wilk">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="James Hensman" target="Pablo León-Villagrá">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="James Hensman" target="Keisuke Fujii">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Teng Zhang" target="Ery Arias-Castro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Teng Zhang" target="Gilad Lerman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jure Leskovec" target="David Hallac">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jure Leskovec" target="Rok Sosič">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jure Leskovec" target="Stephen Boyd">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jure Leskovec" target="Steven Diamond">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jure Leskovec" target="Abhijit Sharang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jure Leskovec" target="Christopher Wong">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stephen Boyd" target="David Hallac">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stephen Boyd" target="Rok Sosič">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stephen Boyd" target="Jure Leskovec">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stephen Boyd" target="Steven Diamond">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stephen Boyd" target="Abhijit Sharang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stephen Boyd" target="Christopher Wong">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zuhe Zhang" target="Aikaterini Mitrokotsa">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zuhe Zhang" target="Christos Dimitrakakis">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zuhe Zhang" target="Benjamin I. P. Rubinstein">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zuhe Zhang" target="Blaine Nelson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Aryeh Kontorovich" target="Lee-Ad Gottlieb">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Aryeh Kontorovich" target="Pinhas Nisnevitch">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christos K. Aridas" target="Guillaume  Lemaître">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christos K. Aridas" target="Fernando Nogueira">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yann Ollivier" target="Anne Auger">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yann Ollivier" target="Nikolaus Hansen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yann Ollivier" target="Yann Ollivier">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Yann Ollivier" target="Ludovic Arnold">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Fernando Nogueira" target="Guillaume  Lemaître">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Fernando Nogueira" target="Christos K. Aridas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Anne Auger" target="Nikolaus Hansen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Anne Auger" target="Yann Ollivier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Anne Auger" target="Ludovic Arnold">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kevin Leyton-Brown" target="Lars Kotthoff">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kevin Leyton-Brown" target="Holger H. Hoos">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kevin Leyton-Brown" target="Frank Hutter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kevin Leyton-Brown" target="Chris Thornton">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christos Dimitrakakis" target="Aikaterini Mitrokotsa">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christos Dimitrakakis" target="Blaine Nelson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christos Dimitrakakis" target="Christos Dimitrakakis">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Christos Dimitrakakis" target="Benjamin I. P. Rubinstein">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christos Dimitrakakis" target="Zuhe Zhang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Henry Adams" target="Francis Motta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Henry Adams" target="Henry Adams">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Henry Adams" target="Lori Ziegelmeier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Henry Adams" target="Eric Hanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Henry Adams" target="Tegan Emerson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Henry Adams" target="Rachel Neville">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Henry Adams" target="Sofya Chepushtanova">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Henry Adams" target="Chris Peterson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Henry Adams" target="Michael Kirby">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Henry Adams" target="Patrick Shipman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Thornton" target="Lars Kotthoff">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Thornton" target="Holger H. Hoos">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Thornton" target="Frank Hutter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Thornton" target="Kevin Leyton-Brown">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hans U. Simon" target="Ziyuan Gao">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hans U. Simon" target="Christoph Ries">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hans U. Simon" target="Sandra Zilles">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Edward Raff" target="Edward Raff">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Francis Motta" target="Henry Adams">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Francis Motta" target="Lori Ziegelmeier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Francis Motta" target="Eric Hanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Francis Motta" target="Tegan Emerson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Francis Motta" target="Rachel Neville">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Francis Motta" target="Sofya Chepushtanova">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Francis Motta" target="Chris Peterson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Francis Motta" target="Michael Kirby">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Francis Motta" target="Patrick Shipman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tim A. Wheeler" target="Mykel J. Kochenderfer">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tim A. Wheeler" target="Maxim Egorov">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tim A. Wheeler" target="Edward Balaban">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tim A. Wheeler" target="Zachary N. Sunberg">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tim A. Wheeler" target="Jayesh K. Gupta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christopher J. Rozell" target="Adam S. Charles">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christopher J. Rozell" target="Dong Yin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yichen Wang" target="Mehrdad Farajtabar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yichen Wang" target="Shuang Li">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yichen Wang" target="Manuel Gomez-Rodriguez">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yichen Wang" target="Hongyuan Zha">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yichen Wang" target="Le Song">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Moulines" target="Yves F. Atchadé">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Moulines" target="Gersende Fort">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Guo Yu" target="Guo Yu">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Guo Yu" target="Jason D. Lee">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Guo Yu" target="Jacob Bien">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Issei Sato" target="Naonori Ueda">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Issei Sato" target="Katsuhiko Ishiguro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Juha Karvanen" target="Santtu Tikka">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rachel Neville" target="Francis Motta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rachel Neville" target="Henry Adams">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rachel Neville" target="Lori Ziegelmeier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rachel Neville" target="Eric Hanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rachel Neville" target="Tegan Emerson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rachel Neville" target="Sofya Chepushtanova">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rachel Neville" target="Chris Peterson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rachel Neville" target="Michael Kirby">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rachel Neville" target="Patrick Shipman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Anderson Y. Zhang" target="Zongming Ma">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Anderson Y. Zhang" target="Harrison H. Zhou">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Anderson Y. Zhang" target="Chao Gao">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mykel J. Kochenderfer" target="Jayesh K. Gupta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mykel J. Kochenderfer" target="Maxim Egorov">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mykel J. Kochenderfer" target="Edward Balaban">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mykel J. Kochenderfer" target="Zachary N. Sunberg">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mykel J. Kochenderfer" target="Tim A. Wheeler">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Benjamin I. P. Rubinstein" target="Aikaterini Mitrokotsa">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Benjamin I. P. Rubinstein" target="Christos Dimitrakakis">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Benjamin I. P. Rubinstein" target="Zuhe Zhang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Benjamin I. P. Rubinstein" target="Blaine Nelson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chao Gao" target="Zongming Ma">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chao Gao" target="Anderson Y. Zhang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chao Gao" target="Chao Gao">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Chao Gao" target="Harrison H. Zhou">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jacob Bien" target="Guo Yu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Xiaodong Wang" target="Morteza Ashraphijuo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Patrick Shipman" target="Francis Motta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Patrick Shipman" target="Henry Adams">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Patrick Shipman" target="Lori Ziegelmeier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Patrick Shipman" target="Eric Hanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Patrick Shipman" target="Tegan Emerson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Patrick Shipman" target="Rachel Neville">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Patrick Shipman" target="Sofya Chepushtanova">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Patrick Shipman" target="Chris Peterson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Patrick Shipman" target="Michael Kirby">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Qiang Liu" target="Yuekai Sun">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Qiang Liu" target="Jonathan E. Taylor">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Qiang Liu" target="Jason D. Lee">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Blaine Nelson" target="Aikaterini Mitrokotsa">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Blaine Nelson" target="Christos Dimitrakakis">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Blaine Nelson" target="Benjamin I. P. Rubinstein">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Blaine Nelson" target="Zuhe Zhang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nikolaus Hansen" target="Anne Auger">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nikolaus Hansen" target="Yann Ollivier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nikolaus Hansen" target="Ludovic Arnold">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nakul Verma" target="Samory Kpotufe">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shiau Hong Lim" target="Yudong Chen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shiau Hong Lim" target="Shiau Hong Lim">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Shiau Hong Lim" target="Huan Xu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arindam Banerjee" target="Igor Melnyk">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Adam S. Charles" target="Christopher J. Rozell">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Adam S. Charles" target="Adam S. Charles">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Adam S. Charles" target="Dong Yin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Thibault Espinasse" target="Yohann De Castro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Thibault Espinasse" target="Paul Rochet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hanwen Huang" target="Hanwen Huang">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Manuel Gomez-Rodriguez" target="Yingyu Liang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Gomez-Rodriguez" target="Hongyuan Zha">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Gomez-Rodriguez" target="Le Song">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Gomez-Rodriguez" target="Maria-Florina Balcan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Gomez-Rodriguez" target="Mehrdad Farajtabar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Gomez-Rodriguez" target="Shuang Li">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Gomez-Rodriguez" target="Yichen Wang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Gomez-Rodriguez" target="Nan Du">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maria-Florina Balcan" target="Nan Du">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maria-Florina Balcan" target="Manuel Gomez-Rodriguez">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maria-Florina Balcan" target="Hongyuan Zha">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maria-Florina Balcan" target="Yingyu Liang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Maria-Florina Balcan" target="Le Song">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rajesh Ranganath" target="Andrew Gelman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rajesh Ranganath" target="Alp Kucukelbir">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rajesh Ranganath" target="David M. Blei">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rajesh Ranganath" target="Dustin Tran">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mehmet Eren Ahsen" target="Niharika Challapalli">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mehmet Eren Ahsen" target="Yaohua Hu">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Mehmet Eren Ahsen" target="Mehmet Eren Ahsen">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Mehmet Eren Ahsen" target="Mathukumalli Vidyasagar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Prakash Balachandran" target="Weston D. Viles">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Prakash Balachandran" target="Prakash Balachandran">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Prakash Balachandran" target="Eric D. Kolaczyk">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Frank Hutter" target="Lars Kotthoff">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Frank Hutter" target="Holger H. Hoos">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Frank Hutter" target="Kevin Leyton-Brown">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Frank Hutter" target="Chris Thornton">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jonathan E. Taylor" target="Yuekai Sun">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jonathan E. Taylor" target="Qiang Liu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jonathan E. Taylor" target="Jason D. Lee">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Matthäus Kleindessner" target="Matthäus Kleindessner">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Matthäus Kleindessner" target="Ulrike von Luxburg">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Paul Rochet" target="Yohann De Castro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Paul Rochet" target="Thibault Espinasse">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Deepayan Chakrabarti" target="Sofus A. Macskassy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Deepayan Chakrabarti" target="Deepayan Chakrabarti">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Deepayan Chakrabarti" target="Jonathan Chang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Deepayan Chakrabarti" target="Stanislav Funiak">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ludovic Arnold" target="Anne Auger">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ludovic Arnold" target="Nikolaus Hansen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ludovic Arnold" target="Yann Ollivier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Edward Balaban" target="Mykel J. Kochenderfer">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Edward Balaban" target="Maxim Egorov">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Edward Balaban" target="Tim A. Wheeler">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Edward Balaban" target="Zachary N. Sunberg">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Edward Balaban" target="Jayesh K. Gupta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Murat Akcakaya" target="Jamshid Sourati">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Murat Akcakaya" target="Jennifer G. Dy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Murat Akcakaya" target="Deniz Erdogmus">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Murat Akcakaya" target="Todd K. Leen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Aapo Hyvärinen" target="Arthur Gretton">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Aapo Hyvärinen" target="Revant Kumar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Aapo Hyvärinen" target="Kenji Fukumizu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Aapo Hyvärinen" target="Bharath Sriperumbudur">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jacques Wainer" target="Gavin Cawley">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jacques Wainer" target="Jacques Wainer">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Fabian Pedregosa" target="Francis Bach">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Fabian Pedregosa" target="Alexandre Gramfort">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Fabian Pedregosa" target="Fabian Pedregosa">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Revant Kumar" target="Arthur Gretton">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Revant Kumar" target="Kenji Fukumizu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Revant Kumar" target="Bharath Sriperumbudur">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Revant Kumar" target="Aapo Hyvärinen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dong Yin" target="Christopher J. Rozell">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dong Yin" target="Adam S. Charles">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Frank Wood" target="François Caron">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Frank Wood" target="Arnaud Doucet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Frank Wood" target="Manuel Davy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Frank Wood" target="Willie Neiswanger">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Francis Bach" target="Francis Bach">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Francis Bach" target="Alexandre Gramfort">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Francis Bach" target="Fabian Pedregosa">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Davy" target="François Caron">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Davy" target="Frank Wood">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Davy" target="Arnaud Doucet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Manuel Davy" target="Willie Neiswanger">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daniele Durante" target="Nabanita Mukherjee">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daniele Durante" target="Daniele Durante">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Daniele Durante" target="Rebecca C. Steorts">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Abraham J. Wyner" target="Matthew Olson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Abraham J. Wyner" target="Justin Bleich">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Abraham J. Wyner" target="David Mease">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Abraham J. Wyner" target="Abraham J. Wyner">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Alp Kucukelbir" target="Andrew Gelman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alp Kucukelbir" target="Rajesh Ranganath">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alp Kucukelbir" target="Alp Kucukelbir">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Alp Kucukelbir" target="David M. Blei">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alp Kucukelbir" target="Dustin Tran">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Gilad Lerman" target="Teng Zhang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Gilad Lerman" target="Ery Arias-Castro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rémi Bardenet" target="Rémi Bardenet">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rémi Bardenet" target="Arnaud Doucet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rémi Bardenet" target="Chris Holmes">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Federico Ricci-Tersenghi" target="Jack Raymond">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Andrew Gelman" target="Rajesh Ranganath">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Andrew Gelman" target="Alp Kucukelbir">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Andrew Gelman" target="David M. Blei">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Andrew Gelman" target="Dustin Tran">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Niharika Challapalli" target="Mehmet Eren Ahsen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Niharika Challapalli" target="Mathukumalli Vidyasagar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael Kirby" target="Francis Motta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael Kirby" target="Henry Adams">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael Kirby" target="Lori Ziegelmeier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael Kirby" target="Eric Hanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael Kirby" target="Tegan Emerson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael Kirby" target="Rachel Neville">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael Kirby" target="Sofya Chepushtanova">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael Kirby" target="Chris Peterson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael Kirby" target="Patrick Shipman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael C. Hughes" target="Daeil Kim">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael C. Hughes" target="Erik B. Sudderth">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Michael C. Hughes" target="Benjamin F. Swanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yudong Chen" target="Huan Xu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yudong Chen" target="Shiau Hong Lim">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yves F. Atchadé" target="Eric Moulines">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yves F. Atchadé" target="Yves F. Atchadé">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Yves F. Atchadé" target="Gersende Fort">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Samory Kpotufe" target="Samory Kpotufe">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Samory Kpotufe" target="Nakul Verma">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Martin S. Copenhaver" target="Dimitris Bertsimas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Martin S. Copenhaver" target="Rahul Mazumder">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David Mease" target="Matthew Olson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David Mease" target="Justin Bleich">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David Mease" target="Abraham J. Wyner">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eemeli Leppäaho" target="Samuel Kaski">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eemeli Leppäaho" target="Muhammad Ammad-ud-din">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eemeli Leppäaho" target="Eemeli Leppäaho">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Chong Li" target="Xiaoqi Yang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chong Li" target="Jing Qin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chong Li" target="Yaohua Hu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chong Li" target="Kaiwen Meng">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Hanson" target="Francis Motta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Hanson" target="Henry Adams">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Hanson" target="Lori Ziegelmeier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Hanson" target="Tegan Emerson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Hanson" target="Rachel Neville">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Hanson" target="Sofya Chepushtanova">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Hanson" target="Chris Peterson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Hanson" target="Michael Kirby">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eric Hanson" target="Patrick Shipman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jing Qin" target="Xiaoqi Yang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jing Qin" target="Yaohua Hu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jing Qin" target="Chong Li">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jing Qin" target="Kaiwen Meng">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rong Ge" target="Animashree Anandkumar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rong Ge" target="Majid Janzamin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ziyuan Gao" target="Sandra Zilles">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ziyuan Gao" target="Hans U. Simon">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ziyuan Gao" target="Christoph Ries">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ziyuan Gao" target="Ziyuan Gao">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Jayesh K. Gupta" target="Mykel J. Kochenderfer">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jayesh K. Gupta" target="Maxim Egorov">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jayesh K. Gupta" target="Edward Balaban">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jayesh K. Gupta" target="Zachary N. Sunberg">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jayesh K. Gupta" target="Tim A. Wheeler">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Todd K. Leen" target="Jamshid Sourati">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Todd K. Leen" target="Jennifer G. Dy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Todd K. Leen" target="Deniz Erdogmus">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Todd K. Leen" target="Murat Akcakaya">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kaiwen Meng" target="Xiaoqi Yang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kaiwen Meng" target="Jing Qin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kaiwen Meng" target="Yaohua Hu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kaiwen Meng" target="Chong Li">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Xiaoqi Yang" target="Jing Qin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Xiaoqi Yang" target="Yaohua Hu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Xiaoqi Yang" target="Chong Li">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Xiaoqi Yang" target="Kaiwen Meng">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pablo León-Villagrá" target="Tom Nickson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pablo León-Villagrá" target="Alexis Boukouvalas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pablo León-Villagrá" target="James Hensman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pablo León-Villagrá" target="Alexander G. de G. Matthews">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pablo León-Villagrá" target="Zoubin Ghahramani">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pablo León-Villagrá" target="Mark van der Wilk">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pablo León-Villagrá" target="Keisuke Fujii">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Katsuhiko Ishiguro" target="Katsuhiko Ishiguro">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Katsuhiko Ishiguro" target="Issei Sato">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Katsuhiko Ishiguro" target="Naonori Ueda">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Katsuhiko Ishiguro" target="Yannis Papanikolaou">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rok Sosič" target="David Hallac">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rok Sosič" target="Jure Leskovec">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rok Sosič" target="Stephen Boyd">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rok Sosič" target="Steven Diamond">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rok Sosič" target="Abhijit Sharang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rok Sosič" target="Christopher Wong">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mark Schervish" target="Daniel J. McDonald">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mark Schervish" target="Cosma Rohilla Shalizi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Naoki Ito" target="Kim-Chuan Toh">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Naoki Ito" target="Akiko Takeda">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Naoki Ito" target="Naoki Ito">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Samuel Kaski" target="Muhammad Ammad-ud-din">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Samuel Kaski" target="Eemeli Leppäaho">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lee-Ad Gottlieb" target="Aryeh Kontorovich">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lee-Ad Gottlieb" target="Lee-Ad Gottlieb">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Lee-Ad Gottlieb" target="Pinhas Nisnevitch">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rebecca C. Steorts" target="Nabanita Mukherjee">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rebecca C. Steorts" target="Daniele Durante">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daeil Kim" target="Daeil Kim">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Daeil Kim" target="Erik B. Sudderth">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daeil Kim" target="Benjamin F. Swanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daeil Kim" target="Michael C. Hughes">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexandre Bouchard-Côté" target="François Caron">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Alexandre Bouchard-Côté" target="Arnaud Doucet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexandre Bouchard-Côté" target="Andrew Roth">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexandre Bouchard-Côté" target="Alexandre Bouchard-Côté">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Zachary N. Sunberg" target="Mykel J. Kochenderfer">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zachary N. Sunberg" target="Maxim Egorov">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zachary N. Sunberg" target="Tim A. Wheeler">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zachary N. Sunberg" target="Edward Balaban">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zachary N. Sunberg" target="Jayesh K. Gupta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jun Zhu" target="Tianlin Shi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Guillaume  Lemaître" target="Guillaume  Lemaître">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Guillaume  Lemaître" target="Christos K. Aridas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Guillaume  Lemaître" target="Fernando Nogueira">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofus A. Macskassy" target="Deepayan Chakrabarti">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofus A. Macskassy" target="Jonathan Chang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sofus A. Macskassy" target="Stanislav Funiak">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zoubin Ghahramani" target="Tom Nickson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zoubin Ghahramani" target="Alexis Boukouvalas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zoubin Ghahramani" target="James Hensman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zoubin Ghahramani" target="Alexander G. de G. Matthews">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zoubin Ghahramani" target="Mark van der Wilk">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zoubin Ghahramani" target="Pablo León-Villagrá">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zoubin Ghahramani" target="Keisuke Fujii">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yohann De Castro" target="Paul Rochet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yohann De Castro" target="Thibault Espinasse">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yohann De Castro" target="Yohann De Castro">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Nan Du" target="Yingyu Liang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nan Du" target="Hongyuan Zha">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nan Du" target="Le Song">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nan Du" target="Nan Du">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Nan Du" target="Manuel Gomez-Rodriguez">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nan Du" target="Maria-Florina Balcan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christoph Ries" target="Ziyuan Gao">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christoph Ries" target="Hans U. Simon">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christoph Ries" target="Sandra Zilles">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David M. Blei" target="Andrew Gelman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David M. Blei" target="Rajesh Ranganath">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David M. Blei" target="Alp Kucukelbir">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David M. Blei" target="Dustin Tran">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Gersende Fort" target="Eric Moulines">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Gersende Fort" target="Yves F. Atchadé">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jason D. Lee" target="Yuekai Sun">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jason D. Lee" target="Qiang Liu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jason D. Lee" target="Jonathan E. Taylor">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jason D. Lee" target="Jason D. Lee">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Jason D. Lee" target="Guo Yu">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Kim-Chuan Toh" target="Naoki Ito">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kim-Chuan Toh" target="Akiko Takeda">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jack Raymond" target="Jack Raymond">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Jack Raymond" target="Federico Ricci-Tersenghi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bharath Sriperumbudur" target="Arthur Gretton">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bharath Sriperumbudur" target="Revant Kumar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bharath Sriperumbudur" target="Kenji Fukumizu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bharath Sriperumbudur" target="Aapo Hyvärinen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bharath Sriperumbudur" target="Bharath Sriperumbudur">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Harrison H. Zhou" target="Zongming Ma">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Harrison H. Zhou" target="Anderson Y. Zhang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Harrison H. Zhou" target="Chao Gao">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yingyu Liang" target="Nan Du">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yingyu Liang" target="Manuel Gomez-Rodriguez">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yingyu Liang" target="Maria-Florina Balcan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yingyu Liang" target="Hongyuan Zha">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yingyu Liang" target="Le Song">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Holger H. Hoos" target="Lars Kotthoff">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Holger H. Hoos" target="Kevin Leyton-Brown">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Holger H. Hoos" target="Frank Hutter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Holger H. Hoos" target="Chris Thornton">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ya'acov Ritov" target="Daniel Nevo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pinhas Nisnevitch" target="Aryeh Kontorovich">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pinhas Nisnevitch" target="Lee-Ad Gottlieb">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Timothy N. Rubin" target="Yannis Papanikolaou">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Timothy N. Rubin" target="Grigorios Tsoumakas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Timothy N. Rubin" target="James R. Foulds">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Peterson" target="Francis Motta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Peterson" target="Henry Adams">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Peterson" target="Lori Ziegelmeier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Peterson" target="Eric Hanson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Peterson" target="Tegan Emerson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Peterson" target="Rachel Neville">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Peterson" target="Sofya Chepushtanova">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Peterson" target="Michael Kirby">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chris Peterson" target="Patrick Shipman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christopher Wong" target="David Hallac">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christopher Wong" target="Rok Sosič">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christopher Wong" target="Jure Leskovec">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christopher Wong" target="Stephen Boyd">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christopher Wong" target="Steven Diamond">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christopher Wong" target="Abhijit Sharang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Deniz Erdogmus" target="Jamshid Sourati">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Deniz Erdogmus" target="Jennifer G. Dy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Deniz Erdogmus" target="Murat Akcakaya">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Deniz Erdogmus" target="Todd K. Leen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Keisuke Fujii" target="Tom Nickson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Keisuke Fujii" target="Alexis Boukouvalas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Keisuke Fujii" target="James Hensman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Keisuke Fujii" target="Alexander G. de G. Matthews">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Keisuke Fujii" target="Zoubin Ghahramani">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Keisuke Fujii" target="Mark van der Wilk">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Keisuke Fujii" target="Pablo León-Villagrá">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexis Boukouvalas" target="Tom Nickson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexis Boukouvalas" target="James Hensman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexis Boukouvalas" target="Alexander G. de G. Matthews">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexis Boukouvalas" target="Zoubin Ghahramani">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexis Boukouvalas" target="Mark van der Wilk">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexis Boukouvalas" target="Pablo León-Villagrá">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Alexis Boukouvalas" target="Keisuke Fujii">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arnaud Doucet" target="François Caron">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arnaud Doucet" target="Rémi Bardenet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arnaud Doucet" target="Andrew Roth">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arnaud Doucet" target="Willie Neiswanger">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arnaud Doucet" target="Alexandre Bouchard-Côté">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arnaud Doucet" target="Frank Wood">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arnaud Doucet" target="Manuel Davy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Arnaud Doucet" target="Chris Holmes">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Willie Neiswanger" target="François Caron">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Willie Neiswanger" target="Frank Wood">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Willie Neiswanger" target="Arnaud Doucet">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Willie Neiswanger" target="Manuel Davy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Abhijit Sharang" target="David Hallac">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Abhijit Sharang" target="Rok Sosič">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Abhijit Sharang" target="Jure Leskovec">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Abhijit Sharang" target="Stephen Boyd">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Abhijit Sharang" target="Steven Diamond">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Abhijit Sharang" target="Christopher Wong">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dimitris Bertsimas" target="Dimitris Bertsimas">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Dimitris Bertsimas" target="Martin S. Copenhaver">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dimitris Bertsimas" target="Rahul Mazumder">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ohad Shamir" target="Ohad Shamir">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="David Hallac" target="David Hallac">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="David Hallac" target="Rok Sosič">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David Hallac" target="Jure Leskovec">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David Hallac" target="Stephen Boyd">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David Hallac" target="Steven Diamond">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David Hallac" target="Abhijit Sharang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="David Hallac" target="Christopher Wong">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Steven Diamond" target="David Hallac">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Steven Diamond" target="Rok Sosič">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Steven Diamond" target="Jure Leskovec">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Steven Diamond" target="Stephen Boyd">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Steven Diamond" target="Abhijit Sharang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Steven Diamond" target="Christopher Wong">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rahul Mazumder" target="Dimitris Bertsimas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rahul Mazumder" target="Martin S. Copenhaver">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jonathan Chang" target="Sofus A. Macskassy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jonathan Chang" target="Deepayan Chakrabarti">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jonathan Chang" target="Stanislav Funiak">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mathukumalli Vidyasagar" target="Mehmet Eren Ahsen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mathukumalli Vidyasagar" target="Niharika Challapalli">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Le Song" target="Yingyu Liang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Le Song" target="Hongyuan Zha">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Le Song" target="Manuel Gomez-Rodriguez">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Le Song" target="Maria-Florina Balcan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Le Song" target="Mehrdad Farajtabar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Le Song" target="Shuang Li">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Le Song" target="Yichen Wang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Le Song" target="Nan Du">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pranjal Awasthi" target="Konstantin Voevodski">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Pranjal Awasthi" target="Pranjal Awasthi">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Pranjal Awasthi" target="Maria Florina Balcan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Xiangyu Chang" target="Xiangyu Chang">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Xiangyu Chang" target="Shao-Bo Lin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Xiangyu Chang" target="Ding-Xuan Zhou">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="James R. Foulds" target="Timothy N. Rubin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="James R. Foulds" target="Yannis Papanikolaou">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="James R. Foulds" target="Grigorios Tsoumakas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jamshid Sourati" target="Jamshid Sourati">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Jamshid Sourati" target="Jennifer G. Dy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jamshid Sourati" target="Deniz Erdogmus">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jamshid Sourati" target="Murat Akcakaya">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jamshid Sourati" target="Todd K. Leen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mark van der Wilk" target="Tom Nickson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mark van der Wilk" target="Alexis Boukouvalas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mark van der Wilk" target="James Hensman">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mark van der Wilk" target="Alexander G. de G. Matthews">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mark van der Wilk" target="Zoubin Ghahramani">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mark van der Wilk" target="Pablo León-Villagrá">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mark van der Wilk" target="Keisuke Fujii">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stanislav Funiak" target="Sofus A. Macskassy">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stanislav Funiak" target="Deepayan Chakrabarti">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stanislav Funiak" target="Jonathan Chang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Justin Bleich" target="Matthew Olson">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Justin Bleich" target="David Mease">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Justin Bleich" target="Abraham J. Wyner">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Huan Xu" target="Yudong Chen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Huan Xu" target="Shiau Hong Lim">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Majid Janzamin" target="Animashree Anandkumar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Majid Janzamin" target="Rong Ge">
+      <data key="d0">2.0</data>
+    </edge>
+  </graph>
+</graphml>

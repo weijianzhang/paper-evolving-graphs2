@@ -1,0 +1,1235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="weight" attr.type="double" for="edge" id="d0" />
+  <graph edgedefault="directed">
+    <node id="Trivedi, Deepak" />
+    <node id="Christmann, Andreas" />
+    <node id="Ying, Yiming" />
+    <node id="Sallans, Brian" />
+    <node id="Baxter, Jonathan" />
+    <node id="Sandholm, Tuomas" />
+    <node id="Brodley, Carla E." />
+    <node id="Rifkin, Ryan" />
+    <node id="Blum, Avrim" />
+    <node id="Tsitsiklis, John N." />
+    <node id="Kuang, Rui" />
+    <node id="Santhanam, M. S." />
+    <node id="Yona, Golan" />
+    <node id="Rudin, Cynthia" />
+    <node id="Bousquet, Olivier" />
+    <node id="Luxburg, Ulrike von" />
+    <node id="Laub, Julian" />
+    <node id="Smarr, Joseph" />
+    <node id="Eguchi, Shinto" />
+    <node id="Schölkopf, Bernhard" />
+    <node id="Clyde, Merlise A." />
+    <node id="Mangasarian, Olvi L." />
+    <node id="Grandvalet, Yves" />
+    <node id="Cortes, Corinna" />
+    <node id="Lewis, David D." />
+    <node id="Nolte, Guido" />
+    <node id="Dy, Jennifer G." />
+    <node id="Dash, Denver" />
+    <node id="Rosasco, Lorenzo" />
+    <node id="Boberg, Jorma" />
+    <node id="Philips, Petra" />
+    <node id="Luz, Kobi" />
+    <node id="Chan, Laiwan" />
+    <node id="Rose, Tony G." />
+    <node id="Lavrač, Nada" />
+    <node id="Liu, Huan" />
+    <node id="Leslie, Christina" />
+    <node id="Chen, Di-Rong" />
+    <node id="Lyu, Michael R." />
+    <node id="Elkan, Charles" />
+    <node id="Baram, Yoram" />
+    <node id="King, Irwin" />
+    <node id="Bartlett, Peter" />
+    <node id="Koivisto, Mikko" />
+    <node id="Salakoski, Tapio" />
+    <node id="Yu, Lei" />
+    <node id="Shavlik, Jude W." />
+    <node id="Huang, Kaizhu" />
+    <node id="Dietterich, Thomas G." />
+    <node id="Chickering, David Maxwell" />
+    <node id="Lin, Chih-Jen" />
+    <node id="Hall, Lawrence O." />
+    <node id="Wild, Edward W." />
+    <node id="Cristianini, Nello" />
+    <node id="Kegelmeyer, W. Philip" />
+    <node id="Higuchi, Isao" />
+    <node id="Yaniv, Ran El" />
+    <node id="Mohri, Mehryar" />
+    <node id="Rosset, Saharon" />
+    <node id="Shimkin, Nahum" />
+    <node id="Elomaa, Tapio" />
+    <node id="Yang, Yiming" />
+    <node id="Zhu, Ji" />
+    <node id="Piana, Michele" />
+    <node id="Yang, Haiqin" />
+    <node id="Todorovski, Ljupčo" />
+    <node id="Quist, Michael" />
+    <node id="Ginter, Filip" />
+    <node id="Tibshirani, Robert" />
+    <node id="Mendelson, Shahar" />
+    <node id="Sood, Kismat" />
+    <node id="Utgoff, Paul E." />
+    <node id="Müller, Klaus-Robert" />
+    <node id="Wu, Qiang" />
+    <node id="Bach, Francis R." />
+    <node id="Ghaoui, Laurent El" />
+    <node id="Kavšek, Branko" />
+    <node id="Bowyer, Kevin W." />
+    <node id="Greensmith, Evan" />
+    <node id="Zhang, Tong" />
+    <node id="Ziehe, Andreas" />
+    <node id="Heckerman, David" />
+    <node id="Steinwart, Ingo" />
+    <node id="Hastie, Trevor" />
+    <node id="Kondor, Risi" />
+    <node id="Schmitt, Michael" />
+    <node id="Meek, Christopher" />
+    <node id="Cooper, Gregory F." />
+    <node id="Malinen, Tuomo" />
+    <node id="Zhou, Ding-Xuan" />
+    <node id="McAllester, David" />
+    <node id="Hinton, Geoffrey E." />
+    <node id="Stracuzzi, David J." />
+    <node id="Verri, Alessandro" />
+    <node id="Li, Fan" />
+    <node id="Chawla, Nitesh V." />
+    <node id="Flach, Peter" />
+    <node id="Järvinen, Jouni" />
+    <node id="Daubechies, Ingrid" />
+    <node id="Weng, Ruby C." />
+    <node id="Jebara, Tony" />
+    <node id="Fleuret, François" />
+    <node id="Haffner, Patrick" />
+    <node id="Anthony, Martin" />
+    <node id="Clark, Alexander" />
+    <node id="Jordan, Michael I." />
+    <node id="Valentini, Giorgio" />
+    <node id="Bartlett, Peter L." />
+    <node id="Basak, Jayanta" />
+    <node id="Hoyer, Patrik O." />
+    <node id="Lee, Herbert K. H." />
+    <node id="Langford, John" />
+    <node id="Zhang, Nevin L." />
+    <node id="Lanckriet, Gert R.G." />
+    <node id="Kääriäinen, Matti" />
+    <node id="Kauchak, David" />
+    <node id="Chen, Yixin" />
+    <node id="Laskov, Pavel" />
+    <node id="Thollard, Franck" />
+    <node id="Sudarshan, Anant" />
+    <node id="Zinkevich, Martin" />
+    <node id="Mannor, Shie" />
+    <node id="Bengio, Yoshua" />
+    <node id="Caponnetto, Andrea" />
+    <node id="Howard, Andrew" />
+    <node id="Vovk, Vladimir" />
+    <node id="Bhattacharyya, Chiranjib" />
+    <node id="Fukumizu, Kenji" />
+    <node id="Klautau, Aldebaro" />
+    <node id="Vito, Ernesto De" />
+    <node id="Wu, Ting-Fan" />
+    <node id="Jackson, Jeffrey" />
+    <node id="Wang, James Z." />
+    <node id="Schapire, Robert E." />
+    <edge source="Trivedi, Deepak" target="Basak, Jayanta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Trivedi, Deepak" target="Santhanam, M. S.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Trivedi, Deepak" target="Sudarshan, Anant">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Christmann, Andreas" target="Vito, Ernesto De">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Christmann, Andreas" target="Christmann, Andreas">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Christmann, Andreas" target="Steinwart, Ingo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ying, Yiming" target="Zhou, Ding-Xuan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ying, Yiming" target="Wu, Qiang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ying, Yiming" target="Chen, Di-Rong">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sallans, Brian" target="Hinton, Geoffrey E.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sallans, Brian" target="Sallans, Brian">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Baxter, Jonathan" target="Bartlett, Peter L.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Baxter, Jonathan" target="Greensmith, Evan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sandholm, Tuomas" target="Jackson, Jeffrey">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sandholm, Tuomas" target="Blum, Avrim">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sandholm, Tuomas" target="Zinkevich, Martin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Brodley, Carla E." target="Dy, Jennifer G.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rifkin, Ryan" target="Rifkin, Ryan">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rifkin, Ryan" target="Klautau, Aldebaro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rifkin, Ryan" target="Chawla, Nitesh V.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rifkin, Ryan" target="Huang, Kaizhu">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rifkin, Ryan" target="Luxburg, Ulrike von">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Blum, Avrim" target="Sandholm, Tuomas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Blum, Avrim" target="Jackson, Jeffrey">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Blum, Avrim" target="Zinkevich, Martin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Blum, Avrim" target="Blum, Avrim">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Tsitsiklis, John N." target="Mannor, Shie">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kuang, Rui" target="Leslie, Christina">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Santhanam, M. S." target="Basak, Jayanta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Santhanam, M. S." target="Trivedi, Deepak">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Santhanam, M. S." target="Sudarshan, Anant">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yona, Golan" target="Quist, Michael">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rudin, Cynthia" target="Rosset, Saharon">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rudin, Cynthia" target="Rudin, Cynthia">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rudin, Cynthia" target="Schapire, Robert E.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rudin, Cynthia" target="Daubechies, Ingrid">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bousquet, Olivier" target="Schölkopf, Bernhard">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bousquet, Olivier" target="Luxburg, Ulrike von">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Luxburg, Ulrike von" target="Luxburg, Ulrike von">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Luxburg, Ulrike von" target="Schölkopf, Bernhard">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Luxburg, Ulrike von" target="Bousquet, Olivier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Luxburg, Ulrike von" target="Rifkin, Ryan">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Laub, Julian" target="Laub, Julian">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Laub, Julian" target="Müller, Klaus-Robert">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Laub, Julian" target="Quist, Michael">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Smarr, Joseph" target="Kauchak, David">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Smarr, Joseph" target="Elkan, Charles">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Eguchi, Shinto" target="Higuchi, Isao">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Schölkopf, Bernhard" target="Bousquet, Olivier">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Schölkopf, Bernhard" target="Luxburg, Ulrike von">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Clyde, Merlise A." target="Lee, Herbert K. H.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mangasarian, Olvi L." target="Shavlik, Jude W.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mangasarian, Olvi L." target="Mangasarian, Olvi L.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Mangasarian, Olvi L." target="Wild, Edward W.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Grandvalet, Yves" target="Bengio, Yoshua">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cortes, Corinna" target="Cortes, Corinna">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Cortes, Corinna" target="Leslie, Christina">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Cortes, Corinna" target="Haffner, Patrick">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cortes, Corinna" target="Mohri, Mehryar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lewis, David D." target="Rose, Tony G.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lewis, David D." target="Li, Fan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lewis, David D." target="Yang, Yiming">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lewis, David D." target="Lewis, David D.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Nolte, Guido" target="Ziehe, Andreas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nolte, Guido" target="Laskov, Pavel">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Nolte, Guido" target="Müller, Klaus-Robert">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dy, Jennifer G." target="Dy, Jennifer G.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Dy, Jennifer G." target="Brodley, Carla E.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dy, Jennifer G." target="Yu, Lei">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Dash, Denver" target="Koivisto, Mikko">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Dash, Denver" target="Cooper, Gregory F.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dash, Denver" target="Dash, Denver">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rosasco, Lorenzo" target="Piana, Michele">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rosasco, Lorenzo" target="Vito, Ernesto De">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rosasco, Lorenzo" target="Caponnetto, Andrea">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rosasco, Lorenzo" target="Verri, Alessandro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Boberg, Jorma" target="Ginter, Filip">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Boberg, Jorma" target="Järvinen, Jouni">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Boberg, Jorma" target="Salakoski, Tapio">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Philips, Petra" target="Mendelson, Shahar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Luz, Kobi" target="Baram, Yoram">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Luz, Kobi" target="Yaniv, Ran El">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chan, Laiwan" target="Lyu, Michael R.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chan, Laiwan" target="Huang, Kaizhu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chan, Laiwan" target="Yang, Haiqin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chan, Laiwan" target="King, Irwin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rose, Tony G." target="Lewis, David D.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rose, Tony G." target="Li, Fan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rose, Tony G." target="Yang, Yiming">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lavrač, Nada" target="Lavrač, Nada">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Lavrač, Nada" target="Kavšek, Branko">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lavrač, Nada" target="Todorovski, Ljupčo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lavrač, Nada" target="Flach, Peter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Liu, Huan" target="Yu, Lei">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Leslie, Christina" target="Cortes, Corinna">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Leslie, Christina" target="Kuang, Rui">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Leslie, Christina" target="Leslie, Christina">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Leslie, Christina" target="Jebara, Tony">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Chen, Di-Rong" target="Zhou, Ding-Xuan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chen, Di-Rong" target="Wu, Qiang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chen, Di-Rong" target="Ying, Yiming">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chen, Di-Rong" target="Chen, Di-Rong">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Lyu, Michael R." target="Huang, Kaizhu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lyu, Michael R." target="Chan, Laiwan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lyu, Michael R." target="Yang, Haiqin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lyu, Michael R." target="King, Irwin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Elkan, Charles" target="Kauchak, David">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Elkan, Charles" target="Smarr, Joseph">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Baram, Yoram" target="Luz, Kobi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Baram, Yoram" target="Baram, Yoram">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Baram, Yoram" target="Yaniv, Ran El">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="King, Irwin" target="Lyu, Michael R.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="King, Irwin" target="Huang, Kaizhu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="King, Irwin" target="Chan, Laiwan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="King, Irwin" target="Yang, Haiqin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bartlett, Peter" target="Lanckriet, Gert R.G.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bartlett, Peter" target="Jordan, Michael I.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bartlett, Peter" target="Cristianini, Nello">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bartlett, Peter" target="Ghaoui, Laurent El">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Koivisto, Mikko" target="Sood, Kismat">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Koivisto, Mikko" target="Koivisto, Mikko">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Koivisto, Mikko" target="Dash, Denver">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Koivisto, Mikko" target="Chickering, David Maxwell">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Salakoski, Tapio" target="Ginter, Filip">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Salakoski, Tapio" target="Boberg, Jorma">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Salakoski, Tapio" target="Järvinen, Jouni">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yu, Lei" target="Dy, Jennifer G.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Yu, Lei" target="Yu, Lei">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Yu, Lei" target="Liu, Huan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shavlik, Jude W." target="Mangasarian, Olvi L.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shavlik, Jude W." target="Wild, Edward W.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Huang, Kaizhu" target="Chan, Laiwan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Huang, Kaizhu" target="Huang, Kaizhu">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Huang, Kaizhu" target="King, Irwin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Huang, Kaizhu" target="Rifkin, Ryan">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Huang, Kaizhu" target="Bhattacharyya, Chiranjib">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Huang, Kaizhu" target="Lyu, Michael R.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Huang, Kaizhu" target="Yang, Haiqin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Dietterich, Thomas G." target="Valentini, Giorgio">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chickering, David Maxwell" target="Koivisto, Mikko">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Chickering, David Maxwell" target="Meek, Christopher">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chickering, David Maxwell" target="Heckerman, David">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chickering, David Maxwell" target="Chickering, David Maxwell">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Lin, Chih-Jen" target="Wu, Ting-Fan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lin, Chih-Jen" target="Weng, Ruby C.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hall, Lawrence O." target="Bowyer, Kevin W.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hall, Lawrence O." target="Chawla, Nitesh V.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hall, Lawrence O." target="Kegelmeyer, W. Philip">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Wild, Edward W." target="Shavlik, Jude W.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Wild, Edward W." target="Mangasarian, Olvi L.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cristianini, Nello" target="Lanckriet, Gert R.G.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cristianini, Nello" target="Jordan, Michael I.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cristianini, Nello" target="Bartlett, Peter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cristianini, Nello" target="Ghaoui, Laurent El">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kegelmeyer, W. Philip" target="Hall, Lawrence O.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kegelmeyer, W. Philip" target="Bowyer, Kevin W.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kegelmeyer, W. Philip" target="Chawla, Nitesh V.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Higuchi, Isao" target="Eguchi, Shinto">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Higuchi, Isao" target="Higuchi, Isao">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Yaniv, Ran El" target="Luz, Kobi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yaniv, Ran El" target="Baram, Yoram">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mohri, Mehryar" target="Cortes, Corinna">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mohri, Mehryar" target="Haffner, Patrick">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rosset, Saharon" target="Hastie, Trevor">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rosset, Saharon" target="Rosset, Saharon">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rosset, Saharon" target="Rudin, Cynthia">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Rosset, Saharon" target="Tibshirani, Robert">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Rosset, Saharon" target="Zhu, Ji">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Shimkin, Nahum" target="Mannor, Shie">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Elomaa, Tapio" target="Kääriäinen, Matti">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Elomaa, Tapio" target="Malinen, Tuomo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yang, Yiming" target="Rose, Tony G.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yang, Yiming" target="Lewis, David D.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yang, Yiming" target="Li, Fan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zhu, Ji" target="Hastie, Trevor">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zhu, Ji" target="Rosset, Saharon">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zhu, Ji" target="Tibshirani, Robert">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Piana, Michele" target="Verri, Alessandro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Piana, Michele" target="Vito, Ernesto De">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Piana, Michele" target="Caponnetto, Andrea">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Piana, Michele" target="Rosasco, Lorenzo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yang, Haiqin" target="Lyu, Michael R.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yang, Haiqin" target="Huang, Kaizhu">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yang, Haiqin" target="Chan, Laiwan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Yang, Haiqin" target="King, Irwin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Todorovski, Ljupčo" target="Lavrač, Nada">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Todorovski, Ljupčo" target="Kavšek, Branko">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Todorovski, Ljupčo" target="Flach, Peter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Quist, Michael" target="Laub, Julian">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Quist, Michael" target="Yona, Golan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Quist, Michael" target="Quist, Michael">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Ginter, Filip" target="Ginter, Filip">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Ginter, Filip" target="Boberg, Jorma">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ginter, Filip" target="Järvinen, Jouni">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ginter, Filip" target="Salakoski, Tapio">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tibshirani, Robert" target="Hastie, Trevor">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tibshirani, Robert" target="Rosset, Saharon">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Tibshirani, Robert" target="Zhu, Ji">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mendelson, Shahar" target="Mendelson, Shahar">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Mendelson, Shahar" target="Philips, Petra">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sood, Kismat" target="Koivisto, Mikko">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Utgoff, Paul E." target="Stracuzzi, David J.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Müller, Klaus-Robert" target="Nolte, Guido">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Müller, Klaus-Robert" target="Ziehe, Andreas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Müller, Klaus-Robert" target="Laub, Julian">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Müller, Klaus-Robert" target="Laskov, Pavel">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Wu, Qiang" target="Zhou, Ding-Xuan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Wu, Qiang" target="Ying, Yiming">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Wu, Qiang" target="Chen, Di-Rong">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bach, Francis R." target="Fukumizu, Kenji">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bach, Francis R." target="Jordan, Michael I.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ghaoui, Laurent El" target="Lanckriet, Gert R.G.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ghaoui, Laurent El" target="Jordan, Michael I.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ghaoui, Laurent El" target="Cristianini, Nello">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ghaoui, Laurent El" target="Bartlett, Peter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kavšek, Branko" target="Lavrač, Nada">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kavšek, Branko" target="Todorovski, Ljupčo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kavšek, Branko" target="Flach, Peter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bowyer, Kevin W." target="Hall, Lawrence O.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bowyer, Kevin W." target="Kegelmeyer, W. Philip">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bowyer, Kevin W." target="Chawla, Nitesh V.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Greensmith, Evan" target="Greensmith, Evan">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Greensmith, Evan" target="Baxter, Jonathan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Greensmith, Evan" target="Bartlett, Peter L.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zhang, Tong" target="Zhang, Tong">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Ziehe, Andreas" target="Nolte, Guido">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ziehe, Andreas" target="Ziehe, Andreas">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Ziehe, Andreas" target="Laskov, Pavel">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Ziehe, Andreas" target="Müller, Klaus-Robert">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Heckerman, David" target="Chickering, David Maxwell">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Heckerman, David" target="Meek, Christopher">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Steinwart, Ingo" target="Christmann, Andreas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hastie, Trevor" target="Hastie, Trevor">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Hastie, Trevor" target="Rosset, Saharon">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hastie, Trevor" target="Tibshirani, Robert">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hastie, Trevor" target="Zhu, Ji">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kondor, Risi" target="Howard, Andrew">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kondor, Risi" target="Jebara, Tony">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Schmitt, Michael" target="Schmitt, Michael">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Meek, Christopher" target="Chickering, David Maxwell">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Meek, Christopher" target="Heckerman, David">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Cooper, Gregory F." target="Dash, Denver">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Malinen, Tuomo" target="Kääriäinen, Matti">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Malinen, Tuomo" target="Elomaa, Tapio">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zhou, Ding-Xuan" target="Wu, Qiang">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zhou, Ding-Xuan" target="Ying, Yiming">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zhou, Ding-Xuan" target="Chen, Di-Rong">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="McAllester, David" target="Langford, John">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hinton, Geoffrey E." target="Sallans, Brian">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stracuzzi, David J." target="Utgoff, Paul E.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Stracuzzi, David J." target="Stracuzzi, David J.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Verri, Alessandro" target="Piana, Michele">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Verri, Alessandro" target="Vito, Ernesto De">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Verri, Alessandro" target="Caponnetto, Andrea">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Verri, Alessandro" target="Rosasco, Lorenzo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Li, Fan" target="Rose, Tony G.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Li, Fan" target="Lewis, David D.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Li, Fan" target="Yang, Yiming">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chawla, Nitesh V." target="Chawla, Nitesh V.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Chawla, Nitesh V." target="Bowyer, Kevin W.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chawla, Nitesh V." target="Hall, Lawrence O.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chawla, Nitesh V." target="Kegelmeyer, W. Philip">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chawla, Nitesh V." target="Rifkin, Ryan">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Flach, Peter" target="Lavrač, Nada">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Flach, Peter" target="Kavšek, Branko">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Flach, Peter" target="Todorovski, Ljupčo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Järvinen, Jouni" target="Ginter, Filip">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Järvinen, Jouni" target="Boberg, Jorma">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Järvinen, Jouni" target="Salakoski, Tapio">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daubechies, Ingrid" target="Rudin, Cynthia">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Daubechies, Ingrid" target="Schapire, Robert E.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Weng, Ruby C." target="Lin, Chih-Jen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Weng, Ruby C." target="Wu, Ting-Fan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jebara, Tony" target="Howard, Andrew">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jebara, Tony" target="Leslie, Christina">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Jebara, Tony" target="Kondor, Risi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jebara, Tony" target="Jebara, Tony">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Fleuret, François" target="Fleuret, François">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Fleuret, François" target="Bhattacharyya, Chiranjib">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Haffner, Patrick" target="Cortes, Corinna">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Haffner, Patrick" target="Mohri, Mehryar">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Anthony, Martin" target="Anthony, Martin">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Anthony, Martin" target="Langford, John">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Clark, Alexander" target="Thollard, Franck">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Clark, Alexander" target="Clark, Alexander">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Jordan, Michael I." target="Bach, Francis R.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jordan, Michael I." target="Ghaoui, Laurent El">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jordan, Michael I." target="Bartlett, Peter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jordan, Michael I." target="Lanckriet, Gert R.G.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jordan, Michael I." target="Fukumizu, Kenji">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jordan, Michael I." target="Cristianini, Nello">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Valentini, Giorgio" target="Bengio, Yoshua">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Valentini, Giorgio" target="Dietterich, Thomas G.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Valentini, Giorgio" target="Valentini, Giorgio">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Bartlett, Peter L." target="Baxter, Jonathan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bartlett, Peter L." target="Greensmith, Evan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Basak, Jayanta" target="Trivedi, Deepak">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Basak, Jayanta" target="Santhanam, M. S.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Basak, Jayanta" target="Basak, Jayanta">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Basak, Jayanta" target="Sudarshan, Anant">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Hoyer, Patrik O." target="Hoyer, Patrik O.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Lee, Herbert K. H." target="Lee, Herbert K. H.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Lee, Herbert K. H." target="Clyde, Merlise A.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Langford, John" target="Anthony, Martin">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Langford, John" target="McAllester, David">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Langford, John" target="Langford, John">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Zhang, Nevin L." target="Zhang, Nevin L.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Lanckriet, Gert R.G." target="Lanckriet, Gert R.G.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Lanckriet, Gert R.G." target="Ghaoui, Laurent El">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lanckriet, Gert R.G." target="Jordan, Michael I.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lanckriet, Gert R.G." target="Cristianini, Nello">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Lanckriet, Gert R.G." target="Bartlett, Peter">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kääriäinen, Matti" target="Kääriäinen, Matti">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Kääriäinen, Matti" target="Malinen, Tuomo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kääriäinen, Matti" target="Elomaa, Tapio">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kauchak, David" target="Kauchak, David">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Kauchak, David" target="Smarr, Joseph">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Kauchak, David" target="Elkan, Charles">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chen, Yixin" target="Wang, James Z.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Chen, Yixin" target="Chen, Yixin">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Laskov, Pavel" target="Nolte, Guido">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Laskov, Pavel" target="Ziehe, Andreas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Laskov, Pavel" target="Müller, Klaus-Robert">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Thollard, Franck" target="Clark, Alexander">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sudarshan, Anant" target="Basak, Jayanta">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sudarshan, Anant" target="Trivedi, Deepak">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Sudarshan, Anant" target="Santhanam, M. S.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zinkevich, Martin" target="Jackson, Jeffrey">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zinkevich, Martin" target="Blum, Avrim">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Zinkevich, Martin" target="Sandholm, Tuomas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mannor, Shie" target="Shimkin, Nahum">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mannor, Shie" target="Tsitsiklis, John N.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Mannor, Shie" target="Mannor, Shie">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Bengio, Yoshua" target="Bengio, Yoshua">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Bengio, Yoshua" target="Grandvalet, Yves">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Bengio, Yoshua" target="Valentini, Giorgio">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Caponnetto, Andrea" target="Verri, Alessandro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Caponnetto, Andrea" target="Vito, Ernesto De">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Caponnetto, Andrea" target="Piana, Michele">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Caponnetto, Andrea" target="Rosasco, Lorenzo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Howard, Andrew" target="Kondor, Risi">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Howard, Andrew" target="Jebara, Tony">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Vovk, Vladimir" target="Vovk, Vladimir">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Bhattacharyya, Chiranjib" target="Huang, Kaizhu">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Bhattacharyya, Chiranjib" target="Fleuret, François">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Bhattacharyya, Chiranjib" target="Bhattacharyya, Chiranjib">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Fukumizu, Kenji" target="Fukumizu, Kenji">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Fukumizu, Kenji" target="Jordan, Michael I.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Fukumizu, Kenji" target="Bach, Francis R.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Klautau, Aldebaro" target="Rifkin, Ryan">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Vito, Ernesto De" target="Verri, Alessandro">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Vito, Ernesto De" target="Christmann, Andreas">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Vito, Ernesto De" target="Caponnetto, Andrea">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Vito, Ernesto De" target="Vito, Ernesto De">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Vito, Ernesto De" target="Rosasco, Lorenzo">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Vito, Ernesto De" target="Piana, Michele">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Wu, Ting-Fan" target="Lin, Chih-Jen">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Wu, Ting-Fan" target="Wu, Ting-Fan">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="Wu, Ting-Fan" target="Weng, Ruby C.">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jackson, Jeffrey" target="Sandholm, Tuomas">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jackson, Jeffrey" target="Blum, Avrim">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Jackson, Jeffrey" target="Zinkevich, Martin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Wang, James Z." target="Chen, Yixin">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Schapire, Robert E." target="Rudin, Cynthia">
+      <data key="d0">2.0</data>
+    </edge>
+    <edge source="Schapire, Robert E." target="Daubechies, Ingrid">
+      <data key="d0">2.0</data>
+    </edge>
+  </graph>
+</graphml>

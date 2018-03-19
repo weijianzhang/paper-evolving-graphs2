@@ -181,31 +181,31 @@ EvolvingGraphs.jl (\url{https://github.com/EtymoIO/EvolvingGraphs.jl}).
 We use the research paper data gathered from Etymo (\url{https://etymo.io}), a visual search engine for data scientists.
 
 
-\section{Background}
-\label{sec:preliminaries}
-
-Let $G$ be a directed graph with $n$ nodes with the corresponding adjacency matrix
-$A \in \R$.
-
-A \textbf{walk} of length $r$ from node $i_1$ to node $i_{r+1}$ is a sequence of edges
-$(i_1, i_2), (i_2, i_3), \ldots (i_r, i_{r+1})$.
-
-
-\subsection{Graph Centrality}
-\label{sec:katz-centrality}
-
-% definition of various graph centrality algorithms
-We review the Katz centrality here.
-Let $A$ be the adjacency matrix of a graph $G=(V,E)$ and $\rho(A)$ be the spectral radius of $A$. If $\alpha < 1/ \rho(A)$, then the Katz centrality vector of $G$ is
-\[
-(I - \alpha A)^{-1}e.
-\]
-
-The \emph{betweenness centrality} of a node $i$ in a static graph is defined as
-$$
-C_i = \sum_{j \in V}\sum_{k \in V, k \ne j} \frac{\rho_{jk}(i)}{\rho_{jk}},
-$$
-where $\rho_{jk}$ is the number of shortest paths from node $j$ to node $k$, while $\rho_{jk}(i)$ is the number of shortest paths from node $j$ to node $k$ that pass through node $i$
+% \section{Background}
+% \label{sec:preliminaries}
+%
+% Let $G$ be a directed graph with $n$ nodes with the corresponding adjacency matrix
+% $A \in \R$.
+%
+% A \textbf{walk} of length $r$ from node $i_1$ to node $i_{r+1}$ is a sequence of edges
+% $(i_1, i_2), (i_2, i_3), \ldots (i_r, i_{r+1})$.
+%
+%
+% \subsection{Graph Centrality}
+% \label{sec:katz-centrality}
+%
+% % definition of various graph centrality algorithms
+% We review the Katz centrality here.
+% Let $A$ be the adjacency matrix of a graph $G=(V,E)$ and $\rho(A)$ be the spectral radius of $A$. If $\alpha < 1/ \rho(A)$, then the Katz centrality vector of $G$ is
+% \[
+% (I - \alpha A)^{-1}e.
+% \]
+%
+% The \emph{betweenness centrality} of a node $i$ in a static graph is defined as
+% $$
+% C_i = \sum_{j \in V}\sum_{k \in V, k \ne j} \frac{\rho_{jk}(i)}{\rho_{jk}},
+% $$
+% where $\rho_{jk}$ is the number of shortest paths from node $j$ to node $k$, while $\rho_{jk}(i)$ is the number of shortest paths from node $j$ to node $k$ that pass through node $i$
 
 % The \emph{communicability betweenness centraltiy} \cite{estrada09} for a node $i$ is defined as
 % $$
@@ -424,6 +424,8 @@ We review a few well-known measures of evolving graph centrality.
 \subsection{Temporal Katz Centrality}
 \label{sec:temp-katz-centr}
 
+The Katz Centrality is a measure of importance
+
 In \cite{grindrod11}, Grindrod et al. define a \emph{dynamic walk} of length $m$ from
 node $v_1$ to node $v_{w+1}$  as a sequence of edges
 $(v_1, v_2), (v_2, v_3), \ldots (v_w, v_{w+1})$ and a non-decreasing sequence of times
@@ -597,11 +599,14 @@ ideas are similar. The resulting network represent the connectivity of ideas in 
 (add results here.)
 
 
+\subsection{Paper Subject Tag Network}
 
-% \subsubsection{Aggregated Graphs and Evolving Graphs}
-% \label{sec:aggr-graphs-evolv}
+We tag our research articles by subjects. The subjects re provided by ACM Computing Classification System (also contains the superclass and subclass).
 
-
+We can construct a time-dependent tag network by link tags in each articles. For example,
+suppose a paper $p_1$ has three tags $t_1$, $t_2$, and $t_3$, where $t_1$ is a superclass of $t_2$ and $t_3$.
+We link $t_2$ and $t_3$ in both direction and create a link from $t_1$ to $t_2$ and a link from $t_1$ to $t_3$.
+The time stamp of these edges is the published date of the paper.
 
 
 % subsection{Simulations}
