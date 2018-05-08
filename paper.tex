@@ -7,6 +7,34 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{skins}
 \usepackage{lipsum}
+
+\usepackage{listings}
+
+%%
+%% Julia definition (c) 2014 Jubobs
+%%
+\lstdefinelanguage{Julia}%
+  {morekeywords={abstract,break,case,catch,const,continue,do,else,elseif,%
+      end,export,false,for,function,immutable,import,importall,if,in,%
+      macro,module,otherwise,quote,return,switch,true,try,type,typealias,%
+      using,while},%
+   sensitive=true,%
+   alsoother={\$},%
+   morecomment=[l]\#,%
+   morecomment=[n]{\#=}{=\#},%
+   morestring=[s]{"}{"},%
+   morestring=[m]{'}{'},%
+}[keywords,comments,strings]%
+
+\lstset{%
+    language         = Julia,
+    basicstyle       = \ttfamily,
+    keywordstyle     = \bfseries\color{blue},
+    stringstyle      = \color{magenta},
+    commentstyle     = \color{ForestGreen},
+    showstringspaces = false,
+}
+
 \usepackage[linesnumbered]{algorithm2e}
 \makeatletter
 \renewcommand{\@algocf@capt@plain}{above}
@@ -51,9 +79,14 @@
 % \usepackage[cmex10]{amsmath}
 \usepackage{amssymb}
 
-\title{A Closer Look at Time-Preserving Walks on Evolving Graphs}
+\title{A Closer Look at Time-Preserving paths on Evolving Graphs}
 
-\author{Jiahao Chen and
+\author{Jiahao Chen \thanks{
+Capital One,
+New York, USA.
+\texttt{cjiahao@gmail.com}
+}
+ and
 Weijian Zhang
 \thanks{%
   School of Mathematics,
@@ -93,11 +126,11 @@ The University of Manchester,
 \maketitle
 
 \begin{abstract}
-This paper studies evolving graph centrality from the perspective of time-preserving walks. We describe time-preserving walks based on two dimensions of variation, namely static edges and causal edges.
+This paper studies evolving graph centrality from the perspective of time-preserving paths. We describe time-preserving paths based on two dimensions of variation, namely static edges and causal edges.
 
 A time-preserving walk on evolving graphs makes implicit assumptions about the type of edges that a walk traverses. For example, the walk can count only static edges or can take account of both static edges and causal edges. In addition, the length of a time-preserving walk can be either spatial or temporal.
 
-We study the impact of different time-preserving walks on node centrality by varying the edge weights of static and causal edges.
+We study the impact of different time-preserving paths on node centrality by varying the edge weights of static and causal edges.
 We also compare evolving graph centrality with the aggregated static graph case to gain insight about the advantage of an evolving graph model.
 We construct an evolving coauthor network from a collection of research papers for the experiments.
 \end{abstract}
@@ -107,7 +140,7 @@ We construct an evolving coauthor network from a collection of research papers f
 
 In the 1985 science-fiction film ``Back to the Future'', Marty McFly (played by Michael J. Fox) travelled back in time and accidentally changed history.
 However, we cannot travel back in time or even send a message to the past.
-To traverse an evolving graph, a.k.a a time-dependent graph, one has to consider time. In particular, a walk on an evolving graph needs to be time-preserving, meaning a node can not pass a massage (through an edge) to a node at a earlier time.
+To traverse an evolving graph, a.k.a a time-dependent graph, one has to consider order of time stamps. In particular, a walk on an evolving graph needs to be time-preserving, meaning a node can not pass a massage (through an edge) to a node at a earlier time.
 
 % time-respecting walk
 We represent an evolving graph as a time-ordered sequences of graphs, similar to the work of Tang and coworkers \cite{nicosia13, tang09, tang102, tang10} and Grindrod, Higham and coworkers \cite{grindrod13,grindrod11}. The idea is to divide the system's time span into temporal slices and regards it as a sequence of static graphs $G^{[t]}$, one for each layer. Such representation arises naturally in many real-world applications. For example,
@@ -124,8 +157,8 @@ One could define the length of a time-respecting walk as the total number of tem
 
 
 % Related works
-Researchers have generalised many static graph centrality algorithms for evolving graphs. One approach is to use the fact that the elements of the matrix product of adjacency matrices at different time stamps can correctly count the number of temporal walks.
-However, not every centrality algorithm can be generalised in this way. Another approach is to define evolving graph centrality algorithms using time-respecting walks. This approach is applicable to algorithms that are defined using paths or walks.
+Researchers have generalised many static graph centrality algorithms for evolving graphs. One approach is to use the fact that the elements of the matrix product of adjacency matrices at different time stamps can correctly count the number of temporal paths.
+However, not every centrality algorithm can be generalised in this way. Another approach is to define evolving graph centrality algorithms using time-respecting paths. This approach is applicable to algorithms that are defined using paths or paths.
 
 
 % no work on pagerank so far. By understanding temporal walk, we could provide a generalization of pagerank on evolving graphs.
@@ -135,8 +168,10 @@ But the impact of temporal is left unconsidered. We studied the problem on centr
 
 
 % our contribution this paper
-Inspired by work
-Borgatti noted in \cite{borgatti05} that the manner of traffic flow entails a new way to think about centrality.
+Inspired by Borgatti's work \cite{borgatti05} on simulating different flow process on static graphs, we
+
+
+Borgatti noted in  that the manner of traffic flow entails a new way to think about centrality.
 where the author simulate different traffic flows to study centrality.
 
 In particularly, the importance of a node in a network can not be determined without reference to how traffic flows through the network.
@@ -157,9 +192,168 @@ EvolvingGraphs.jl (\url{https://github.com/EtymoIO/EvolvingGraphs.jl}).
 We use the research paper data gathered from Etymo (\url{https://etymo.io}), a visual search engine for data scientists.
 
 
+\section{Motivation: A Closer Look at Katz Centrality on Evolving Graphs}
+\label{sec:motivation}
 
-\section{Time-Preserving walks}
-\label{sec:time-pres-walks}
+We let $G_n = \langle G^{[1]}, G^{[2]}, \ldots, G^{[n]} \rangle$ be an evolving graph
+and $A^{[1]}, A^{[2]}, \dots A^{[n]}$ be the corresponding adjacency matrices.
+Then the dynamic communicability matrix is defined as
+\begin{equation}
+  \label{eq:q}
+  Q^{[k]} = (I - \alpha A^{[1]})^{-1}(I - \alpha A^{[2]})^{-1} \cdots (I -  \alpha A^{[n]})^{-1},
+\end{equation}
+where parameter $\alpha < 1/ \max_k \rho(A^{[k]})$, the spectral radius of $A^{[k]}$.
+The $i$th row sum of $Q^{[k]}$ is the broadcast centrality.
+
+
+Suppose $A$, $B$, and $C$ are three co-workers in a large internet company. Figure \ref{fig:katz_eg}
+shows how they exchange ideas during $3$ days at work. The directions of the arrows indicate the direction of the flow of ideas.
+For example, $A$ shares a new idea with $B$ on day $1$ and $B$ shares a new idea with $C$ on dat $3$. As a result, $A$'s idea can influence $C$.
+
+\begin{figure}[h]
+ \begin{center}
+    \begin{tikzpicture}[scale=.38, line width =1.5pt]
+  \node[circle,fill=green1, minimum size=0.2cm] (n7) at (-5,7) {B};
+  \node[circle,draw=red1, minimum size=0.2cm] (n8) at (-10,5) {C};
+  \node[circle,fill=green1, minimum size=0.2cm] (n10) at (-8,10) {A};
+  \node[circle,fill=green1, minimum size=0.2cm] (n6) at (3,7) {B};
+  \node[circle,fill=green1, minimum size=0.2cm] (n4) at (-2,5) {C};
+  \node[circle,fill=green1, minimum size=0.2cm] (n1) at (0,10) {A};
+   \node[circle,fill=green1, minimum size=0.2cm] (n11) at (11,7) {B};
+  \node[circle,fill=green1, minimum size=0.2cm] (n12) at (6,5)  {C};
+  \node[circle,draw=red1, minimum size=0.2cm] (n14) at (8,10) {A};
+  \foreach \from/\to in {n10/n7, n1/n4, n4/n1, n11/n12, n1/n6}
+   \draw[every edge,->] (\from) -- (\to);
+ %\draw[dotted,->](n4) -- (n12);
+% \draw[dotted,->](n7) to[out=80, in=40](n11);
+\draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
+(-4,3) -- (-10.5,3) node [midway,yshift=-0.6cm]{ $1$};
+\draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
+(4,3) -- (-2,3) node [midway,yshift=-0.6cm]{$2$};
+\draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
+(11.5,3) -- (5.5,3) node [midway,yshift=-0.6cm]{ $3$};
+    \end{tikzpicture}
+\end{center}
+\caption{An evolving directed graph with 3 time stamps $1$, $2$ and $3$.
+At each time stamp, the evolving graph is represented as a graph.
+The green filled circles represent active nodes while the red circles represent
+inactive nodes. Directed edges in each time stamp are shown as black arrows.}
+\label{fig:katz_eg}
+\end{figure}
+
+We could use EvolvingGraphs.jl to generate the above evolving graph and compute the Katz centrality.
+
+\begin{lstlisting}
+using EvolvingGraphs
+using EvolvingGraphs.Centrality
+
+g = EvolvingGraph{Node{String}, Int}()
+add_bunch_of_edges!(g, [("A", "B", 1), ("A", "C", 2),
+("A", "B", 2),("C", "A", 2),("B", "C", 3)])
+\end{lstlisting}
+
+The centrality values for each node are
+\begin{lstlisting}
+katz(g)
+3-element Array{Tuple{EvolvingGraphs.Node{String},Float64},1}:
+ (Node(A), 0.742301)
+ (Node(B), 0.42943)
+ (Node(C), 0.514373)
+\end{lstlisting}
+
+As expected $A$ is the most important node in the network. $C$ is the second important node in the network as it influenced
+$A$ at time stamp $2$. If we reverse the time of communication between day $1$ and $3$, i.e., $B$ shares a new idea with $C$ on day $1$ and $A$ shares a new idea with $B$ on day $3$. Then the idea $A$ had on day $3$ can not pass to $C$ in this case. This is illustrated in Figure \ref{fig:katz_eg2}.
+
+\begin{figure}[h]
+ \begin{center}
+    \begin{tikzpicture}[scale=.38, line width =1.5pt]
+  \node[circle,fill=green1, minimum size=0.2cm] (n7) at (-5,7) {B};
+  \node[circle,fill=green1, minimum size=0.2cm] (n8) at (-10,5) {C};
+  \node[circle,draw=red1, minimum size=0.2cm] (n10) at (-8,10) {A};
+  \node[circle,fill=green1, minimum size=0.2cm] (n6) at (3,7) {B};
+  \node[circle,fill=green1, minimum size=0.2cm] (n4) at (-2,5) {C};
+  \node[circle,fill=green1, minimum size=0.2cm] (n1) at (0,10) {A};
+   \node[circle,fill=green1, minimum size=0.2cm] (n11) at (11,7) {B};
+  \node[circle,draw=red1, minimum size=0.2cm] (n12) at (6,5)  {C};
+  \node[circle,fill=green1, minimum size=0.2cm] (n14) at (8,10) {A};
+  \foreach \from/\to in {n7/n8, n1/n4, n4/n1, n1/n6, n14/n11}
+   \draw[every edge,->] (\from) -- (\to);
+ %\draw[dotted,->](n4) -- (n12);
+% \draw[dotted,->](n7) to[out=80, in=40](n11);
+\draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
+(-4,3) -- (-10.5,3) node [midway,yshift=-0.6cm]{ $1$};
+\draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
+(4,3) -- (-2,3) node [midway,yshift=-0.6cm]{ $2$};
+\draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
+(11.5,3) -- (5.5,3) node [midway,yshift=-0.6cm]{ $3$};
+    \end{tikzpicture}
+\end{center}
+\caption{An evolving directed graph with 3 time stamps $1$, $2$ and $3$.
+At each time stamp, the evolving graph is represented as a graph.
+The green filled circles represent active nodes while the red circles represent
+inactive nodes. Directed edges in each time stamp are shown as black arrows.}
+\label{fig:katz_eg2}
+\end{figure}
+
+In this cast, we have
+\begin{lstlisting}
+g2 = EvolvingGraph{Node{String}, Int}()
+add_bunch_of_edges!(g2, [("A", "B", 3), ("A", "C", 2),
+("A", "B", 2),("C", "A", 2),("B", "C", 1)])
+\end{lstlisting}
+
+The centrality ratings of the three nodes are
+
+\begin{lstlisting}
+katz(g2)
+3-element Array{Tuple{EvolvingGraphs.Node{String},Float64},1}:
+ (Node(A), 0.687679)
+ (Node(B), 0.490062)
+ (Node(C), 0.535666)
+\end{lstlisting}
+
+Notice the rating of $A$ decreased as its influence is not as important as in Figure \ref{fig:katz_eg}.
+
+% does not take account of walks in a long time. cost in time
+If the final communication between $A$ and $B$ are not on day $3$ but on day $100$, as shown in Figure \ref{fig:katz_eg3},
+we would expect the centrality ratings to change. However, according to \eqref{eq:q}, ratings are unchanged.
+We notice that the generalised Katz centrality on evolving graphs only takes account of the edges at each time stamp but not the communication time between edges at different time stamps.
+
+
+\begin{figure}[h]
+ \begin{center}
+    \begin{tikzpicture}[scale=.38, line width =1.5pt]
+  \node[circle,fill=green1, minimum size=0.2cm] (n7) at (-5,7) {B};
+  \node[circle,fill=green1, minimum size=0.2cm] (n8) at (-10,5) {C};
+  \node[circle,draw=red1, minimum size=0.2cm] (n10) at (-8,10) {A};
+  \node[circle,fill=green1, minimum size=0.2cm] (n6) at (3,7) {B};
+  \node[circle,fill=green1, minimum size=0.2cm] (n4) at (-2,5) {C};
+  \node[circle,fill=green1, minimum size=0.2cm] (n1) at (0,10) {A};
+   \node[circle,fill=green1, minimum size=0.2cm] (n11) at (11,7) {B};
+  \node[circle,draw=red1, minimum size=0.2cm] (n12) at (6,5)  {C};
+  \node[circle,fill=green1, minimum size=0.2cm] (n14) at (8,10) {A};
+  \foreach \from/\to in {n7/n8, n1/n4, n4/n1, n1/n6, n14/n11}
+   \draw[every edge,->] (\from) -- (\to);
+ %\draw[dotted,->](n4) -- (n12);
+% \draw[dotted,->](n7) to[out=80, in=40](n11);
+\draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
+(-4,3) -- (-10.5,3) node [midway,yshift=-0.6cm]{ $1$};
+\draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
+(4,3) -- (-2,3) node [midway,yshift=-0.6cm]{ $2$};
+\draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
+(11.5,3) -- (5.5,3) node [midway,yshift=-0.6cm]{ $100$};
+    \end{tikzpicture}
+\end{center}
+\caption{An evolving directed graph with 3 time stamps $1$, $2$ and $100$.
+At each time stamp, the evolving graph is represented as a graph.
+The green filled circles represent active nodes while the red circles represent
+inactive nodes. Directed edges in each time stamp are shown as black arrows.}
+\label{fig:katz_eg3}
+\end{figure}
+
+
+\section{Time-Preserving paths}
+\label{sec:time-pres-paths}
 
 For example, in Figure \ref{fig:eg_shortest_walk}
 $\langle (1, t_1), (2, t_1) \rangle$ is a static edge at time stamp $t_1$ and $\langle (3, t_2), (3, t_3) \rangle$ is a causal edge between time stamp $t_2$ and time stamp $t_3$.
@@ -204,7 +398,7 @@ inactive nodes. Directed edges in each time stamp are shown as black arrows and 
 It is natural to define the length of a walk on a static graph as the number of nodes travelled through the walk. For the weighted graph case, the length of a walk is the total weight of all the edges in the walk. We observe that static edges link nodes in space while causal edges link nodes in time. Hence we would like to distinguish temporal distance from spatial distance on an evolving graph: the length of a static edge is equal to the edge weight (or $1$ in the unweighted graph case); the length of a causal edge is the time distance between the two nodes. In the simplest case, the time-respecting walk
 $\langle (1, t_1) ,(2, t_1) , (2, t_3), (3, t_3)\rangle$ in Figure \ref{fig:eg_shortest_walk} has length $4$ in total because two static edges $\langle (1, t_1) (2, t_1) \rangle$ and $\langle (2, t_3), (3, t_3) \rangle$ have length one, whereas $\langle (2, t_1) (2, t_3) \rangle$ traverse $2$ time stamps so has length $2$.
 
-We now describe time-preserving walks in more detail. We follow the definition of
+We now describe time-preserving paths in more detail. We follow the definition of
 \emph{evolving graph}, \emph{temporal node} and \emph{active node} in \cite{chen16}.
 
 \begin{definition}
@@ -216,6 +410,12 @@ $t_1, t_2, \ldots, t_n$ respectively. Each $G^{[t]} = (V^{[t]}, E^{[t]})$ repres
 Note the node sets $V^{[t]}$ can change over time, i.e., nodes may appear or disappear at a particular time stamp.
 For example, in Figure \ref{fig:eg_shortest_walk}, at time stamp $t_1$, $V^{[1]} = \langle 1, 2 \rangle$ and $E^{[1]} = \langle (1,2) \rangle$. Each graph $G^{[t]}$ can be represented by its adjacency matrix $A^{[t]}$.
 We can represent $G_n$ by a list of adjacency matrices $A_n = \langle A^{[1]}, A^{[2]}, \ldots, A^{[n]} \rangle$.
+
+
+
+
+
+
 
 
 \begin{definition}
@@ -258,97 +458,12 @@ A time-preserving walk can traverse both causal edges and static edges.
 We will see in the next section that evolving centrality measures make implicit assumptions about the type of edges in the
 time-preserving walk that is used.
 
-
-
-\section{Centrality Measures}
-\label{sec:topol-temp-flow}
-
-In \cite{tang10s}, a temporal shortest walk is measured in time units only, i.e., if node
-$v_i$ can reach node $v_j$ in $k$ time steps then the distance between node
-$v_i$ and $v_j$ is $k$. We can apply temporal breadth first
-search (BFS) \cite{chen16} to discover the temporal walks and then only take account of the temporal difference between the first node $(v_1, t_1)$ and the last node $(v_n, t_n)$, i.e., $t_n - t_1$.
-
-If we use this definition of temporal walk for the temporal Katz centrality introduced in
-\cite{grindrod11}, we have a new centrality measure.
-In the matrix form, the nonzero entries of $A^{[t_i]} A^{[t_{i+1}]}$ counts all the temporal walks of length $1$, and
-$A^{[t_i]}\cdots A^{[t_j]}$, where $i < j$ counts all the temporal walks of length $j -i$.
-For example, $A^{[1]}A^{[4]}$, $A^{[1]}A^{[1]}A^{[4]}$ and $A^{[1]}A^{[2]}A^{[3]}A^{[4]}$ are all walks of length 3.
-In the original Katz centrality, the `attenuation' factor $\alpha$ is imposed on the
-number of walks, i.e., longer walks has smaller effect to the overall rating.
-Hence the final result is the summation of all products of the form
-\[
-\alpha^k A^{[i]} \cdots A^{[i+k]}
-\]
-% Note this can not be written in \eqref{eq:katz}, as discussed in Section \ref{sec:temp-katz-centr}.
-
-
-Another definition of temporal walk was introduced by \cite{chen16}. Here
-both static edges and causal edges are considered. We can represent an evolving graph by a block adjacency matrix, as shown in Section \ref{sec:centr-block-adjac}. Centrality on this block matrix gives the importance of each node at all time stamps. We can average these rating at different time stamps to
-get the final rating.
-
-
-We review a few well-known measures of evolving graph centrality.
-(Design a simple example and discuss it in each case below.)
-
-
-\subsection{Temporal Katz Centrality and Communicability Betweenness Centrality}
-\label{sec:temp-katz-centr}
-
-The Katz Centrality is a measure of importance
-
-In \cite{grindrod11}, Grindrod et al. define a \emph{dynamic walk} of length $m$ from
-node $v_1$ to node $v_{w+1}$  as a sequence of edges
-$(v_1, v_2), (v_2, v_3), \ldots (v_w, v_{w+1})$ and a non-decreasing sequence of times
-$t_{r_1} \leq t_{r_2} \leq \cdots \leq t_{r_w}$ such that the adjacency matrix at time stamp
-$r_m$, i.e., $A_{i_m, i_{m+1}}^{[r_m]} \ne 0$. Note that in this definition the authors only take account of the static edges and the length of a dynamic walk is determined by the number of static edges.
-
-The Katz centrality is based on a sequence of matrix products
-\begin{equation}
-\label{eq:katz}
-Q = (I - \alpha A^{[0]})^{-1}(I - \alpha A^{[1]})^{-1} \cdots (I - \alpha A^{[M]})^{-1}.
-\end{equation}
-The $i$th row and column sums
-$$
-C_i^{broadcast} = \sum_{k=1}^n Q_{ik}, \quad C_i^{receive} = \sum_{k=1}^n Q_{ki}
-$$
-are the broadcast centrality and receive centrality of node $i$.
-
-\subsection{Temporal Betweenness and Closeness Centrality}
-\label{sec:temp-betw-centr}
-
-Recall that betweenness centrality of a node in a static graph is defined by counting the fraction of shortest walks that traverse it.
-We could extend
-betweenness centrality on evolving graphs by replacing shortest walks with temporal shortest walks \cite{nicosia13}.
-\begin{equation}
-  \label{eq:bet1}
-C_i^{betweenness} = \sum_{j \in V}\sum_{k \in V, k \ne j}\frac{\alpha_{jk}(i)}{\alpha_{jk}},
-\end{equation}
-where $\alpha_{jk}$ represents the number of temporal shortest walks from node $j$ to node $k$ and $\alpha_{jk}(i)$ represents the number of temporal shortest walks from node $j$ to node $k$ that pass through the node $i$.
-
-One may want to take into account the length of time a node passes a message. The temporal betweenness centrality of the node $i$ at time stamp $t_m$ is defined as
-\begin{equation}
-  \label{eq:bet2}
-  C_i^{betweenness}(t_m) = \sum_{j\ne i}\sum_{k\ne j, k\ne i}\frac{U_{j,k,t_m}(i)}{\alpha_{j,k}},
-\end{equation}
-where, as before, $\alpha_{j,k}$ represents the number of temporal shortest walks from $j$ to $k$ and $U_{j,k,t_m}(i)$ represents the number of temporal shortest walks from $j$ to $k$ in which node $i$ is traversed from
-the walk in the time stamp $t_m$ or a previous time stamp $t_{m-1}$. Then
-average temporal betweenness of node $i$ is then defined as
-$$
-  C_i^{betweenness} = \frac{1}{M}\sum_m C_i^{betweenness}(t_m).
-$$
-Note \eqref{eq:bet1} only takes account of static edges while \eqref{eq:bet2} takes account of both static edges and causal edges.
-
-% closeness centrality
-Similar to betweenness centrality, let $d_{ij}$ be the length of a temporal shortest walk from $i$ and $j$ in an evolving graph. Then
-the closeness centrality of a node $i$ is defined
-$$
-C_i^{closeness} = \frac{N-1}{\sum_j d_{ij}}.
-$$
-Note that this depends on how we define the length of temporal shortest walk. The closeness centrality can takes account of only static edges, only causal edges, or both.
-
-
-\subsection{Mapping from Evolving Graphs to Static Graphs}
+\subsection{Evolving Graphs and Static Graphs}
 \label{sec:centr-block-adjac}
+
+We can not simply use static graphs to replace evolving graphs for two main reasons.
+First, a path has to preseve the dimension, i.e., certain path is incorrect in the aggregated static graph.
+Second, two path between $A$ and $B$ are considered to be one path in the aggregated static graph.
 
 In \cite{chen16}, we derive a block adjacency matrix representation of an evolvign graph.
 If $E'$ is the set of causal edges and $\hat E$ is the set of static edges then
@@ -444,6 +559,103 @@ The graph containing all the edges and temporal nodes has adjacency matrix $\bm 
 \end{figure}
 
 
+
+\section{Centrality Measures}
+\label{sec:topol-temp-flow}
+
+In \cite{tang10s}, a temporal shortest walk is measured in time units only, i.e., if node
+$v_i$ can reach node $v_j$ in $k$ time steps then the distance between node
+$v_i$ and $v_j$ is $k$. We can apply temporal breadth first
+search (BFS) \cite{chen16} to discover the temporal paths and then only take account of the temporal difference between the first node $(v_1, t_1)$ and the last node $(v_n, t_n)$, i.e., $t_n - t_1$.
+
+If we use this definition of temporal walk for the temporal Katz centrality introduced in
+\cite{grindrod11}, we have a new centrality measure.
+In the matrix form, the nonzero entries of $A^{[t_i]} A^{[t_{i+1}]}$ counts all the temporal paths of length $1$, and
+$A^{[t_i]}\cdots A^{[t_j]}$, where $i < j$ counts all the temporal paths of length $j -i$.
+For example, $A^{[1]}A^{[4]}$, $A^{[1]}A^{[1]}A^{[4]}$ and $A^{[1]}A^{[2]}A^{[3]}A^{[4]}$ are all paths of length 3.
+In the original Katz centrality, the `attenuation' factor $\alpha$ is imposed on the
+number of paths, i.e., longer paths has smaller effect to the overall rating.
+Hence the final result is the summation of all products of the form
+\[
+\alpha^k A^{[i]} \cdots A^{[i+k]}
+\]
+% Note this can not be written in \eqref{eq:katz}, as discussed in Section \ref{sec:temp-katz-centr}.
+
+
+Another definition of temporal walk was introduced by \cite{chen16}. Here
+both static edges and causal edges are considered. We can represent an evolving graph by a block adjacency matrix, as shown in Section \ref{sec:centr-block-adjac}. Centrality on this block matrix gives the importance of each node at all time stamps. We can average these rating at different time stamps to
+get the final rating.
+
+
+We review a few well-known measures of evolving graph centrality.
+(Design a simple example and discuss it in each case below.)
+
+% can not simply aggregate nodes: introduce wrong paths.
+
+
+
+\subsection{Temporal Katz Centrality and Communicability Betweenness Centrality}
+\label{sec:temp-katz-centr}
+
+The Katz Centrality is a measure of importance
+
+In \cite{grindrod11}, Grindrod et al. define a \emph{dynamic walk} of length $m$ from
+node $v_1$ to node $v_{w+1}$  as a sequence of edges
+$(v_1, v_2), (v_2, v_3), \ldots (v_w, v_{w+1})$ and a non-decreasing sequence of times
+$t_{r_1} \leq t_{r_2} \leq \cdots \leq t_{r_w}$ such that the adjacency matrix at time stamp
+$r_m$, i.e., $A_{i_m, i_{m+1}}^{[r_m]} \ne 0$. Note that in this definition the authors only take account of the static edges and the length of a dynamic walk is determined by the number of static edges.
+
+The Katz centrality is based on a sequence of matrix products
+\begin{equation}
+\label{eq:katz}
+Q = (I - \alpha A^{[0]})^{-1}(I - \alpha A^{[1]})^{-1} \cdots (I - \alpha A^{[M]})^{-1}.
+\end{equation}
+The $i$th row and column sums
+$$
+C_i^{broadcast} = \sum_{k=1}^n Q_{ik}, \quad C_i^{receive} = \sum_{k=1}^n Q_{ki}
+$$
+are the broadcast centrality and receive centrality of node $i$.
+
+Note that the $(i,j)$th element of adjacency matrix $A^k$ counts the only of paths from $i$ to $j$.
+To simulate a Katz centrality,
+the shortest path algorithms search through all possible paths between $i$ and $j$.
+
+\subsection{Temporal Betweenness and Closeness Centrality}
+\label{sec:temp-betw-centr}
+
+Recall that betweenness centrality of a node in a static graph is defined by counting the fraction of shortest paths that traverse it.
+We could extend
+betweenness centrality on evolving graphs by replacing shortest paths with temporal shortest paths \cite{nicosia13}.
+\begin{equation}
+  \label{eq:bet1}
+C_i^{betweenness} = \sum_{j \in V}\sum_{k \in V, k \ne j}\frac{\alpha_{jk}(i)}{\alpha_{jk}},
+\end{equation}
+where $\alpha_{jk}$ represents the number of temporal shortest paths from node $j$ to node $k$ and $\alpha_{jk}(i)$ represents the number of temporal shortest paths from node $j$ to node $k$ that pass through the node $i$.
+
+One may want to take into account the length of time a node passes a message. The temporal betweenness centrality of the node $i$ at time stamp $t_m$ is defined as
+\begin{equation}
+  \label{eq:bet2}
+  C_i^{betweenness}(t_m) = \sum_{j\ne i}\sum_{k\ne j, k\ne i}\frac{U_{j,k,t_m}(i)}{\alpha_{j,k}},
+\end{equation}
+where, as before, $\alpha_{j,k}$ represents the number of temporal shortest paths from $j$ to $k$ and $U_{j,k,t_m}(i)$ represents the number of temporal shortest paths from $j$ to $k$ in which node $i$ is traversed from
+the walk in the time stamp $t_m$ or a previous time stamp $t_{m-1}$. Then
+average temporal betweenness of node $i$ is then defined as
+$$
+  C_i^{betweenness} = \frac{1}{M}\sum_m C_i^{betweenness}(t_m).
+$$
+Note \eqref{eq:bet1} only takes account of static edges while \eqref{eq:bet2} takes account of both static edges and causal edges.
+
+% closeness centrality
+Similar to betweenness centrality, let $d_{ij}$ be the length of a temporal shortest walk from $i$ and $j$ in an evolving graph. Then
+the closeness centrality of a node $i$ is defined
+$$
+C_i^{closeness} = \frac{N-1}{\sum_j d_{ij}}.
+$$
+Note that this depends on how we define the length of temporal shortest walk. The closeness centrality can takes account of only static edges, only causal edges, or both.
+
+
+
+
 \subsection{Reverse Temporal Flows}
 \label{sec:reverse-temp-flows}
 
@@ -467,7 +679,7 @@ We consider two generalisation of pagerank: a block matrix one and a dense matri
 \label{sec:experiments}
 
 In this section, we vary the edge
-weights in both static and causal edges to study the impact of time-preserving walks on evolving graph centrality.
+weights in both static and causal edges to study the impact of time-preserving paths on evolving graph centrality.
 We also compare evolving graph centrality with the aggregated static graph case to gain insight about the advantage of evolving graph model.
 
 \subsection{JMLR Coauthor Network}
