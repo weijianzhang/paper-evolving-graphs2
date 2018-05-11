@@ -79,7 +79,7 @@
 % \usepackage[cmex10]{amsmath}
 \usepackage{amssymb}
 
-\title{A Closer Look at Time-Preserving paths on Evolving Graphs}
+\title{A Closer Look at Network Flow on Evolving Graphs}
 
 \author{Jiahao Chen \thanks{
 Capital One,
@@ -117,6 +117,9 @@ The University of Manchester,
 % Note: this clashes with amsmath.
 \def\bmatrix#1{\left[\matrix{#1}\right]}
 
+\newenvironment{njh}{\begin{quote}\small\sf{\color{blue}$\diamondsuit$~NJH~}}{\end{quote}}
+\newenvironment{wz}{\begin{quote}\small\sf{\color{green}$\diamondsuit$~WZ~}}{\end{quote}}
+
 \begin{document}
 
 %\subtitlenote{The full version of the author's guide is available as
@@ -133,6 +136,10 @@ A time-preserving walk on evolving graphs makes implicit assumptions about the t
 We study the impact of different time-preserving paths on node centrality by varying the edge weights of static and causal edges.
 We also compare evolving graph centrality with the aggregated static graph case to gain insight about the advantage of an evolving graph model.
 We construct an evolving coauthor network from a collection of research papers for the experiments.
+
+We observe that time span has an important impact on evolving graph centrality. Build on this idea,
+we introduce more general definitions of walk and shortest path based centralities. Generalizing PageRank on evolving graphs is a hard problem. We provide two definitions of evolving graph centrality. Our experiments indicate our algorithm is effective.
+
 \end{abstract}
 
 \section{Introduction}
@@ -352,12 +359,49 @@ inactive nodes. Directed edges in each time stamp are shown as black arrows.}
 \end{figure}
 
 
-\section{Time-Preserving paths}
+\section{Time-Preserving Walks and Paths}
 \label{sec:time-pres-paths}
 
-For example, in Figure \ref{fig:eg_shortest_walk}
-$\langle (1, t_1), (2, t_1) \rangle$ is a static edge at time stamp $t_1$ and $\langle (3, t_2), (3, t_3) \rangle$ is a causal edge between time stamp $t_2$ and time stamp $t_3$.
-The difference between static edges and causal edges were first explicitly considered in \cite{chen16}.
+% what is walk and what is path?
+A walk of length $l$ is a sequence of nodes $v_1, v_2, \ldots, v_l, v_{l+1}$ such that for
+each $i = 1, 2, \ldots, l$, there is an edge from $v_i$ to $v_{i+1}$. A path of length $l$ is a walk of length $l$
+such that all the nodes are different.
+% relate to centrality
+The definition of centrality depends on the manner in which traffic flows through a network \cite{borgatti05}.
+Time-preserving walks induce temporal Katz centrality and temporal closeness Centrality while time-preserving paths
+induce betweenness centrality and closeness centrality.
+
+
+We now describe time-preserving paths in more detail. We follow the definition of
+\emph{evolving graph}, \emph{temporal node} and \emph{active node} in \cite{chen16}.
+
+\begin{definition}
+  An \textbf{evolving graph} $G_n$ is a sequence of (static) graphs
+$G_n = \langle G^{[1]}, G^{[2]},  \ldots ,G^{[n]} \rangle$ with associated time stamps
+$t_1, t_2, \ldots, t_n$ respectively. Each $G^{[t]} = (V^{[t]}, E^{[t]})$ represents a (static) graph labeled by a time t.
+\end{definition}
+
+Note the node sets $V^{[t]}$ can change over time, i.e., nodes may appear or disappear at a particular time stamp.
+For example, in Figure \ref{fig:eg_shortest_walk}, at time stamp $t_1$, $V^{[1]} = \langle 1, 2 \rangle$ and $E^{[1]} = \langle (1,2) \rangle$. Each graph $G^{[t]}$ can be represented by its adjacency matrix $A^{[t]}$.
+We can represent $G_n$ by a list of adjacency matrices $A_n = \langle A^{[1]}, A^{[2]}, \ldots, A^{[n]} \rangle$.
+
+If we use this definition of temporal walk for the temporal Katz centrality introduced in
+\cite{grindrod11}, we have a new centrality measure.
+In the matrix form, the nonzero entries of $A^{[t_i]} A^{[t_{i+1}]}$ counts all the temporal paths of length $1$, and
+$A^{[t_i]}\cdots A^{[t_j]}$, where $i < j$ counts all the temporal paths of length $j -i$.
+For example, $A^{[1]}A^{[4]}$, $A^{[1]}A^{[1]}A^{[4]}$ and $A^{[1]}A^{[2]}A^{[3]}A^{[4]}$ are all paths of length 3.
+In the original Katz centrality, the `attenuation' factor $\alpha$ is imposed on the
+number of paths, i.e., longer paths has smaller effect to the overall rating.
+Hence the final result is the summation of all products of the form
+\[
+\alpha^k A^{[i]} \cdots A^{[i+k]}
+\]
+% Note this can not be written in \eqref{eq:katz}, as discussed in Section \ref{sec:temp-katz-centr}.
+
+
+Another definition of temporal walk was introduced by \cite{chen16}. Here
+both static edges and causal edges are considered. We can represent an evolving graph by a block adjacency matrix, as shown in Section \ref{sec:centr-block-adjac}. Centrality on this block matrix gives the importance of each node at all time stamps. We can average these rating at different time stamps to
+get the final rating.
 
 \begin{figure}[h]
  \begin{center}
@@ -381,41 +425,23 @@ The difference between static edges and causal edges were first explicitly consi
  \draw[dotted,->](n4) -- (n12);
 \draw[dotted,->](n7) to[out=80, in=40](n11);
 \draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
-(4,3) -- (-2,3) node [midway,yshift=-0.6cm]{ $t_2$};
+(-4,3) -- (-10.5,3) node [midway,yshift=-0.6cm]{ $1998$};
 \draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
-(-4,3) -- (-10.5,3) node [midway,yshift=-0.6cm]{ $t_1$};
+(4,3) -- (-2,3) node [midway,yshift=-0.6cm]{ $1999$};
 \draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
-(11.5,3) -- (5.5,3) node [midway,yshift=-0.6cm]{ $t_3$};
+(11.5,3) -- (5.5,3) node [midway,yshift=-0.6cm]{ $2018$};
     \end{tikzpicture}
 \end{center}
-\caption{An evolving directed graph with 3 time stamps $t_1$, $t_2$ and $t_3$.
+\caption{An evolving directed graph with 3 time stamps $1998$, $1999$ and $2018$.
 At each time stamp, the evolving graph is represented as a graph.
 The green filled circles represent active nodes while the red circles represent
 inactive nodes. Directed edges in each time stamp are shown as black arrows and directed edges between graphs are shown as dotted arrows, where $w_1, w_2 \ldots w_5$ are edge weights.}
 \label{fig:eg_shortest_walk}
 \end{figure}
 
+
 It is natural to define the length of a walk on a static graph as the number of nodes travelled through the walk. For the weighted graph case, the length of a walk is the total weight of all the edges in the walk. We observe that static edges link nodes in space while causal edges link nodes in time. Hence we would like to distinguish temporal distance from spatial distance on an evolving graph: the length of a static edge is equal to the edge weight (or $1$ in the unweighted graph case); the length of a causal edge is the time distance between the two nodes. In the simplest case, the time-respecting walk
 $\langle (1, t_1) ,(2, t_1) , (2, t_3), (3, t_3)\rangle$ in Figure \ref{fig:eg_shortest_walk} has length $4$ in total because two static edges $\langle (1, t_1) (2, t_1) \rangle$ and $\langle (2, t_3), (3, t_3) \rangle$ have length one, whereas $\langle (2, t_1) (2, t_3) \rangle$ traverse $2$ time stamps so has length $2$.
-
-We now describe time-preserving paths in more detail. We follow the definition of
-\emph{evolving graph}, \emph{temporal node} and \emph{active node} in \cite{chen16}.
-
-\begin{definition}
-  An \textbf{evolving graph} $G_n$ is a sequence of (static) graphs
-$G_n = \langle G^{[1]}, G^{[2]},  \ldots ,G^{[n]} \rangle$ with associated time stamps
-$t_1, t_2, \ldots, t_n$ respectively. Each $G^{[t]} = (V^{[t]}, E^{[t]})$ represents a (static) graph labeled by a time t.
-\end{definition}
-
-Note the node sets $V^{[t]}$ can change over time, i.e., nodes may appear or disappear at a particular time stamp.
-For example, in Figure \ref{fig:eg_shortest_walk}, at time stamp $t_1$, $V^{[1]} = \langle 1, 2 \rangle$ and $E^{[1]} = \langle (1,2) \rangle$. Each graph $G^{[t]}$ can be represented by its adjacency matrix $A^{[t]}$.
-We can represent $G_n$ by a list of adjacency matrices $A_n = \langle A^{[1]}, A^{[2]}, \ldots, A^{[n]} \rangle$.
-
-
-
-
-
-
 
 
 \begin{definition}
@@ -454,18 +480,189 @@ assign the causal edge to be the number of time stamps between the pair. Then in
 the edge weight between $(1, t_1)$ and $(2, t_1)$ is $1$ and the edge weight between $(2, t_1)$ and $(2, t_3)$
  is $2$.
 
+ For example, in Figure \ref{fig:eg_shortest_walk}
+ $\langle (1, t_1), (2, t_1) \rangle$ is a static edge at time stamp $t_1$ and $\langle (3, t_2), (3, t_3) \rangle$ is a causal edge between time stamp $t_2$ and time stamp $t_3$.
+ The difference between static edges and causal edges were first explicitly considered in \cite{chen16}.
+
 A time-preserving walk can traverse both causal edges and static edges.
 We will see in the next section that evolving centrality measures make implicit assumptions about the type of edges in the
 time-preserving walk that is used.
 
-\subsection{Evolving Graphs and Static Graphs}
+The following function measure the temporal distance between two active nodes in an evolving graph.
+
+\begin{lstlisting}
+function temporal_distance(v1::TimeNode,
+                           v2::TimeNode, beta::Real = 1.)
+  return node_key(v1) == node_key(v2) ?
+  beta* abs(node_timestamp(v1) - node_timestamp(v2)) : 0
+end
+\end{lstlisting}
+which means if two active nodes have the same key name, the temporal distance is the difference between their time stamps.
+
+\section{Centrality Measures}
+\label{sec:topol-temp-flow}
+
+% what is centrality?
+Centrality measures the importance of nodes within a graph.
+% current evolving graph centrality approach
+To generalize centrality measures for evolving graphs, there are two common approaches.
+First, we could exploit the fact that matrix product of adjacency matrices at different time stamps counts the number of dynamic walks in an evolving graph. Using this idea, we can generalize walk-based centrality measures such as
+the Katz Centrality \cite{estrada09} and Communicability Betweenness \cite{alsayed15}.
+Second, we could generalize the definition of shortest paths as shortest temporal paths and replace shortest paths in centrality measures with shortest temporal paths. This way we can define temporal betweenness centrality and temporal closeness centrality \cite{nicosia13}.
+
+% our approach
+We observe both approaches ignore the communication time between edges at different time stamps, i.e., the time gap between different graph slices. We take account of this communication time by deriving centrality measures from original ideas and show communication time has important impact on the final rating (and ranking).
+We note that our goal is not about providing faster centrality algorithms which is out of the scope of this paper.
+
+\subsection{Temporal Katz Centrality}
+\label{sec:temp-katz-centr}
+
+% katz centrality from first principle
+Katz Centrality accounts the influence of nearest-neighbours to a give node and the influence of other nodes
+separated at a certain distance from it. The $k$th power of adjacency matrix $A$, i.e., $A^k$, of a graph $G$ accounts for walk of length $k$. The expansion
+\begin{equation}
+  \label{eq:a}
+  A^0 + \alpha A + \alpha^2 A^2 + \cdots,
+\end{equation}
+converges to $(I - \alpha A)^{-1}$ when $\alpha < 1/\rho(A)$, the spectral radius of $A$. The $(i,j)$ entry of \eqref{eq:a}
+accounts all walks from $i$ and $j$ with the influence of walks of length $k$ scaled by a factor of $\alpha^k$.
+The Katz centrality of node $i$ is the $i$th row sum of $(I - \alpha A)^{-1}$, which is the sum of influence of all the nodes that node $i$ can reach via a walk.
+In other words, we start with node $i$ and each out-neighbour of node $i$ has influence $\alpha$ on node $i$ and the out-neighbour of out-neighbour of node $i$ has influence $\alpha^2$ on node $i$, and so on.
+
+For evolving graphs, we replace out-neighbours with forward neighbours which preserve the direction of time.
+Then the Katz score of a node $i$ at time stamp $t$, denoted by $(i,t)$, is the sum of influence of all the active nodes that $(i,t)$ can reach via a time-preserving walk.
+Unlike \cite{grindrod11}, we also consider the temporal distance between two nodes. For example, the temporal distance between $(i, 2001)$ and $(i, 2018)$ is $17$.
+% julia code implementation
+With the defintion of \texttt{temporal\_distance} introduced in Section \ref{sec:time-pres-paths}.
+We define the temporal Katz score of node $(i, t)$ as
+
+\begin{lstlisting}
+function temporal_katz(g::AbstractEvolvingGraph,
+  v::TimeNode; alpha = 0.1, max_level = 5)
+  score = 0.
+  fronter = [v]
+  level = 0
+  while level < max_level
+      next = []
+      for u in fronter
+          for v in forward_neighbors(g, u)
+              push!(next, v)
+              d = temporal_distance(v, u)
+              d += level
+              score += alpha^d
+          end
+      end
+      fronter = next
+      level += 1
+  end
+  return score
+end
+\end{lstlisting}
+
+% explain the code
+The algorithm \texttt{temporal\_katz} performs breadth first search (BFS) starting at \texttt{TimeNode} $v$, which represent a node at a specific time stamp \footnote{See also \url{https://etymoio.github.io/EvolvingGraphs.jl/latest/base.html#EvolvingGraphs.TimeNode}}.
+For each \texttt{TimeNode} $v$, we accumulate the influence of linked nodes according to their spatial and temporal
+distance from $v$. The spatial distance is recorded in variable \texttt{level} and the temporal distance is calculated by
+\texttt{temporal\_distance}.
+
+% example on 3 timestamp evolving graph
+
+
+% compare the Katz in EvolvingGraphs.jl
+
+Let $A$ be an adjacency
+
+
+In \cite{grindrod11}, Grindrod et al. define a \emph{dynamic walk} of length $m$ from
+node $v_1$ to node $v_{w+1}$  as a sequence of edges
+$(v_1, v_2), (v_2, v_3), \ldots (v_w, v_{w+1})$ and a non-decreasing sequence of times
+$t_{r_1} \leq t_{r_2} \leq \cdots \leq t_{r_w}$ such that the adjacency matrix at time stamp
+$r_m$, i.e., $A_{i_m, i_{m+1}}^{[r_m]} \ne 0$. Note that in this definition the authors only take account of the static edges and the length of a dynamic walk is determined by the number of static edges.
+
+The Katz centrality is based on a sequence of matrix products
+\begin{equation}
+\label{eq:katz}
+Q = (I - \alpha A^{[0]})^{-1}(I - \alpha A^{[1]})^{-1} \cdots (I - \alpha A^{[M]})^{-1}.
+\end{equation}
+The $i$th row and column sums
+$$
+C_i^{broadcast} = \sum_{k=1}^n Q_{ik}, \quad C_i^{receive} = \sum_{k=1}^n Q_{ki}
+$$
+are the broadcast centrality and receive centrality of node $i$.
+
+Note that the $(i,j)$th element of adjacency matrix $A^k$ counts the only of paths from $i$ to $j$.
+To simulate a Katz centrality,
+the shortest path algorithms search through all possible paths between $i$ and $j$.
+
+\subsection{Temporal Communicability Betweenness Centrality}
+
+% communicability from first principle
+
+\subsection{Temporal Closeness Centrality}
+\label{sec:temp-betw-centr}
+
+\begin{wz}
+  We may also consider betweenness centrality.
+\end{wz}
+
+Recall that betweenness centrality of a node in a static graph is defined by counting the fraction of shortest paths that traverse it.
+We could extend
+betweenness centrality on evolving graphs by replacing shortest paths with temporal shortest paths \cite{nicosia13}.
+\begin{equation}
+  \label{eq:bet1}
+C_i^{betweenness} = \sum_{j \in V}\sum_{k \in V, k \ne j}\frac{\alpha_{jk}(i)}{\alpha_{jk}},
+\end{equation}
+where $\alpha_{jk}$ represents the number of temporal shortest paths from node $j$ to node $k$ and $\alpha_{jk}(i)$ represents the number of temporal shortest paths from node $j$ to node $k$ that pass through the node $i$.
+
+One may want to take into account the length of time a node passes a message. The temporal betweenness centrality of the node $i$ at time stamp $t_m$ is defined as
+\begin{equation}
+  \label{eq:bet2}
+  C_i^{betweenness}(t_m) = \sum_{j\ne i}\sum_{k\ne j, k\ne i}\frac{U_{j,k,t_m}(i)}{\alpha_{j,k}},
+\end{equation}
+where, as before, $\alpha_{j,k}$ represents the number of temporal shortest paths from $j$ to $k$ and $U_{j,k,t_m}(i)$ represents the number of temporal shortest paths from $j$ to $k$ in which node $i$ is traversed from
+the walk in the time stamp $t_m$ or a previous time stamp $t_{m-1}$. Then
+average temporal betweenness of node $i$ is then defined as
+$$
+  C_i^{betweenness} = \frac{1}{M}\sum_m C_i^{betweenness}(t_m).
+$$
+Note \eqref{eq:bet1} only takes account of static edges while \eqref{eq:bet2} takes account of both static edges and causal edges.
+
+% closeness centrality
+Similar to betweenness centrality, let $d_{ij}$ be the length of a temporal shortest walk from $i$ and $j$ in an evolving graph. Then
+the closeness centrality of a node $i$ is defined
+$$
+C_i^{closeness} = \frac{N-1}{\sum_j d_{ij}}.
+$$
+Note that this depends on how we define the length of temporal shortest walk. The closeness centrality can takes account of only static edges, only causal edges, or both.
+
+
+\subsection{Temporal PageRank}
+
+We derive two generalization of PageRank on evolving graphs.
+The first idea is based on reverse temporal flows.
+
+\subsubsection{Reverse Temporal Flows}
+
+We can not travel back in time. But reversing the direction of temporal flows can help
+identify the ``hub'' nodes or the source of the flows. The authority score of a page is
+proportional to its importance, and the hub score describes the quality of a page as a link collection of important related pages \cite{kleinberg99}.
+Indeed, reverse PageRank has
+been studied by \cite{bar08, fogaras03, gleich15}. In reverse PageRank we compute PageRank on the graph with reversed direction, i.e., reverse the direction of each edge $(i,j)$ to $(j, i)$.
+Fogaras \cite{fogaras03} shows that Reversed Page Rank scores express hub quality.
+
+
+Recall a time-preserving walk is a time-ordered sequence of active nodes. Here we define a \emph{reversed temporal walk} to be a reversed time-ordered sequence of active nodes, i.e.,
+$t_1 \ge t_2 \ge \cdots \ge t_m$.
+
+
+\subsubsection{Block Adjacency Matrices}
 \label{sec:centr-block-adjac}
 
 We can not simply use static graphs to replace evolving graphs for two main reasons.
-First, a path has to preseve the dimension, i.e., certain path is incorrect in the aggregated static graph.
+First, a path has to preserve the dimension, i.e., certain path is incorrect in the aggregated static graph.
 Second, two path between $A$ and $B$ are considered to be one path in the aggregated static graph.
 
-In \cite{chen16}, we derive a block adjacency matrix representation of an evolvign graph.
+In \cite{chen16}, we derive a block adjacency matrix representation of an evolving graph.
 If $E'$ is the set of causal edges and $\hat E$ is the set of static edges then
 an evolving graph can be represented as
 $$
@@ -559,128 +756,19 @@ The graph containing all the edges and temporal nodes has adjacency matrix $\bm 
 \end{figure}
 
 
-
-\section{Centrality Measures}
-\label{sec:topol-temp-flow}
-
-In \cite{tang10s}, a temporal shortest walk is measured in time units only, i.e., if node
-$v_i$ can reach node $v_j$ in $k$ time steps then the distance between node
-$v_i$ and $v_j$ is $k$. We can apply temporal breadth first
-search (BFS) \cite{chen16} to discover the temporal paths and then only take account of the temporal difference between the first node $(v_1, t_1)$ and the last node $(v_n, t_n)$, i.e., $t_n - t_1$.
-
-If we use this definition of temporal walk for the temporal Katz centrality introduced in
-\cite{grindrod11}, we have a new centrality measure.
-In the matrix form, the nonzero entries of $A^{[t_i]} A^{[t_{i+1}]}$ counts all the temporal paths of length $1$, and
-$A^{[t_i]}\cdots A^{[t_j]}$, where $i < j$ counts all the temporal paths of length $j -i$.
-For example, $A^{[1]}A^{[4]}$, $A^{[1]}A^{[1]}A^{[4]}$ and $A^{[1]}A^{[2]}A^{[3]}A^{[4]}$ are all paths of length 3.
-In the original Katz centrality, the `attenuation' factor $\alpha$ is imposed on the
-number of paths, i.e., longer paths has smaller effect to the overall rating.
-Hence the final result is the summation of all products of the form
-\[
-\alpha^k A^{[i]} \cdots A^{[i+k]}
-\]
-% Note this can not be written in \eqref{eq:katz}, as discussed in Section \ref{sec:temp-katz-centr}.
-
-
-Another definition of temporal walk was introduced by \cite{chen16}. Here
-both static edges and causal edges are considered. We can represent an evolving graph by a block adjacency matrix, as shown in Section \ref{sec:centr-block-adjac}. Centrality on this block matrix gives the importance of each node at all time stamps. We can average these rating at different time stamps to
-get the final rating.
-
-
-We review a few well-known measures of evolving graph centrality.
-(Design a simple example and discuss it in each case below.)
-
-% can not simply aggregate nodes: introduce wrong paths.
-
-
-
-\subsection{Temporal Katz Centrality and Communicability Betweenness Centrality}
-\label{sec:temp-katz-centr}
-
-The Katz Centrality is a measure of importance
-
-In \cite{grindrod11}, Grindrod et al. define a \emph{dynamic walk} of length $m$ from
-node $v_1$ to node $v_{w+1}$  as a sequence of edges
-$(v_1, v_2), (v_2, v_3), \ldots (v_w, v_{w+1})$ and a non-decreasing sequence of times
-$t_{r_1} \leq t_{r_2} \leq \cdots \leq t_{r_w}$ such that the adjacency matrix at time stamp
-$r_m$, i.e., $A_{i_m, i_{m+1}}^{[r_m]} \ne 0$. Note that in this definition the authors only take account of the static edges and the length of a dynamic walk is determined by the number of static edges.
-
-The Katz centrality is based on a sequence of matrix products
-\begin{equation}
-\label{eq:katz}
-Q = (I - \alpha A^{[0]})^{-1}(I - \alpha A^{[1]})^{-1} \cdots (I - \alpha A^{[M]})^{-1}.
-\end{equation}
-The $i$th row and column sums
-$$
-C_i^{broadcast} = \sum_{k=1}^n Q_{ik}, \quad C_i^{receive} = \sum_{k=1}^n Q_{ki}
-$$
-are the broadcast centrality and receive centrality of node $i$.
-
-Note that the $(i,j)$th element of adjacency matrix $A^k$ counts the only of paths from $i$ to $j$.
-To simulate a Katz centrality,
-the shortest path algorithms search through all possible paths between $i$ and $j$.
-
-\subsection{Temporal Betweenness and Closeness Centrality}
-\label{sec:temp-betw-centr}
-
-Recall that betweenness centrality of a node in a static graph is defined by counting the fraction of shortest paths that traverse it.
-We could extend
-betweenness centrality on evolving graphs by replacing shortest paths with temporal shortest paths \cite{nicosia13}.
-\begin{equation}
-  \label{eq:bet1}
-C_i^{betweenness} = \sum_{j \in V}\sum_{k \in V, k \ne j}\frac{\alpha_{jk}(i)}{\alpha_{jk}},
-\end{equation}
-where $\alpha_{jk}$ represents the number of temporal shortest paths from node $j$ to node $k$ and $\alpha_{jk}(i)$ represents the number of temporal shortest paths from node $j$ to node $k$ that pass through the node $i$.
-
-One may want to take into account the length of time a node passes a message. The temporal betweenness centrality of the node $i$ at time stamp $t_m$ is defined as
-\begin{equation}
-  \label{eq:bet2}
-  C_i^{betweenness}(t_m) = \sum_{j\ne i}\sum_{k\ne j, k\ne i}\frac{U_{j,k,t_m}(i)}{\alpha_{j,k}},
-\end{equation}
-where, as before, $\alpha_{j,k}$ represents the number of temporal shortest paths from $j$ to $k$ and $U_{j,k,t_m}(i)$ represents the number of temporal shortest paths from $j$ to $k$ in which node $i$ is traversed from
-the walk in the time stamp $t_m$ or a previous time stamp $t_{m-1}$. Then
-average temporal betweenness of node $i$ is then defined as
-$$
-  C_i^{betweenness} = \frac{1}{M}\sum_m C_i^{betweenness}(t_m).
-$$
-Note \eqref{eq:bet1} only takes account of static edges while \eqref{eq:bet2} takes account of both static edges and causal edges.
-
-% closeness centrality
-Similar to betweenness centrality, let $d_{ij}$ be the length of a temporal shortest walk from $i$ and $j$ in an evolving graph. Then
-the closeness centrality of a node $i$ is defined
-$$
-C_i^{closeness} = \frac{N-1}{\sum_j d_{ij}}.
-$$
-Note that this depends on how we define the length of temporal shortest walk. The closeness centrality can takes account of only static edges, only causal edges, or both.
-
-
-
-
-\subsection{Reverse Temporal Flows}
-\label{sec:reverse-temp-flows}
-
-We can not travel back in time. But reversing the direction of temporal flows can help
-identify the ``hub'' nodes or the source of the flows. The authority score of a page is
-proportional to its importance, and the hub score describes the quality of a page as a link collection of important related pages \cite{kleinberg99}.
-Indeed, reverse PageRank has
-been studied by \cite{bar08, fogaras03, gleich15}. In reverse PageRank we compute PageRank on the graph with reversed direction, i.e., reverse the direction of each edge $(i,j)$ to $(j, i)$.
-Fogaras \cite{fogaras03} shows that Reversed Page Rank scores express hub quality.
-
-
-Recall a time-preserving walk is a time-ordered sequence of active nodes. Here we define a \emph{reversed temporal walk} to be a reversed time-ordered sequence of active nodes, i.e.,
-$t_1 \ge t_2 \ge \cdots \ge t_m$.
-
-\subsection{Temporal PageRank}
-
 We consider two generalisation of pagerank: a block matrix one and a dense matrix one that is based on probability
 
+
+We believe we shouldn't not just penolaize old walks but the time span between two edges.
 
 \section{Experiments}
 \label{sec:experiments}
 
-In this section, we vary the edge
-weights in both static and causal edges to study the impact of time-preserving paths on evolving graph centrality.
-We also compare evolving graph centrality with the aggregated static graph case to gain insight about the advantage of evolving graph model.
+
+\subsection{Random Evolving Graphs}
+\label{sec:random}
+
+
 
 \subsection{JMLR Coauthor Network}
 \label{sec:jmlr-coauth-netw}
@@ -697,14 +785,14 @@ ideas are similar. The resulting network represent the connectivity of ideas in 
 
 (add results here.)
 
-\subsection{Paper Keyword Tag Network}
-
-We tag our research articles by subjects.
-
-We can construct a time-dependent tag network by link tags in each articles. For example,
-suppose a paper $p_1$ has three tags $t_1$, $t_2$, and $t_3$, where $t_1$ is a superclass of $t_2$ and $t_3$.
-We link $t_2$ and $t_3$ in both direction and create a link from $t_1$ to $t_2$ and a link from $t_1$ to $t_3$.
-The time stamp of these edges is the published date of the paper.
+% \subsection{Paper Keyword Tag Network}
+%
+% We tag our research articles by subjects.
+%
+% We can construct a time-dependent tag network by link tags in each articles. For example,
+% suppose a paper $p_1$ has three tags $t_1$, $t_2$, and $t_3$, where $t_1$ is a superclass of $t_2$ and $t_3$.
+% We link $t_2$ and $t_3$ in both direction and create a link from $t_1$ to $t_2$ and a link from $t_1$ to $t_3$.
+% The time stamp of these edges is the published date of the paper.
 
 
 
