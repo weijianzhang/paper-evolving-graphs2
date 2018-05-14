@@ -533,29 +533,30 @@ For evolving graphs, we replace out-neighbours with forward neighbours which pre
 Then the Katz score of a node $i$ at time stamp $t$, denoted by $(i,t)$, is the sum of influence of all the active nodes that $(i,t)$ can reach via a time-preserving walk.
 Unlike \cite{grindrod11}, we also consider the temporal distance between two nodes. For example, the temporal distance between $(i, 2001)$ and $(i, 2018)$ is $17$.
 % julia code implementation
-With the defintion of \texttt{temporal\_distance} introduced in Section \ref{sec:time-pres-paths}.
+With the definition of \texttt{temporal\_distance} introduced in Section \ref{sec:time-pres-paths}.
 We define the temporal Katz score of node $(i, t)$ as
 
 \begin{lstlisting}
 function temporal_katz(g::AbstractEvolvingGraph,
-  v::TimeNode; alpha = 0.1, max_level = 5)
-  score = 0.
-  fronter = [v]
-  level = 0
-  while level < max_level
-      next = []
-      for u in fronter
-          for v in forward_neighbors(g, u)
-              push!(next, v)
-              d = temporal_distance(v, u)
-              d += level
-              score += alpha^d
-          end
-      end
-      fronter = next
-      level += 1
-  end
-  return score
+  start::TimeNode; alpha = 0.1, max_level = 5)
+    score = 0.
+    v = start
+    fronter = [v]
+    level = 0
+    while level < max_level
+        next = []
+        for u in fronter
+            for v in forward_neighbors(g, u)
+                push!(next, v)
+                td = temporal_distance(start, u)
+                d = td + level
+                score += alpha^d
+            end
+        end
+        fronter = next
+        level += 1
+    end
+    return score
 end
 \end{lstlisting}
 
@@ -563,36 +564,13 @@ end
 The algorithm \texttt{temporal\_katz} performs breadth first search (BFS) starting at \texttt{TimeNode} $v$, which represent a node at a specific time stamp \footnote{See also \url{https://etymoio.github.io/EvolvingGraphs.jl/latest/base.html#EvolvingGraphs.TimeNode}}.
 For each \texttt{TimeNode} $v$, we accumulate the influence of linked nodes according to their spatial and temporal
 distance from $v$. The spatial distance is recorded in variable \texttt{level} and the temporal distance is calculated by
-\texttt{temporal\_distance}.
+\texttt{temporal\_distance}. The algorithm stops searching when \texttt{level} is larger or equal to \texttt{max\_level}.
 
 % example on 3 timestamp evolving graph
-
+For Figure \ref{}
 
 % compare the Katz in EvolvingGraphs.jl
 
-Let $A$ be an adjacency
-
-
-In \cite{grindrod11}, Grindrod et al. define a \emph{dynamic walk} of length $m$ from
-node $v_1$ to node $v_{w+1}$  as a sequence of edges
-$(v_1, v_2), (v_2, v_3), \ldots (v_w, v_{w+1})$ and a non-decreasing sequence of times
-$t_{r_1} \leq t_{r_2} \leq \cdots \leq t_{r_w}$ such that the adjacency matrix at time stamp
-$r_m$, i.e., $A_{i_m, i_{m+1}}^{[r_m]} \ne 0$. Note that in this definition the authors only take account of the static edges and the length of a dynamic walk is determined by the number of static edges.
-
-The Katz centrality is based on a sequence of matrix products
-\begin{equation}
-\label{eq:katz}
-Q = (I - \alpha A^{[0]})^{-1}(I - \alpha A^{[1]})^{-1} \cdots (I - \alpha A^{[M]})^{-1}.
-\end{equation}
-The $i$th row and column sums
-$$
-C_i^{broadcast} = \sum_{k=1}^n Q_{ik}, \quad C_i^{receive} = \sum_{k=1}^n Q_{ki}
-$$
-are the broadcast centrality and receive centrality of node $i$.
-
-Note that the $(i,j)$th element of adjacency matrix $A^k$ counts the only of paths from $i$ to $j$.
-To simulate a Katz centrality,
-the shortest path algorithms search through all possible paths between $i$ and $j$.
 
 \subsection{Temporal Communicability Betweenness Centrality}
 
