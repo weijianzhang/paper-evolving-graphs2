@@ -538,7 +538,7 @@ We define the temporal Katz score of node $(i, t)$ as
 
 \begin{lstlisting}
 function temporal_katz(g::AbstractEvolvingGraph,
-  start::TimeNode; alpha = 0.1, max_level = 5)
+  start::TimeNode; alpha = 0.2, max_level = 10)
     score = 0.
     v = start
     fronter = [v]
@@ -565,12 +565,50 @@ The algorithm \texttt{temporal\_katz} performs breadth first search (BFS) starti
 For each \texttt{TimeNode} $v$, we accumulate the influence of linked nodes according to their spatial and temporal
 distance from $v$. The spatial distance is recorded in variable \texttt{level} and the temporal distance is calculated by
 \texttt{temporal\_distance}. The algorithm stops searching when \texttt{level} is larger or equal to \texttt{max\_level}.
-
+We set \texttt{alpha} to be $0.2$ and \texttt{max\_level} to be $10$. Then
 % example on 3 timestamp evolving graph
-For Figure \ref{}
+for Figure \ref{fig:katz_eg2}, we have
+\begin{lstlisting}
+Dict{Any,Any} with 7 entries:
+  TimeNode(B, 2) => 1.0
+  TimeNode(B, 3) => 0.0
+  TimeNode(A, 2) => 3.58333
+  TimeNode(C, 1) => 1.06867
+  TimeNode(A, 3) => 1.0
+  TimeNode(B, 1) => 3.25373
+  TimeNode(C, 2) => 1.71667
+\end{lstlisting}
+The total scores at all time stamps are
+\begin{lstlisting}
+DataStructures.DefaultDict{Any,Any,Float64} with 3 entries:
+  "B" => 4.25373
+  "A" => 4.58333
+  "C" => 2.78533
+\end{lstlisting}
+Notice that $A$ is still the most important node in the network. However, now $B$ is considered more important
+than $C$. This is because we consider causal edges as well as static edges. Node $B$ is active at all three time stamps
+and more connected causally than node $C$.
 
-% compare the Katz in EvolvingGraphs.jl
-
+For Figure \ref{fig:katz_eg3}, we have
+\begin{lstlisting}
+Dict{Any,Any} with 7 entries:
+  TimeNode(C, 1)   => 1.06833
+  TimeNode(B, 100) => 0.0
+  TimeNode(C, 2)   => 1.70833
+  TimeNode(B, 2)   => 1.0
+  TimeNode(B, 1)   => 3.25367
+  TimeNode(A, 100) => 1.0
+  TimeNode(A, 2)   => 3.54167
+\end{lstlisting}
+The sum of node scores at each time stamp is
+\begin{lstlisting}
+DataStructures.DefaultDict{Any,Any,Float64} with 3 entries:
+  "B" => 4.25367
+  "A" => 4.54167
+  "C" => 2.77667
+\end{lstlisting}
+We see the scores of all three nodes are decreased when the last time stamp is $100$.
+Node $A$ is affected the most.
 
 \subsection{Temporal Communicability Betweenness Centrality}
 
