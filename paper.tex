@@ -79,7 +79,7 @@
 % \usepackage[cmex10]{amsmath}
 \usepackage{amssymb}
 
-\title{A Closer Look at Network Flow on Evolving Graphs}
+\title{A Closer Look at Network Flow on Evolving Graph Centrality}
 
 \author{Jiahao Chen \thanks{
 Capital One,
@@ -129,17 +129,15 @@ The University of Manchester,
 \maketitle
 
 \begin{abstract}
-This paper studies evolving graph centrality from the perspective of time-preserving paths. We describe time-preserving paths based on two dimensions of variation, namely static edges and causal edges.
+This paper studies the influence of the temporal information in an evolving graph on the node centrality scores.
+In particular, we look at four important centrality measures, namely Katz centrality,
+Resolvent Betweenness centrality, Closeness centrality, and PageRank.
 
-A time-preserving walk on evolving graphs makes implicit assumptions about the type of edges that a walk traverses. For example, the walk can count only static edges or can take account of both static edges and causal edges. In addition, the length of a time-preserving walk can be either spatial or temporal.
-
-We study the impact of different time-preserving paths on node centrality by varying the edge weights of static and causal edges.
-We also compare evolving graph centrality with the aggregated static graph case to gain insight about the advantage of an evolving graph model.
-We construct an evolving coauthor network from a collection of research papers for the experiments.
-
-We observe that time span has an important impact on evolving graph centrality. Build on this idea,
-we introduce more general definitions of walk and shortest path based centralities. Generalizing PageRank on evolving graphs is a hard problem. We provide two definitions of evolving graph centrality. Our experiments indicate our algorithm is effective.
-
+We derive evolving graph centrality measures from the perspective of network flow and
+observe that the amount of temporal distance between nodes has an important impact on the final evolving graph centrality scores, especially on the top ranked nodes.
+Build on this idea, we introduce a generalised PageRank on evolving graph that is based on two ideas:
+reverse network flow and block adjacency matrix.
+We conduct our experiments on random evolving graphs and the JMLR co-author networks to illustrate our idea.
 \end{abstract}
 
 \section{Introduction}
@@ -147,17 +145,20 @@ we introduce more general definitions of walk and shortest path based centraliti
 
 In the 1985 science-fiction film ``Back to the Future'', Marty McFly (played by Michael J. Fox) travelled back in time and accidentally changed history.
 However, we cannot travel back in time or even send a message to the past.
-To traverse an evolving graph, a.k.a a time-dependent graph, one has to consider order of time stamps. In particular, a walk on an evolving graph needs to be time-preserving, meaning a node can not pass a massage (through an edge) to a node at a earlier time.
+To traverse an evolving graph, a.k.a a time-dependent graph, one has to consider order of time stamps. In particular, a walk on an evolving graph needs to be time-preserving, meaning we
+can not pass a massage (through an edge) to a node at a earlier time.
+Time-preversing walks and paths are very important concepts for
+network flow on evolving graphs.
 
 % time-respecting walk
 We represent an evolving graph as a time-ordered sequences of graphs, similar to the work of Tang and coworkers \cite{nicosia13, tang09, tang102, tang10} and Grindrod, Higham and coworkers \cite{grindrod13,grindrod11}. The idea is to divide the system's time span into temporal slices and regards it as a sequence of static graphs $G^{[t]}$, one for each layer. Such representation arises naturally in many real-world applications. For example,
 consider networks of users interacting through messaging. Each interaction between two users $A$ and $B$ are stored with a time stamp $t$. If we represent a user as a node then a user $A$ at time stamp $t$ is represented by a pair $(v,t)$ and a message sent from user $A$ to user $B$ at time stamp $t$ can be represented as $\langle (A, t) (B, t) \rangle$.
 
-In general, a node $v$ on $G^{[t]}$ is represented by a pair $(v, t)$, where $t$ is the time stamp of the temporal slice.
+In general, a node $v$ on $G^{[t]}$ is represented by a pair $(v, t)$, where $t$ is the time stamp of the graph $G^{[t]}$.
 A sequence of interactions between users form a walk. Suppose $A$ sent a message to $B$ at time stamp $t_1$
 and then $B$ sent this message to $C$ at time stamp $t_2$. We can represent this activity as $\langle (A,t_1), (B,t_1), (B, t_2), (C,t_2)\rangle$, where each pair of two nodes has meanings: $\langle (A,t_1), (B,t_1) \rangle$ and $\langle (B,t_2), (C,t_2) \rangle$ represent interactions between users $A$, $B$, and $C$ and $\langle (B,t_1), (B,t_2) \rangle$ represents the fact that user $B$ holds the message at time stamp $t_1$ and $t_2$.
 
-A time-respecting walk is a sequence of $\langle (v_1, t_1), (v_2, t_2), \ldots ,(v_m, t_m)\rangle$, where $t_1 \le t_2 \le \cdots \le t_n$ are the corresponding time stamps. If $t_i = t_j$, then $\langle (v_i, t_i), (v_j, t_j) \rangle$ is an edge where both nodes are on the same temporal slice,  otherwise it is an edge linking nodes from different temporal slices.
+A time-respecting walk is a sequence of nodes $\langle (v_1, t_1), (v_2, t_2), \ldots ,(v_m, t_m)\rangle$, where $t_1 \le t_2 \le \cdots \le t_n$ are the corresponding time stamps. If $t_i = t_j$, then $\langle (v_i, t_i), (v_j, t_j) \rangle$ is an edge where both nodes are on the same temporal slice,  otherwise it is an edge linking nodes from different temporal slices.
 We call edges of the first kind \emph{static edges} and of the second kind \emph{causal edges}.
 Recall in static graph, a walk of length $m$ is defined as a sequence of nodes $v_1, v_2, \ldots, v_{m+1}$ such that for each $i = 1, \ldots, m$ there is an edge from $v_i$ to $v_{i+1}$. How to determine the length of a time-respecting walk?
 One could define the length of a time-respecting walk as the total number of temporal slices (see shortest temporal distance in \cite{tang09}) or the number of static edges (see dynamic walk in \cite{grindrod11}). This paper studies the impact of these two different definitions. In particular, we studies a general definition of temporal distance that takes account of both temporal slices and static edges.
@@ -165,35 +166,23 @@ One could define the length of a time-respecting walk as the total number of tem
 
 % Related works
 Researchers have generalised many static graph centrality algorithms for evolving graphs. One approach is to use the fact that the elements of the matrix product of adjacency matrices at different time stamps can correctly count the number of temporal paths.
-However, not every centrality algorithm can be generalised in this way. Another approach is to define evolving graph centrality algorithms using time-respecting paths. This approach is applicable to algorithms that are defined using paths or paths.
+However, not every centrality algorithm can be generalised in this way. Another approach is to define evolving graph centrality algorithms using time-respecting paths. This approach is applicable to algorithms that are defined using shortest paths.
 
 
 % no work on pagerank so far. By understanding temporal walk, we could provide a generalization of pagerank on evolving graphs.
 
-In Higham's following up papers, time delay is considered as alternative format of Katz centrality.
-But the impact of temporal is left unconsidered. We studied the problem on centrality from two different types of centrality: one that depends on matrix unfolding and one that depends on temporal walk.
+% In Higham's following up papers, time delay is considered as alternative format of Katz centrality.
+% But the impact of temporal is left unconsidered. We studied the problem on centrality from two different types of centrality: one that depends on matrix unfolding and one that depends on temporal walk.
 
 
 % our contribution this paper
-Inspired by Borgatti's work \cite{borgatti05} on simulating different flow process on static graphs, we
-
-
-Borgatti noted in  that the manner of traffic flow entails a new way to think about centrality.
-where the author simulate different traffic flows to study centrality.
-
-In particularly, the importance of a node in a network can not be determined without reference to how traffic flows through the network.
-To develop a centrality algorithm on evolving graphs, one has to consider the manner of temporal traffic flow.
-A time-preserving walk on evolving graphs can be described by static edges, causal edges, or both.
-
-
-
+Borgatti \cite{borgatti05} noted that the manner of traffic flow entails a new way to think about centrality. In particularly, the importance of a node in a network can not be determined without reference to how traffic flows through the network.
+Inspired by this idea, we simulate network flows in evolving graphs to measure the centrality scores.
 % Grindrod et al.'s definition of dynamic walk \cite{grindrod11} only counts static edges.
 % Tang et al. \cite{tang10s} measure a temporal shortest walk in time unit (or causal edges) only.
 % If a node can be reached by another node in $k$ time stamps then the distance between the two nodes is $k$. Chen and Zhang \cite{chen16} considered both static edges and causal edges in their definition of temporal walk.
-
-
-The aims of this paper are as follows. First, to identify the type of time-preserving walk in a list of common evolving graph centrality measures. Second, to vary static and causal edge weights and analyze the impact on selected measures of centrality.
-Third, to solve a real world problem using evolving graph centrality: identify key authors in an evolving coauthor network.
+The aims of this paper are as follows. First, to derive important evolving graph centrality from first principle via network flow. Second, to study the impact of temporal distance between nodes on centrality.
+Third, to generalise PageRank on evolving graphs.
 We carry out the experiment using the Julia dynamic network analysis package
 EvolvingGraphs.jl (\url{https://github.com/EtymoIO/EvolvingGraphs.jl}).
 We use the research paper data gathered from Etymo (\url{https://etymo.io}), a visual search engine for data scientists.
@@ -202,7 +191,7 @@ We use the research paper data gathered from Etymo (\url{https://etymo.io}), a v
 \section{Motivation: A Closer Look at Katz Centrality on Evolving Graphs}
 \label{sec:motivation}
 
-We let $G_n = \langle G^{[1]}, G^{[2]}, \ldots, G^{[n]} \rangle$ be an evolving graph
+We let $G_generalisede G^{[1]}, G^{[2]}, \ldots, G^{[n]} \rangle$ be an evolving graph
 and $A^{[1]}, A^{[2]}, \dots A^{[n]}$ be the corresponding adjacency matrices.
 Then the dynamic communicability matrix is defined as
 \begin{equation}
