@@ -1,4 +1,4 @@
-## A Closer Look at Time-Preserving Paths on Evolving Graphs
+## A Closer Look at Network Flow on Evolving Graphs
 
 #### How to compile this manuscript
 

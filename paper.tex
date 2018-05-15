@@ -346,12 +346,12 @@ We notice that the generalised Katz centrality on evolving graphs only takes acc
 \draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
 (-4,3) -- (-10.5,3) node [midway,yshift=-0.6cm]{ $1$};
 \draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
-(4,3) -- (-2,3) node [midway,yshift=-0.6cm]{ $2$};
+(4,3) -- (-2,3) node [midway,yshift=-0.6cm]{ $10$};
 \draw [decorate,decoration={brace,amplitude=5pt},xshift=-4pt,yshift=0pt]
 (11.5,3) -- (5.5,3) node [midway,yshift=-0.6cm]{ $100$};
     \end{tikzpicture}
 \end{center}
-\caption{An evolving directed graph with 3 time stamps $1$, $2$ and $100$.
+\caption{An evolving directed graph with 3 time stamps $1$, $10$ and $100$.
 At each time stamp, the evolving graph is represented as a graph.
 The green filled circles represent active nodes while the red circles represent
 inactive nodes. Directed edges in each time stamp are shown as black arrows.}
@@ -536,7 +536,7 @@ Unlike \cite{grindrod11}, we also consider the temporal distance between two nod
 With the definition of \texttt{temporal\_distance} introduced in Section \ref{sec:time-pres-paths}.
 We define the temporal Katz score of node $(i, t)$ as
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Temporal Katz Centrality of Single Node},label={lst:katz}]
 function temporal_katz(g::AbstractEvolvingGraph,
   start::TimeNode; alpha = 0.2, max_level = 10)
     score = 0.
@@ -610,52 +610,107 @@ DataStructures.DefaultDict{Any,Any,Float64} with 3 entries:
 We see the scores of all three nodes are decreased when the last time stamp is $100$.
 Node $A$ is affected the most.
 
-\subsection{Temporal Communicability Betweenness Centrality}
+\subsubsection{Temporal Resolvent Betweenness Centrality}
 
-% communicability from first principle
+Betweenness centrality measures the importance of a node as the ability to facilitate the communication between other nodes in the network. Commonly it is defined based on the shortest paths. However, key messages do not necessarily follow the shortest paths and so it makes senses to consider walks instead.
+Recall the $(i,j)$ entry of the resolvent matrix $(I - \alpha A)^{-1}$ provide information about the communication from $i$ to $j$. We could therefore define the resolvent betweenness for node $v$ as
+\begin{equation}
+  \sum_{i}\sum_j \frac{(I-\alpha A)^{-1}_{i,j} - (I - \alpha (A - E_v))^{-1}_{i,j}}{(I - \alpha A)^{-1}_{i,j}}, \quad i \ne j, i \ne v, j \ne v.
+\end{equation}
+where $E_v$ has non-zeros only in row and column $v$, and in the $v$th row and column has $1$ where $A$ has $1$.
+The matrix $A - E_i$ represents a graph with all edges involving the node $v$ removed.
+For $(I-\alpha A)^{-1}_{i,j}$ we could simply modify Listing \ref{lst:katz} so that it only accumulate scores when the end node is $j$. For the $(I - \alpha (A-E_v))^{-1}_{i,j}$ part, we can apply the above the same algorithm on a graph with node $v$ and related edges removed.
+\begin{lstlisting}
+function temporal_resolvent_betweenness(g1::EvolvingGraph,
+  g2::EvolvingGraph, v::TimeNode; alpha = 0.2, k = 10)
+    r = 0.
+    ns = active_nodes(g1)
+    for i in ns
+        for j in ns
+            if i != j && i != v && j != v
+                score1 = temporal_katz(g1, i, j, alpha = alpha, k = k)
+                score2 = temporal_katz(g2, i, j, alpha = alpha, k = k)
+                r += score1 == 0.0 ? 0 : (score1 - score2)/score1
+            end
+        end
+    end
+    return r
+end
+\end{lstlisting}
+For example, by removing node $C$ a time stamp $2$ from Figure \ref{fig:katz_eg2} we find
+the temporal resolvent betweenness score is $6.09$. While the temporal resolvent betweenness score
+of node $A$ at time stamp $3$ is $5.0$. This shows $(C,2)$ is more important than $(A,3)$.
+
+Now consider Figure \ref{fig:katz_eg3}. If we remove $(C,2)$, the temproal resolvent betweenness score is $4.20$.
+The analysis for temporal communicability betweenness centrality is similar.
 
 \subsection{Temporal Closeness Centrality}
 \label{sec:temp-betw-centr}
 
-\begin{wz}
-  We may also consider betweenness centrality.
-\end{wz}
-
-Recall that betweenness centrality of a node in a static graph is defined by counting the fraction of shortest paths that traverse it.
-We could extend
-betweenness centrality on evolving graphs by replacing shortest paths with temporal shortest paths \cite{nicosia13}.
-\begin{equation}
-  \label{eq:bet1}
-C_i^{betweenness} = \sum_{j \in V}\sum_{k \in V, k \ne j}\frac{\alpha_{jk}(i)}{\alpha_{jk}},
-\end{equation}
-where $\alpha_{jk}$ represents the number of temporal shortest paths from node $j$ to node $k$ and $\alpha_{jk}(i)$ represents the number of temporal shortest paths from node $j$ to node $k$ that pass through the node $i$.
-
-One may want to take into account the length of time a node passes a message. The temporal betweenness centrality of the node $i$ at time stamp $t_m$ is defined as
-\begin{equation}
-  \label{eq:bet2}
-  C_i^{betweenness}(t_m) = \sum_{j\ne i}\sum_{k\ne j, k\ne i}\frac{U_{j,k,t_m}(i)}{\alpha_{j,k}},
-\end{equation}
-where, as before, $\alpha_{j,k}$ represents the number of temporal shortest paths from $j$ to $k$ and $U_{j,k,t_m}(i)$ represents the number of temporal shortest paths from $j$ to $k$ in which node $i$ is traversed from
-the walk in the time stamp $t_m$ or a previous time stamp $t_{m-1}$. Then
-average temporal betweenness of node $i$ is then defined as
-$$
-  C_i^{betweenness} = \frac{1}{M}\sum_m C_i^{betweenness}(t_m).
-$$
-Note \eqref{eq:bet1} only takes account of static edges while \eqref{eq:bet2} takes account of both static edges and causal edges.
-
 % closeness centrality
-Similar to betweenness centrality, let $d_{ij}$ be the length of a temporal shortest walk from $i$ and $j$ in an evolving graph. Then
+Let $d_{ij}$ be the length of a temporal shortest walk from $i$ and $j$ in an evolving graph. Then
 the closeness centrality of a node $i$ is defined
 $$
 C_i^{closeness} = \frac{N-1}{\sum_j d_{ij}}.
 $$
 Note that this depends on how we define the length of temporal shortest walk. The closeness centrality can takes account of only static edges, only causal edges, or both.
+The definition of temporal closeness centrality is similar to temporal katz. The only difference is that here we traverse the shortest paths not just walks on evolving graphs.
 
+\begin{lstlisting}
+function temporal_closeness(g::AbstractEvolvingGraph, start::TimeNode)
+  v = start
+  level = Dict(v => 0)
+  i = 1
+  fronter = [v]
+  while length(fronter) > 0
+      next = []
+      for u in fronter
+          for v in forward_neighbors(g, u)
+              if !(v in keys(level))
+                  td = temporal_distance(start, u)
+                  level[v] = i + td
+                  push!(next, v)
+              end
+          end
+      end
+      fronter = next
+      i += 1
+  end
+
+  total_scores = sum(values(level))
+  return total_scores > 0. ? (length(level) - 1)/total_scores : 0.
+end
+\end{lstlisting}
+For Figure \ref{fig:katz_eg2} the scores are
+\begin{lstlisting}
+Dict{Any,Any} with 7 entries:
+TimeNode(B, 3) => 0.0
+TimeNode(B, 1) => 0.27027
+TimeNode(A, 3) => 1.0
+TimeNode(B, 2) => 1.0
+TimeNode(C, 1) => 0.259259
+TimeNode(A, 2) => 0.538462
+TimeNode(C, 2) => 0.416667
+\end{lstlisting}
+For Figure \ref{fig:katz_eg3}, the scores are
+\begin{lstlisting}
+Dict{Any,Any} with 7 entries:
+TimeNode(B, 100) => 0.0
+TimeNode(A, 2)   => 0.0636364
+TimeNode(A, 100) => 1.0
+TimeNode(C, 2)   => 0.0458716
+TimeNode(B, 1)   => 0.0746269
+TimeNode(C, 1)   => 0.0564516
+TimeNode(B, 2)   => 1.0
+\end{lstlisting}
+
+
+The analysis for temporal communicability betweenness centrality is similar.
 
 \subsection{Temporal PageRank}
 
-We derive two generalization of PageRank on evolving graphs.
-The first idea is based on reverse temporal flows.
+We derive a generalization of PageRank on evolving graphs.
+The first idea is based on reverse temporal flows and block adjacency matrix.
 
 \subsubsection{Reverse Temporal Flows}
 
@@ -772,50 +827,119 @@ The graph containing all the edges and temporal nodes has adjacency matrix $\bm 
 \end{figure}
 
 
-We consider two generalisation of pagerank: a block matrix one and a dense matrix one that is based on probability
+We derive the block google matrix as a combination of block matrix $A$ and its transpose $A^T$.
 
+The block google matrix is defined as
 
-We believe we shouldn't not just penolaize old walks but the time span between two edges.
+\begin{lstlisting}
+function block_google_matrix(g::IntAdjacencyList; alpha = 0.85, balance = 0.75)
+  A = full(block_adjacency_matrix(g))
+  A = balance * A + (1-balance) * A'
+  N, N = size(A)
+  p = ones(N)/N
+  dangling_weights = p
+  dangling_nodes = find(x->x==0, sum(A,2))
+
+  for node in dangling_nodes
+      A[node,:] = dangling_weights
+  end
+  A ./= sum(A,2)
+  return alpha * A .+ (1- alpha) * p
+end
+\end{lstlisting}
+
+We find the ranking for Figure \ref{}
+
+\begin{lstlisting}
+9-element Array{Complex{Float64},1}:
+ 0.12278
+0.254264
+0.0533627
+ 0.36275
+0.350713
+0.406792
+0.0533627
+0.524112
+0.468848
+\end{lstlisting}
 
 \section{Experiments}
 \label{sec:experiments}
 
+We test the influence of time on evolvign graph centralities.
 
 \subsection{Random Evolving Graphs}
 \label{sec:random}
+
+Note the random evolving graphs are conducted using \texttt{IntAdjacencyList}, which gives better performance for
+forward\_neighbors.
+
+We generate a random evolving graph with $100$ nodes and $9771$ static edges and $5$ time stamps.
+Here are the top $10$ nodes we find using the Katz Centrality
+
+Since we only are interested in the top nodes.
+
+\begin{tabular}{ l | c }
+  \hline
+  node & score \\
+  334 & 0.152288 \\
+  9 & 0.137403 \\
+  428 & 0.126793 \\
+  164 & 0.121582 \\
+  250 & 0.117862 \\
+  35 & 0.117627 \\
+  291 & 0.105793 \\
+  414 & 0.0975953 \\
+  123 & 0.096394 \\
+  478 & 0.0945754 \\
+  \hline
+\end{tabular}
+
+
+
+We find identify the top $10$
+
+We test temporal Katz centrality,  for top $20$
+temporal closeness, and temporal pagerank.
+by varing the influence of temporal distance.
+
+
+
+Katz score | temproal katz at with time influence 0.1 | temproal katz with time influence 1.0
+
+
+Closeness with time influence 0.1 | closeness with time influence 1.0
+
+
+PageRank with time influence 0.1 | PageRank with time influence 1.0
 
 
 
 \subsection{JMLR Coauthor Network}
 \label{sec:jmlr-coauth-netw}
 
-
 We construct the evolving coauthor network from Etymo (\url{https://etymo.io}).
 We collected $1566$ publications published by Journal of Machine Learning Research (JMLR) from $2001$ to $2017$ with authors involved. We regard each year
 as a time stamp and there are $17$ time stamps in total. At each time stamp, we
 create a undirected edge (or two directed edges) between two authors if they have coauthored at least one paper.
-(add results here.)
 
-A second network is constructed by linking leading authors in different papers whose
-ideas are similar. The resulting network represent the connectivity of ideas in all the research papers in the database.
+Some experiments as above.
 
-(add results here.)
+Katz score | temproal katz at with time influence 0.1 | temproal katz with time influence 1.0
 
-% \subsection{Paper Keyword Tag Network}
-%
-% We tag our research articles by subjects.
-%
-% We can construct a time-dependent tag network by link tags in each articles. For example,
-% suppose a paper $p_1$ has three tags $t_1$, $t_2$, and $t_3$, where $t_1$ is a superclass of $t_2$ and $t_3$.
-% We link $t_2$ and $t_3$ in both direction and create a link from $t_1$ to $t_2$ and a link from $t_1$ to $t_3$.
-% The time stamp of these edges is the published date of the paper.
+
+Closeness with time influence 0.1 | closeness with time influence 1.0
+
+
+PageRank with time influence 0.1 | PageRank with time influence 1.0
 
 
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-To write later.
+We describe in details the generalizartion of centrality algorithms for evolving graphs.
+We introduce the generalization of PageRank centrality.
 
 \bibliographystyle{plain}
 \bibliography{sigproc}

@@ -1,18 +1,20 @@
 # testing evolving graph katz centrality on author network data
 using EvolvingGraphs
+using EvolvingGraphs.Centrality
 import EzXML
 
 jmlr_dict = Dict()
 
 # load graph data at each year
 # form evolving graph
-eg= evolving_graph(String, Int)
+g = EvolvingGraph{Node{String}, Int}()
+
 for year in range(2001, 17)
-    g = load_graphml("jmlr_$(year).graphml")
-    add_graph!(eg, g, year)
+    sg = load_graphml("jmlr_$(year).graphml")
+    add_graph!(g, sg, year)
 end
 
-rating = katz_centrality(eg)
+rating = katz(g, 0.1, 0.01; mode = :receive)
 
 sorted_authors = sort(rating, by = x -> x[2], rev = true)
 
