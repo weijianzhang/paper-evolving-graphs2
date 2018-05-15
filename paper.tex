@@ -79,7 +79,7 @@
 % \usepackage[cmex10]{amsmath}
 \usepackage{amssymb}
 
-\title{A Closer Look at Network Flow on Evolving Graph Centrality}
+\title{A Closer Look at Network Flow on Evolving Graphs}
 
 \author{Jiahao Chen \thanks{
 Capital One,
@@ -487,14 +487,14 @@ which means the temporal distance is the difference between their time stamps sc
 % what is centrality?
 Centrality measures the importance of nodes within a graph.
 % current evolving graph centrality approach
-To generalize centrality measures for evolving graphs, there are two common approaches.
+To generalize centrality measures for evolving graphs there are two common approaches.
 First, we could exploit the fact that matrix product of adjacency matrices at different time stamps counts the number of dynamic walks in an evolving graph. Using this idea, we can generalize walk-based centrality measures such as
 the Katz Centrality \cite{estrada09} and Communicability Betweenness \cite{alsayed15}.
-Second, we could generalize the definition of shortest paths as shortest temporal paths and replace shortest paths in centrality measures with shortest temporal paths. This way we can define temporal betweenness centrality and temporal closeness centrality \cite{nicosia13}.
+Second, we could generalize the definition of shortest paths as shortest temporal paths and replace shortest paths in centrality measures with shortest temporal paths where possible. This way we can define temporal betweenness centrality and temporal closeness centrality \cite{nicosia13}.
 
 % our approach
-We observe both approaches ignore the communication time between edges at different time stamps, i.e., the time gap between different graph slices. We take account of this communication time by deriving centrality measures from original ideas and show communication time has important impact on the final rating (and ranking).
-We note that our goal is not about providing faster centrality algorithms which is out of the scope of this paper.
+We observe both approaches ignore the communication time between edges at different time stamps, i.e., the time gap between different (static) graph slices. We take account of this communication time by deriving centrality measures from the original theses of the ideas and show communication time has important impact on the final node ratings (and rankings).
+We note that our goal is not about providing efficient centrality algorithms which is out of the scope of this paper.
 
 \subsection{Temporal Katz Centrality}
 \label{sec:temp-katz-centr}
@@ -530,20 +530,23 @@ function temporal_katz(g::AbstractEvolvingGraph,
         for u in fronter
             for v in forward_neighbors(g, u)
                 push!(next, v)
-                td = temporal_distance(start, u)
-                d = td + level
-                score += alpha^d
+                if node_key(v) != node_key(u)
+                  td = temporal_distance(start, u)
+                  d = td + level
+                  score += alpha^d
+                end
             end
         end
         fronter = next
         level += 1
     end
-    return score
+    return score / num_edges(g)
 end
 \end{lstlisting}
 
 % explain the code
-The algorithm \texttt{temporal\_katz} performs breadth first search (BFS) starting at \texttt{TimeNode} $v$, which represent a node at a specific time stamp \footnote{See also \url{https://etymoio.github.io/EvolvingGraphs.jl/latest/base.html#EvolvingGraphs.TimeNode}}.
+The algorithm \texttt{temporal\_katz} performs a breadth first search (BFS) on evolving graph $g$ that
+starts at \texttt{TimeNode} $v$, which represents a node at a specific time stamp \footnote{See also \url{https://etymoio.github.io/EvolvingGraphs.jl/latest/base.html#EvolvingGraphs.TimeNode}}.
 For each \texttt{TimeNode} $v$, we accumulate the influence of linked nodes according to their spatial and temporal
 distance from $v$. The spatial distance is recorded in variable \texttt{level} and the temporal distance is calculated by
 \texttt{temporal\_distance}. The algorithm stops searching when \texttt{level} is larger or equal to \texttt{max\_level}.
@@ -551,50 +554,44 @@ We set \texttt{alpha} to be $0.2$ and \texttt{max\_level} to be $10$. Then
 % example on 3 timestamp evolving graph
 for Figure \ref{fig:katz_eg2}, we have
 \begin{lstlisting}
-Dict{Any,Any} with 7 entries:
-  TimeNode(B, 2) => 1.0
+  TimeNode(A, 2) => 0.466667
+  TimeNode(A, 3) => 0.2
+  TimeNode(B, 2) => 0.0
   TimeNode(B, 3) => 0.0
-  TimeNode(A, 2) => 3.58333
-  TimeNode(C, 1) => 1.06867
-  TimeNode(A, 3) => 1.0
-  TimeNode(B, 1) => 3.25373
-  TimeNode(C, 2) => 1.71667
+  TimeNode(B, 1) => 0.202347
+  TimeNode(C, 1) => 0.0117333
+  TimeNode(C, 2) => 0.293333
 \end{lstlisting}
 The total scores at all time stamps are
 \begin{lstlisting}
-DataStructures.DefaultDict{Any,Any,Float64} with 3 entries:
-  "B" => 4.25373
-  "A" => 4.58333
-  "C" => 2.78533
+  "A" => 0.666667
+  "B" => 0.202347
+  "C" => 0.305067
 \end{lstlisting}
-Notice that $A$ is still the most important node in the network. However, now $B$ is considered more important
-than $C$. This is because we consider causal edges as well as static edges. Node $B$ is active at all three time stamps
-and more connected causally than node $C$.
+Notice that $A$ is the most important node in the evolving graph and $C$ is the second most important node.
+Thus the ranking agrees with the Katz centrality rankings in Section \ref{sec:motivation}.
 
 For Figure \ref{fig:katz_eg3}, we have
 \begin{lstlisting}
-Dict{Any,Any} with 7 entries:
-  TimeNode(C, 1)   => 1.06833
+  TimeNode(A, 10)  => 0.458333
+  TimeNode(A, 100) => 0.2
+  TimeNode(B, 1)   => 0.2
+  TimeNode(B, 10)  => 0.0
   TimeNode(B, 100) => 0.0
-  TimeNode(C, 2)   => 1.70833
-  TimeNode(B, 2)   => 1.0
-  TimeNode(B, 1)   => 3.25367
-  TimeNode(A, 100) => 1.0
-  TimeNode(A, 2)   => 3.54167
+  TimeNode(C, 1)   => 2.98666e-8
+  TimeNode(C, 10)  => 0.291667
 \end{lstlisting}
 The sum of node scores at each time stamp is
 \begin{lstlisting}
-DataStructures.DefaultDict{Any,Any,Float64} with 3 entries:
-  "B" => 4.25367
-  "A" => 4.54167
-  "C" => 2.77667
+  "A" => 0.658333
+  "B" => 0.2
+  "C" => 0.291667
 \end{lstlisting}
-We see the scores of all three nodes are decreased when the last time stamp is $100$.
-Node $A$ is affected the most.
+We see the scores of all three nodes are decreased when it takes longer to communicate between different time stamps. In this case, the overall ranking is not affected but in general the communication time between time stamps can change the overall ranking.
 
 \subsubsection{Temporal Resolvent Betweenness Centrality}
 
-Betweenness centrality measures the importance of a node as the ability to facilitate the communication between other nodes in the network. Commonly it is defined based on the shortest paths. However, key messages do not necessarily follow the shortest paths and so it makes senses to consider walks instead.
+Betweenness centrality measures the importance of a node as the ability to facilitate the communication among other nodes in the network. Commonly it is defined based on the shortest paths. However, key messages do not necessarily follow the shortest paths and thus it makes senses to consider walks instead of shortest paths.
 Recall the $(i,j)$ entry of the resolvent matrix $(I - \alpha A)^{-1}$ provide information about the communication from $i$ to $j$. We could therefore define the resolvent betweenness for node $v$ as
 \begin{equation}
   \sum_{i}\sum_j \frac{(I-\alpha A)^{-1}_{i,j} - (I - \alpha (A - E_v))^{-1}_{i,j}}{(I - \alpha A)^{-1}_{i,j}}, \quad i \ne j, i \ne v, j \ne v.
@@ -602,29 +599,34 @@ Recall the $(i,j)$ entry of the resolvent matrix $(I - \alpha A)^{-1}$ provide i
 where $E_v$ has non-zeros only in row and column $v$, and in the $v$th row and column has $1$ where $A$ has $1$.
 The matrix $A - E_i$ represents a graph with all edges involving the node $v$ removed.
 For $(I-\alpha A)^{-1}_{i,j}$ we could simply modify Listing \ref{lst:katz} so that it only accumulate scores when the end node is $j$. For the $(I - \alpha (A-E_v))^{-1}_{i,j}$ part, we can apply the above the same algorithm on a graph with node $v$ and related edges removed.
+Therefore the general temporal resolvent betweenness centrality can be defined as
 \begin{lstlisting}
-function temporal_resolvent_betweenness(g1::EvolvingGraph,
-  g2::EvolvingGraph, v::TimeNode; alpha = 0.2, k = 10)
+function temporal_resolvent_betweenness(g1, g2,
+  v::TimeNode; alpha = 0.2, k = 10)
     r = 0.
     ns = active_nodes(g1)
     for i in ns
         for j in ns
             if i != j && i != v && j != v
-                score1 = temporal_katz(g1, i, j, alpha = alpha, k = k)
-                score2 = temporal_katz(g2, i, j, alpha = alpha, k = k)
-                r += score1 == 0.0 ? 0 : (score1 - score2)/score1
+                score1 = temporal_katz(g1, i, j,
+                    alpha = alpha, k = k)
+                score2 = temporal_katz(g2, i, j,
+                    alpha = alpha, k = k)
+                r += score1 == 0.0 ? 0 :
+                    (score1 - score2)/score1
             end
         end
     end
     return r
 end
 \end{lstlisting}
-For example, by removing node $C$ a time stamp $2$ from Figure \ref{fig:katz_eg2} we find
-the temporal resolvent betweenness score is $6.09$. While the temporal resolvent betweenness score
-of node $A$ at time stamp $3$ is $5.0$. This shows $(C,2)$ is more important than $(A,3)$.
+Here \texttt{temporal\_katz} only takes account of walks from node $i$ to $j$. Evolving graph
+\texttt{g1} is the original evolving graph and evolving graph \texttt{g2} is \texttt{g1} with all the edges
+related to \texttt{v} removed.
 
-Now consider Figure \ref{fig:katz_eg3}. If we remove $(C,2)$, the temporal resolvent betweenness score is $4.20$.
-The analysis for temporal communicability betweenness centrality is similar.
+For example, by removing node $(A, 2)$, i.e., node $A$ at time stamp $2$, from Figure \ref{fig:katz_eg2} we find
+the temporal resolvent betweenness score of node $A$ is $5.0$. While the temporal resolvent betweenness score of node $(B,3)$ is $4.0$. This shows that $(A,2)$ is more important than $(B,3)$.
+We note that temporal communicability betweenness centrality can be analysed similarly.
 
 \subsection{Temporal Closeness Centrality}
 \label{sec:temp-betw-centr}
@@ -844,6 +846,9 @@ We find the ranking for Figure \ref{}
 0.524112
 0.468848
 \end{lstlisting}
+
+One potential problem is the computational cost. Since the dimension of the block matrix
+is $|V| \times |T|$, where $|V|$ represents the number of nodes and $|T|$ represents the number of time stamps. The block matrix may become very large for an evolving graph with many time stamps.
 
 \section{Experiments}
 \label{sec:experiments}
