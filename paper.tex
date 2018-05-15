@@ -191,7 +191,7 @@ We use the research paper data gathered from Etymo (\url{https://etymo.io}), a v
 \section{Motivation: A Closer Look at Katz Centrality on Evolving Graphs}
 \label{sec:motivation}
 
-We let $G_generalisede G^{[1]}, G^{[2]}, \ldots, G^{[n]} \rangle$ be an evolving graph
+We let $G_n = \langle G^{[1]}, G^{[2]}, \ldots, G^{[n]} \rangle$ be an evolving graph
 and $A^{[1]}, A^{[2]}, \dots A^{[n]}$ be the corresponding adjacency matrices.
 Then the dynamic communicability matrix is defined as
 \begin{equation}
@@ -258,7 +258,7 @@ katz(g)
 \end{lstlisting}
 
 As expected $A$ is the most important node in the network. $C$ is the second important node in the network as it influenced
-$A$ at time stamp $2$. If we reverse the time of communication between day $1$ and $3$, i.e., $B$ shares a new idea with $C$ on day $1$ and $A$ shares a new idea with $B$ on day $3$. Then the idea $A$ had on day $3$ can not pass to $C$ in this case. This is illustrated in Figure \ref{fig:katz_eg2}.
+$A$ at time stamp $2$. If we reverse the time of communication between day $1$ and $3$, i.e., $B$ shares a new idea with $C$ on day $1$ and $A$ shares a new idea with $B$ on day $3$. Then in this case the idea $A$ had on day $3$ can not pass to $C$. This is illustrated in Figure \ref{fig:katz_eg2}.
 
 \begin{figure}[h]
  \begin{center}
@@ -309,12 +309,11 @@ katz(g2)
 \end{lstlisting}
 
 Notice the rating of $A$ decreased as its influence is not as important as in Figure \ref{fig:katz_eg}.
-
 % does not take account of walks in a long time. cost in time
-If the final communication between $A$ and $B$ are not on day $3$ but on day $100$, as shown in Figure \ref{fig:katz_eg3},
-we would expect the centrality ratings to change. However, according to \eqref{eq:q}, ratings are unchanged.
+If the communication between $A$, $B$, and $C$ are not on three consecutive days
+but on day $1$, day $10$, and day $100$, as shown in Figure \ref{fig:katz_eg3},
+we would expect the centrality scores to change. However, according to \eqref{eq:q}, scores are unchanged.
 We notice that the generalised Katz centrality on evolving graphs only takes account of the edges at each time stamp but not the communication time between edges at different time stamps.
-
 
 \begin{figure}[h]
  \begin{center}
@@ -357,40 +356,38 @@ each $i = 1, 2, \ldots, l$, there is an edge from $v_i$ to $v_{i+1}$. A path of 
 such that all the nodes are different.
 % relate to centrality
 The definition of centrality depends on the manner in which traffic flows through a network \cite{borgatti05}.
-Time-preserving walks induce temporal Katz centrality and temporal closeness Centrality while time-preserving paths
-induce betweenness centrality and closeness centrality.
+Time-preserving walks induce temporal Katz centrality and temporal closeness centrality while time-preserving paths induce betweenness centrality and closeness centrality.
 
 
-We now describe time-preserving paths in more detail. We follow the definition of
-\emph{evolving graph}, \emph{temporal node} and \emph{active node} in \cite{chen16}.
+We now describe evolving graph network flow in more details. We follow the definition of
+\emph{evolving graph} in \cite{chen16}.
 
 \begin{definition}
   An \textbf{evolving graph} $G_n$ is a sequence of (static) graphs
 $G_n = \langle G^{[1]}, G^{[2]},  \ldots ,G^{[n]} \rangle$ with associated time stamps
-$t_1, t_2, \ldots, t_n$ respectively. Each $G^{[t]} = (V^{[t]}, E^{[t]})$ represents a (static) graph labeled by a time t.
+$t_1, t_2, \ldots, t_n$ respectively. Each $G^{[t]} = (V^{[t]}, E^{[t]})$ represents a (static) graph labelled by a time t.
 \end{definition}
 
 Note the node sets $V^{[t]}$ can change over time, i.e., nodes may appear or disappear at a particular time stamp.
-For example, in Figure \ref{fig:eg_shortest_walk}, at time stamp $t_1$, $V^{[1]} = \langle 1, 2 \rangle$ and $E^{[1]} = \langle (1,2) \rangle$. Each graph $G^{[t]}$ can be represented by its adjacency matrix $A^{[t]}$.
+For example, in Figure \ref{fig:eg_shortest_walk}, at time stamp $1998$, $V^{[1998]} = \langle 1, 2 \rangle$ and $E^{[1998]} = \langle (1,2) \rangle$. Each graph $G^{[t]}$ can be represented by its adjacency matrix $A^{[t]}$.
 We can represent $G_n$ by a list of adjacency matrices $A_n = \langle A^{[1]}, A^{[2]}, \ldots, A^{[n]} \rangle$.
 
-If we use this definition of temporal walk for the temporal Katz centrality introduced in
-\cite{grindrod11}, we have a new centrality measure.
-In the matrix form, the nonzero entries of $A^{[t_i]} A^{[t_{i+1}]}$ counts all the temporal paths of length $1$, and
-$A^{[t_i]}\cdots A^{[t_j]}$, where $i < j$ counts all the temporal paths of length $j -i$.
-For example, $A^{[1]}A^{[4]}$, $A^{[1]}A^{[1]}A^{[4]}$ and $A^{[1]}A^{[2]}A^{[3]}A^{[4]}$ are all paths of length 3.
+If we only measure the temporal difference in a temporal walk, we have a new definition of Katz centrality.
+In the matrix form, the nonzero entries of $A^{[t_i]} A^{[t_{i+1}]}$ counts all the temporal walks of length $1$, and
+$A^{[t_i]}\cdots A^{[t_j]}$, where $i < j$ counts all the temporal walks of length $j -i$.
+For example, $A^{[1]}A^{[4]}$, $A^{[1]}A^{[1]}A^{[4]}$ and $A^{[1]}A^{[2]}A^{[3]}A^{[4]}$ are all walks of length 3.
 In the original Katz centrality, the `attenuation' factor $\alpha$ is imposed on the
 number of paths, i.e., longer paths has smaller effect to the overall rating.
 Hence the final result is the summation of all products of the form
 \[
 \alpha^k A^{[i]} \cdots A^{[i+k]}
 \]
-% Note this can not be written in \eqref{eq:katz}, as discussed in Section \ref{sec:temp-katz-centr}.
+Note this can not be written in \eqref{eq:q} as discussed in Section \ref{sec:temp-katz-centr}.
 
 
-Another definition of temporal walk was introduced by \cite{chen16}. Here
-both static edges and causal edges are considered. We can represent an evolving graph by a block adjacency matrix, as shown in Section \ref{sec:centr-block-adjac}. Centrality on this block matrix gives the importance of each node at all time stamps. We can average these rating at different time stamps to
-get the final rating.
+% Another definition of temporal walk was introduced by \cite{chen16}. Here
+% both static edges and causal edges are considered. We can represent an evolving graph by a block adjacency matrix, as shown in Section \ref{sec:centr-block-adjac}. Centrality on this block matrix gives the importance of each node at all time stamps. We can average these rating at different time stamps to
+% get the final rating.
 
 \begin{figure}[h]
  \begin{center}
@@ -429,10 +426,6 @@ inactive nodes. Directed edges in each time stamp are shown as black arrows and 
 \end{figure}
 
 
-It is natural to define the length of a walk on a static graph as the number of nodes travelled through the walk. For the weighted graph case, the length of a walk is the total weight of all the edges in the walk. We observe that static edges link nodes in space while causal edges link nodes in time. Hence we would like to distinguish temporal distance from spatial distance on an evolving graph: the length of a static edge is equal to the edge weight (or $1$ in the unweighted graph case); the length of a causal edge is the time distance between the two nodes. In the simplest case, the time-respecting walk
-$\langle (1, t_1) ,(2, t_1) , (2, t_3), (3, t_3)\rangle$ in Figure \ref{fig:eg_shortest_walk} has length $4$ in total because two static edges $\langle (1, t_1) (2, t_1) \rangle$ and $\langle (2, t_3), (3, t_3) \rangle$ have length one, whereas $\langle (2, t_1) (2, t_3) \rangle$ traverse $2$ time stamps so has length $2$.
-
-
 \begin{definition}
   A \textbf{temporal node} is a pair (v, t), where $v \in V^{[t]}$ is a node at a time $t$.
 \end{definition}
@@ -445,48 +438,48 @@ $\langle (1, t_1) ,(2, t_1) , (2, t_3), (3, t_3)\rangle$ in Figure \ref{fig:eg_s
 
 In Figure \ref{fig:eg_shortest_walk}, the filled green circles are active nodes. For the adjacency matrix representation, a node $i$ is active at time stamp $t$, then
 the $i$th row or the $i$th column of $A^{[t]}$ has at least one none-zero entry.
- In general, a time-preserving walk can be defined as follows.
+
+ \begin{definition}
+ A \textbf{static edge} $\langle (v_i, t), (v_j, t)\rangle$ is a pair of elements of $V^{[t]}$, i.e., $v_i \in V^{[t]}$ and
+ $v_j \in V^{[t]}$.
+  A \textbf{causal edge} $\langle (v, t_i), (v, t_j)\rangle$ is a pair of the same node at different time stamps.
+ \end{definition}
+
+ For example, in Figure \ref{fig:eg_shortest_walk}
+ $\langle (1, 1998), (2, 1998) \rangle$ is a static edge at time stamp $1998$ and $\langle (3, 1999), (3, 2018) \rangle$ is a causal edge between time stamp $1999$ and time stamp $2018$.
+ The difference between static edges and causal edges were first explicitly considered in \cite{chen16}.
+
+
+ We can denote a \emph{weighted static edge} as $\langle (v_i, t), (v_j, t), w_s \rangle$ and a \emph{weighted causal edge} as $\langle (v, t_i), (v, t_j), w_t \rangle$.
+ Here $w_s$ represents the spatial distance between the two nodes $v_i$ and $v_j$; $w_t$ represents the
+ temporal distance of $v$ at different time stamps.
+ In Figure \ref{fig:eg_shortest_walk}, the black arrows represent static edges and the dotted arrows represent causal edges.
+ Suppose we assign all the static edge weight to $1$ and
+ let the causal edge weight be the number of time stamps between the pair of nodes. Then in Figure \ref{fig:eg_shortest_walk}
+ the edge weight between $(1, 1998)$ and $(2, 1998)$ is $1$ and the edge weight between $(2, 1998)$ and $(2, 2018)$ is $10$.
+In general, a time-preserving walk can be defined as follows.
+
 
 \begin{definition}
 A \textbf{time-preserving walk}  of length $m$ on an evolving graph $G_n$ is a time-ordered sequence of active nodes, $\langle (v_1, t_1), (v_2, t_2), \ldots, (v_m, t_m) \rangle$, where $t_1 \le t_2 \le \cdots \le t_m$ and
 $v_i = v_j$ if and only if $t_i \ne t_j$.
 \end{definition}
 
-Note $\langle (v_i, t_i), (v_j, t_i) \rangle$ represents a static edge on graph $G^{[t_i]}$ while $\langle (v_i, t_i), (v_i, t_j) \rangle$ represents a causal edge from time stamp $t_i$ to time stamp $t_j$.
+It is natural to define the length of a walk on a static graph as the number of nodes travelled through the walk. For the weighted graph case, the length of a walk is the total weight of all the edges in the walk. We observe that static edges link nodes in space while causal edges link nodes in time. Hence we would like to distinguish temporal distance from spatial distance in an evolving graph: we let the length of a static edge be one and the length of a causal edge be the temporal distance between the two nodes. In the simplest case, the time-respecting walk
+$\langle (1, 1998) ,(2, 1998) , (2, 2018), (3, 2018)\rangle$ in Figure \ref{fig:eg_shortest_walk} has length $12$ in total because two static edges $\langle (1, 1998) (2, 1998) \rangle$ and $\langle (2, 2018), (3, 2018) \rangle$ each have length one, and $\langle (2, 1998) (2, 2018) \rangle$
+traverse $10$ time stamps and thuse has length $10$.
 
-\begin{definition}
-A \textbf{static edge} $\langle (v_i, t), (v_j, t)\rangle$ is a pair of elements of $V^{[t]}$, i.e., $v_i \in V^{[t]}$ and
-$v_j \in V^{[t]}$.
- A \textbf{causal edge} $\langle (v, t_i), (v, t_j)\rangle$ is a pair of the same node at different time stamps.
-\end{definition}
-
-We can denote a \emph{weighted static edge} as $\langle (v_i, t), (v_j, t), w_s \rangle$ and a \emph{weighted causal edge} as $\langle (v, t_i), (v, t_j), w_t \rangle$.
-Here $w_s$ represents the spatial distance between the two nodes $v_i$ and $v_j$; $w_t$ represents the
-temporal distance of $v$ at different time stamps.
-In Figure \ref{fig:eg_shortest_walk}, the black arrows represent static edges and the dotted arrows represent causal edges.
-Suppose we assign all the static edge weight to be $1$ and
-assign the causal edge to be the number of time stamps between the pair. Then in Figure \ref{fig:eg_shortest_walk}
-the edge weight between $(1, t_1)$ and $(2, t_1)$ is $1$ and the edge weight between $(2, t_1)$ and $(2, t_3)$
- is $2$.
-
- For example, in Figure \ref{fig:eg_shortest_walk}
- $\langle (1, t_1), (2, t_1) \rangle$ is a static edge at time stamp $t_1$ and $\langle (3, t_2), (3, t_3) \rangle$ is a causal edge between time stamp $t_2$ and time stamp $t_3$.
- The difference between static edges and causal edges were first explicitly considered in \cite{chen16}.
-
-A time-preserving walk can traverse both causal edges and static edges.
-We will see in the next section that evolving centrality measures make implicit assumptions about the type of edges in the
-time-preserving walk that is used.
-
-The following function measure the temporal distance between two active nodes in an evolving graph.
+A time-preserving walk (and path) can traverse both causal edges and static edges.
+The following Julia function measures the temporal distance between two active nodes in an evolving graph.
 
 \begin{lstlisting}
 function temporal_distance(v1::TimeNode,
                            v2::TimeNode, beta::Real = 1.)
-  return node_key(v1) == node_key(v2) ?
-  beta* abs(node_timestamp(v1) - node_timestamp(v2)) : 0
+  beta* abs(node_timestamp(v1) - node_timestamp(v2))
 end
 \end{lstlisting}
-which means if two active nodes have the same key name, the temporal distance is the difference between their time stamps.
+which means the temporal distance is the difference between their time stamps scaled a hyper-parameter
+\texttt{beta}.
 
 \section{Centrality Measures}
 \label{sec:topol-temp-flow}
@@ -630,7 +623,7 @@ For example, by removing node $C$ a time stamp $2$ from Figure \ref{fig:katz_eg2
 the temporal resolvent betweenness score is $6.09$. While the temporal resolvent betweenness score
 of node $A$ at time stamp $3$ is $5.0$. This shows $(C,2)$ is more important than $(A,3)$.
 
-Now consider Figure \ref{fig:katz_eg3}. If we remove $(C,2)$, the temproal resolvent betweenness score is $4.20$.
+Now consider Figure \ref{fig:katz_eg3}. If we remove $(C,2)$, the temporal resolvent betweenness score is $4.20$.
 The analysis for temporal communicability betweenness centrality is similar.
 
 \subsection{Temporal Closeness Centrality}
@@ -894,7 +887,7 @@ by varing the influence of temporal distance.
 
 
 
-Katz score | temproal katz at with time influence 0.1 | temproal katz with time influence 1.0
+Katz score | temporal katz at with time influence 0.1 | temporal katz with time influence 1.0
 
 
 Closeness with time influence 0.1 | closeness with time influence 1.0
@@ -914,7 +907,7 @@ create a undirected edge (or two directed edges) between two authors if they hav
 
 Some experiments as above.
 
-Katz score | temproal katz at with time influence 0.1 | temproal katz with time influence 1.0
+Katz score | temporal katz at with time influence 0.1 | temporal katz with time influence 1.0
 
 
 Closeness with time influence 0.1 | closeness with time influence 1.0
