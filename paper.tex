@@ -893,16 +893,13 @@ is $|V| \times |T|$, where $|V|$ represents the number of nodes and $|T|$ repres
 \section{Experiments}
 \label{sec:experiments}
 
-We conduct the following experiments using \texttt{IntAdjacencyList}, which represents an evolving graph $g$ with integer nodes and integer time stamps as adjacency lists. Each active node stores its forward neighbours as a list. We count both static edges and causal edges.
+We conduct the following experiments using \texttt{IntAdjacencyList}, which represents an evolving graph $g$ with integer nodes and integer time stamps as adjacency lists. In particular, each active node in $g$ stores its forward neighbours in a list. We count both static edges and causal edges.
 The following experiments study the influence of temporal distance on centrality scores. All experiments are conducted on a MacOS system with $8$ GB of RAM running at $2.3$ GHz clock speed.
 
 \subsection{Random Evolving Graphs}
 \label{sec:random}
 
-
-We generate a random evolving graph $g$ with $500$ nodes and about $499183$ static edges and $10$ time stamps.
-Here are the top $10$ nodes we find using the Katz Centrality
-
+We generate a random evolving graph $g$ with $500$ nodes and $499183$ static edges and $10$ time stamps. Using the Katz centrality in \eqref{eq:q}, we find the top $10$ most important nodes.
 \begin{lstlisting}
 (459, 0.126296)
 (147, 0.116541)
@@ -915,10 +912,14 @@ Here are the top $10$ nodes we find using the Katz Centrality
 (313, 0.0910352)
 (127, 0.089123)
 \end{lstlisting}
-
-Since we are usually interested in the ranking of top score nodes,
-we apply temporal Katz centrality on these above $10$ nodes.
-We set $alpha = 0.5$  and $max\_level = 3$. We report the change of ranking and rating in Table \ref{table:ranking}
+Instead of running temporal Katz centrality for each active node in the evolving graph $g$,
+we only consider these $10$ most important nodes because in practice we usually are just interested in the rankings and ratings of the most important nodes. For each node in the above list,
+we compute the node score at each time stamp and the overall score.
+Here we set $alpha = 0.5$  and $max\_level = 3$.  The results are shown in Table \ref{table:ranking}
+and Table \ref{table:ranking2}.
+We observe that the Katz ratings in general are smaller when we take account of the temporal information. The rankings, however, are stable. For rankings at time stamp $1$,
+only the top two nodes $459$ and $469$ change positions.
+The overall rankings stays unchanged.
 
   \begin{table}[h]
     \begin{center}
@@ -936,8 +937,8 @@ We set $alpha = 0.5$  and $max\_level = 3$. We report the change of ranking and 
      313 & $0.5715$ & 127 & $5.613$ \\
   \end{tabular}
   \end{center}
-  \caption{Temporal Katz centrality ranking and rating of evolving graph $g$.
-We set the weight of all causal edges to zero.}
+  \caption{Temporal Katz centrality ranking and rating on evolving graph $g$.
+  We set the weight of all causal edges to zero.}
   \label{table:ranking}
   \end{table}
 
@@ -957,17 +958,17 @@ We set the weight of all causal edges to zero.}
      313 & $0.4916$ & 127 & $5.237$ \\
   \end{tabular}
   \end{center}
-  \caption{Temporal Katz centrality ranking and rating of evolving graph $g$.
+  \caption{Temporal Katz centrality ranking and rating on evolving graph $g$.
   We set the weight of a causal edge between two active nodes to be their temporal difference.
-  Compare with Table \ref{table:ranking}, we highlight the ranking difference using bold font.}
+  We use bold font to highlight the differences in ranking from Table \ref{table:ranking}.}
   \label{table:ranking2}
   \end{table}
 
-We observe the rating of all nodes are smaller when we take account of the temporal information. The only difference between the rankings of two table
-is the top two nodes $459$ and $469$. The overall ranking stays unchanged.
-This shows that temporal Katz centrality is stable for changing temporal information.
 
-On the same random evolving graph $g$, we compute temporal closeness centrality.
+For the same random evolving graph $g$, we also compute temporal closeness centrality scores.
+The results are shown in Table \ref{table:ranking3} and Table \ref{table:ranking4}.
+For temporal closeness centrality, we notice that most of rankings are changed when we take account of the temporal information.
+
 
 \begin{table}[h]
   \begin{center}
@@ -1007,11 +1008,11 @@ We set the weight of all causal edges to zero.}
 \end{tabular}
 \end{center}
 \caption{Temporal closeness centrality ranking and rating of evolving graph $g$.
-We set the weight of a causal edge between two active nodes to be their temporal difference. Compare with Table \ref{table:ranking3}, we highlight the ranking difference using bold font.}
+We set the weight of a causal edge between two active nodes to be their temporal difference.
+We use bold font to highlight the differences in ranking from Table \ref{table:ranking3}.}
 \label{table:ranking4}
 \end{table}
 
-For temporal closeness centrality, we notice that most of rankings are changed when we take account of temporal information.
 
 
 % \subsection{JMLR Coauthor Network}
@@ -1037,8 +1038,9 @@ For temporal closeness centrality, we notice that most of rankings are changed w
 \section{Conclusion}
 \label{sec:conclusion}
 
-We describe in details the generalizartion of centrality algorithms for evolving graphs and find
-We introduce the generalization of PageRank centrality.
+We describe in details the generalisation of centrality algorithms for evolving graphs.
+We conduct experiments to show that temporal information is an important factor for evolving graph centrality ranking and rating. In particular, we observe temporal Katz centrality is much more stable than temporal closeness centrality if we vary the influence of temporal information.
+We also derive a temporal PageRank centrality using reversed temporal walks and block adjacency matrix.
 
 \bibliographystyle{plain}
 \bibliography{sigproc}
