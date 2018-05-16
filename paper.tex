@@ -137,7 +137,7 @@ We derive evolving graph centrality measures from the perspective of network flo
 observe that the amount of temporal distance between nodes has an important impact on the final evolving graph centrality scores, especially on the top ranked nodes.
 Build on this idea, we introduce a generalised PageRank on evolving graph that is based on two ideas:
 reverse network flow and block adjacency matrix.
-We conduct our experiments on random evolving graphs and the JMLR co-author networks to illustrate our idea.
+We conduct our experiments on random evolving graphs to illustrate our idea.
 \end{abstract}
 
 \section{Introduction}
@@ -893,81 +893,151 @@ is $|V| \times |T|$, where $|V|$ represents the number of nodes and $|T|$ repres
 \section{Experiments}
 \label{sec:experiments}
 
-We test the influence of time on evolving graph centralities.
-Justify use \texttt{IntAdjacencyList}.
-
+We conduct the following experiments using \texttt{IntAdjacencyList}, which represents an evolving graph $g$ with integer nodes and integer time stamps as adjacency lists. Each active node stores its forward neighbours as a list. We count both static edges and causal edges.
+The following experiments study the influence of temporal distance on centrality scores. All experiments are conducted on a MacOS system with $8$ GB of RAM running at $2.3$ GHz clock speed.
 
 \subsection{Random Evolving Graphs}
 \label{sec:random}
 
-Note the random evolving graphs are conducted using \texttt{IntAdjacencyList}, which gives better performance for
-forward\_neighbors.
 
-We generate a random evolving graph with $100$ nodes and $9771$ static edges and $5$ time stamps.
+We generate a random evolving graph $g$ with $500$ nodes and about $499183$ static edges and $10$ time stamps.
 Here are the top $10$ nodes we find using the Katz Centrality
 
-Since we only are interested in the top nodes.
+\begin{lstlisting}
+(459, 0.126296)
+(147, 0.116541)
+(326, 0.113667)
+(183, 0.108705)
+(469, 0.0936847)
+(296, 0.0925748)
+(424, 0.0921004)
+(377, 0.091973)
+(313, 0.0910352)
+(127, 0.089123)
+\end{lstlisting}
 
-\begin{tabular}{ l | c }
-  \hline
-  node & score \\
-  334 & 0.152288 \\
-  9 & 0.137403 \\
-  428 & 0.126793 \\
-  164 & 0.121582 \\
-  250 & 0.117862 \\
-  35 & 0.117627 \\
-  291 & 0.105793 \\
-  414 & 0.0975953 \\
-  123 & 0.096394 \\
-  478 & 0.0945754 \\
-  \hline
+Since we are usually interested in the ranking of top score nodes,
+we apply temporal Katz centrality on these above $10$ nodes.
+We set $alpha = 0.5$  and $max\_level = 3$. We report the change of ranking and rating in Table \ref{table:ranking}
+
+  \begin{table}[h]
+    \begin{center}
+  \begin{tabular}{ c | c | c | c }
+    Ranking at $t_1$ & Rating at $t_1$ & Overall ranking & Overall rating \\
+     469 & $0.7193$ & 183 & $5.975$ \\
+     459 & $0.7180$ & 469 & $5.932$ \\
+     424 & $0.7108$ & 326 & $5.804$ \\
+     296 & $0.7042$ & 313 & $5.797$ \\
+     326 & $0.6853$ & 459 & $5.788$ \\
+     183 & $0.6647$ & 147 & $5.782$ \\
+     377 & $0.6622$ & 377 & $5.691$ \\
+     127 & $0.6316$ & 296 & $5.681$ \\
+     147 & $0.6303$ & 424 & $5.636$ \\
+     313 & $0.5715$ & 127 & $5.613$ \\
+  \end{tabular}
+  \end{center}
+  \caption{Temporal Katz centrality ranking and rating of evolving graph $g$.
+We set the weight of all causal edges to zero.}
+  \label{table:ranking}
+  \end{table}
+
+  \begin{table}[h]
+    \begin{center}
+  \begin{tabular}{ c | c | c | c }
+    Ranking at $t_1$ & Rating at $t_1$ & Overall ranking & Overall rating \\
+     \textbf{459} & $0.6290$ & 183 & $5.576$ \\
+     \textbf{469} & $0.6281$ & 469 & $5.533$ \\
+     424 & $0.6236$ & 326 & $5.414$ \\
+     296 & $0.6167$ & 313 & $5.409$ \\
+     326 & $0.5983$ & 459 & $5.401$ \\
+     183 & $0.5778$ & 147 & $5.396$ \\
+     377 & $0.5775$ & 377 & $5.311$ \\
+     127 & $0.5492$ & 296 & $5.299$ \\
+     147 & $0.5471$ & 424 & $5.258$ \\
+     313 & $0.4916$ & 127 & $5.237$ \\
+  \end{tabular}
+  \end{center}
+  \caption{Temporal Katz centrality ranking and rating of evolving graph $g$.
+  We set the weight of a causal edge between two active nodes to be their temporal difference.
+  Compare with Table \ref{table:ranking}, we highlight the ranking difference using bold font.}
+  \label{table:ranking2}
+  \end{table}
+
+We observe the rating of all nodes are smaller when we take account of the temporal information. The only difference between the rankings of two table
+is the top two nodes $459$ and $469$. The overall ranking stays unchanged.
+This shows that temporal Katz centrality is stable for changing temporal information.
+
+On the same random evolving graph $g$, we compute temporal closeness centrality.
+
+\begin{table}[h]
+  \begin{center}
+\begin{tabular}{ c | c | c | c }
+  Ranking at $t_1$ & Rating at $t_1$ & Overall ranking & Overall rating \\
+   296 & $0.4938$ & 469 & $5.040$ \\
+   469 & $0.4933$ & 183 & $5.030$ \\
+   459 & $0.4915$ & 313 & $5.016$ \\
+   424 & $0.4888$ & 326 & $5.009$ \\
+   326 & $0.4879$ & 147 & $5.008$ \\
+   377 & $0.4872$ & 459 & $5.003$ \\
+   183 & $0.4858$ & 296 & $4.002$ \\
+   127 & $0.4831$ & 377 & $4.996$ \\
+   147 & $0.4790$ & 127 & $4.989$ \\
+   313 & $0.4773$ & 424 & $4.986$ \\
 \end{tabular}
+\end{center}
+\caption{Temporal closeness centrality ranking and rating of evolving graph $g$.
+We set the weight of all causal edges to zero.}
+\label{table:ranking3}
+\end{table}
+
+\begin{table}[h]
+  \begin{center}
+\begin{tabular}{ c | c | c | c }
+  Ranking at $t_1$ & Rating at $t_1$ & Overall ranking & Overall rating \\
+   296 & $0.2540$ & 469 & $3.562$ \\
+   469 & $0.2487$ & \textbf{147} & $3.557$ \\
+   \textbf{377} & $0.2478$ & \textbf{183} & $3.555$ \\
+   \textbf{459} & $0.2475$ & \textbf{313} & $3.548$ \\
+   \textbf{424} & $0.2471$ & \textbf{377} & $3.545$ \\
+   \textbf{326} & $0.2470$ & \textbf{296} & $3.541$ \\
+   \textbf{127} & $0.2445$ & \textbf{459} & $3.540$ \\
+   \textbf{183} & $0.2422$ & \textbf{127} & $3.538$ \\
+   \textbf{313} & $0.2389$ & \textbf{424} & $3.535$ \\
+   \textbf{147} & $0.2373$ & \textbf{326} & $3.533$ \\
+\end{tabular}
+\end{center}
+\caption{Temporal closeness centrality ranking and rating of evolving graph $g$.
+We set the weight of a causal edge between two active nodes to be their temporal difference. Compare with Table \ref{table:ranking3}, we highlight the ranking difference using bold font.}
+\label{table:ranking4}
+\end{table}
+
+For temporal closeness centrality, we notice that most of rankings are changed when we take account of temporal information.
 
 
-
-We find identify the top $10$
-
-We test temporal Katz centrality,  for top $20$
-temporal closeness, and temporal pagerank.
-by varing the influence of temporal distance.
-
-
-
-Katz score | temporal katz at with time influence 0.1 | temporal katz with time influence 1.0
-
-
-Closeness with time influence 0.1 | closeness with time influence 1.0
-
-
-PageRank with time influence 0.1 | PageRank with time influence 1.0
-
-
-
-\subsection{JMLR Coauthor Network}
-\label{sec:jmlr-coauth-netw}
-
-We construct the evolving coauthor network from Etymo (\url{https://etymo.io}).
-We collected $1566$ publications published by Journal of Machine Learning Research (JMLR) from $2001$ to $2017$ with authors involved. We regard each year
-as a time stamp and there are $17$ time stamps in total. At each time stamp, we
-create a undirected edge (or two directed edges) between two authors if they have coauthored at least one paper.
-
-Some experiments as above.
-
-Katz score | temporal katz at with time influence 0.1 | temporal katz with time influence 1.0
-
-
-Closeness with time influence 0.1 | closeness with time influence 1.0
-
-
-PageRank with time influence 0.1 | PageRank with time influence 1.0
-
-
+% \subsection{JMLR Coauthor Network}
+% \label{sec:jmlr-coauth-netw}
+%
+% We construct the evolving coauthor network from Etymo (\url{https://etymo.io}).
+% We collected $1566$ publications published by Journal of Machine Learning Research (JMLR) from $2001$ to $2017$ with authors involved. We regard each year
+% as a time stamp and there are $17$ time stamps in total. At each time stamp, we
+% create a undirected edge (or two directed edges) between two authors if they have coauthored at least one paper.
+%
+% Some experiments as above.
+%
+% Katz score | temporal katz at with time influence 0.1 | temporal katz with time influence 1.0
+%
+%
+% Closeness with time influence 0.1 | closeness with time influence 1.0
+%
+%
+% PageRank with time influence 0.1 | PageRank with time influence 1.0
+%
+% also show trends of an author.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-We describe in details the generalizartion of centrality algorithms for evolving graphs.
+We describe in details the generalizartion of centrality algorithms for evolving graphs and find
 We introduce the generalization of PageRank centrality.
 
 \bibliographystyle{plain}
