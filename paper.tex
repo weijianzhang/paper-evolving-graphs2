@@ -632,16 +632,21 @@ We note that temporal communicability betweenness centrality can be analysed sim
 \label{sec:temp-betw-centr}
 
 % closeness centrality
-Let $d_{ij}$ be the length of a temporal shortest walk from $i$ and $j$ in an evolving graph. Then
+
+Let $d_{ij}$ be the length of the shortest path from $i$ and $j$ in a static graph. Then
 the closeness centrality of a node $i$ is defined
 $$
-C_i^{closeness} = \frac{N-1}{\sum_j d_{ij}}.
+C_i^{closeness} = \frac{N-1}{\sum_j d_{ij}},
 $$
-Note that this depends on how we define the length of temporal shortest walk. The closeness centrality can takes account of only static edges, only causal edges, or both.
-The definition of temporal closeness centrality is similar to temporal katz. The only difference is that here we traverse the shortest paths not just walks on evolving graphs.
+where $N-1$ is the total number of reachable nodes.
+For evolving graphs, we need to consider the shortest temporal path from $(i,t_i)$ to $(j,t_j)$, for any time stamp $t_i \leq t_j$.
+Depends on how define the length of shortest temporal path, the closeness centrality can counts static edges, causal edges, or both.
+The key difference between Katz centrality and closeness centrality is the fact here we only consider shortest temporal paths, not just every temporal walks.
+We could apply BFS to find the shortest temporal path from $(v,t)$ to any other nodes in the evolving graphs. The algorithm is shown as follows.
 
 \begin{lstlisting}
-function temporal_closeness(g::AbstractEvolvingGraph, start::TimeNode)
+function temporal_closeness(g::AbstractEvolvingGraph,
+  start::TimeNode)
   v = start
   level = Dict(v => 0)
   i = 1
@@ -651,8 +656,12 @@ function temporal_closeness(g::AbstractEvolvingGraph, start::TimeNode)
       for u in fronter
           for v in forward_neighbors(g, u)
               if !(v in keys(level))
-                  td = temporal_distance(start, u)
-                  level[v] = i + td
+                  if node_key(u) != node_key(v)
+                    td = temporal_distance(start, u)
+                    level[v] = i + td
+                  else
+                    level[v] = i - 1
+                  end
                   push!(next, v)
               end
           end
@@ -662,63 +671,77 @@ function temporal_closeness(g::AbstractEvolvingGraph, start::TimeNode)
   end
 
   total_scores = sum(values(level))
-  return total_scores > 0. ? (length(level) - 1)/total_scores : 0.
+  return total_scores > 0. ?
+      (length(level) - 1)/total_scores : 0.
 end
 \end{lstlisting}
+The algorithm starts at node \texttt{start} and explores the forward neighbours and store all the
+reached nodes so far in \texttt{level}. If \texttt{node\_key(u) == node\_key(v)}, we traverse the same node at different time stamps. In this case, we consider that we've already reached it at the previous time stamp.
+
 For Figure \ref{fig:katz_eg2} the scores are
 \begin{lstlisting}
-Dict{Any,Any} with 7 entries:
-TimeNode(B, 3) => 0.0
-TimeNode(B, 1) => 0.27027
+TimeNode(A, 2) => 0.666667
 TimeNode(A, 3) => 1.0
-TimeNode(B, 2) => 1.0
-TimeNode(C, 1) => 0.259259
-TimeNode(A, 2) => 0.538462
-TimeNode(C, 2) => 0.416667
+TimeNode(B, 1) => 0.346154
+TimeNode(B, 2) => 0.0
+TimeNode(B, 3) => 0.0
+TimeNode(C, 1) => 0.315789
+TimeNode(C, 2) => 0.5
 \end{lstlisting}
+and the sum of scores at different time stamps gives
+\begin{lstlisting}
+"A" => 1.66667
+"B" => 0.346154
+"C" => 0.815789
+\end{lstlisting}
+Note that the ranking is the same as the temporal Katz centrality case.
 For Figure \ref{fig:katz_eg3}, the scores are
 \begin{lstlisting}
-Dict{Any,Any} with 7 entries:
-TimeNode(B, 100) => 0.0
-TimeNode(A, 2)   => 0.0636364
+TimeNode(A, 10)  => 0.0707071
 TimeNode(A, 100) => 1.0
-TimeNode(C, 2)   => 0.0458716
-TimeNode(B, 1)   => 0.0746269
-TimeNode(C, 1)   => 0.0564516
-TimeNode(B, 2)   => 1.0
+TimeNode(B, 1)   => 0.0597015
+TimeNode(B, 10)  => 0.0
+TimeNode(B, 100) => 0.0
+TimeNode(C, 1)   => 0.0390625
+TimeNode(C, 10)  => 0.0412371
 \end{lstlisting}
-
-
-The analysis for temporal communicability betweenness centrality is similar.
+and the sums are
+\begin{lstlisting}
+"A" => 1.07071
+"B" => 0.0597015
+"C" => 0.0802996
+\end{lstlisting}
+Similar to the temporal Katz centrality case, we see a decrease of centrality scores
+for all the nodes in the evolving graph.
+We note that the analysis for temporal betweenness centrality is similar to above.
 
 \subsection{Temporal PageRank}
 
-We derive a generalization of PageRank on evolving graphs.
-The first idea is based on reverse temporal flows and block adjacency matrix.
+We see from our analysis for temporal Katz centrality and temporal betweenness centrality
+that the temporal distance between nodes in an evolving graph can impact the final centrality scores.
+We would like to design a temporal PageRank algorithm that takes account of between
+the temporal distance and the spatial distance. The generalisation is based on two ideas:
+reversed temporal walks and block adjacency matrix.
 
-\subsubsection{Reverse Temporal Flows}
+\subsubsection{Reversed Temporal Walks}
 
 We can not travel back in time. But reversing the direction of temporal flows can help
-identify the ``hub'' nodes or the source of the flows. The authority score of a page is
-proportional to its importance, and the hub score describes the quality of a page as a link collection of important related pages \cite{kleinberg99}.
-Indeed, reverse PageRank has
-been studied by \cite{bar08, fogaras03, gleich15}. In reverse PageRank we compute PageRank on the graph with reversed direction, i.e., reverse the direction of each edge $(i,j)$ to $(j, i)$.
-Fogaras \cite{fogaras03} shows that Reversed Page Rank scores express hub quality.
+identify the ``hub'' nodes or the source of the flows. Recall in the HITS algorithm \cite{kleinberg99},
+the hub score describes the quality of a web page as a link collection of important related pages.
+In reverse PageRank we compute PageRank on the graph with reversed direction, i.e., reverse the direction of each edge $(i,j)$ to $(j,i)$. Fogaras \cite{fogaras03, gleich15} shows that Reversed Page Rank scores express hub quality.
 
-
-Recall a time-preserving walk is a time-ordered sequence of active nodes. Here we define a \emph{reversed temporal walk} to be a reversed time-ordered sequence of active nodes, i.e.,
+Recall a time-preserving walk is a time-ordered sequence of active nodes. We define a \emph{reversed temporal walk} to be a reversed time-ordered sequence of active nodes
+$\langle (v_1, t_1), (v_2,t_2), \ldots, (v_m, t_m)\rangle$, where
 $t_1 \ge t_2 \ge \cdots \ge t_m$.
 
 
 \subsubsection{Block Adjacency Matrices}
 \label{sec:centr-block-adjac}
 
-We can not simply use static graphs to replace evolving graphs for two main reasons.
-First, a path has to preserve the dimension, i.e., certain path is incorrect in the aggregated static graph.
-Second, two path between $A$ and $B$ are considered to be one path in the aggregated static graph.
-
-In \cite{chen16}, we derive a block adjacency matrix representation of an evolving graph.
-If $E'$ is the set of causal edges and $\hat E$ is the set of static edges then
+Aggregating edges at each time stamp to form
+a simple static graph can provide misleading information about the structure of the network.
+In \cite{chen16}, we derive a block adjacency matrix representation of an evolving graph and prove it is the correct representation of an evolving graph.
+Let $E'$ is the set of causal edges and $\hat E$ is the set of static edges then
 an evolving graph can be represented as
 $$
 \bm M_n =
@@ -737,21 +760,21 @@ $$
     0 & \mbox{otherwise}.
   \end{cases}
 $$
-The adjacency matrix blocks $A^{[t]}$ encode the static edge set $\hat E$, whereas the off-diagonal blocks $M^{[t_i, t_j]}$ encode the causal edge set $E'$.
-
-(Need to justify the benefit of this approach.)
-We can apply static graph centrality algorithms to $M_n$ and then take the average of ratings at each each time stamp. For example, we can construct the Google matrix
-$G_n$ from $M_n$ and the ranking of the nodes can be found by solving
+The adjacency matrix blocks $A^{[t]}$ encode the static edge set $\hat E$, whereas the off-diagonal blocks $M^{[t_i, t_j]}$ encode the causal edge set $E'$. To take account of the temporal distance between nodes, we could let
 $$
- r= G_n r.
+  M_{uv}^{[t_i, t_j]} =
+  \begin{cases}
+    \frac{1}{|t_j - t_i|} & \mbox{if} (u, v) \in E' \\
+    0 & \mbox{otherwise}.
+  \end{cases}
 $$
 
-For Figue \ref{fig:eg_shortest_walk}, we have
+For Figure \ref{fig:eg_shortest_walk}, we have
 
 \begin{align*}
-V & = \{(1,\!t_1), (2,\!t_1), (1,\!t_2), (3,\!t_2), (2,\!t_3), (3,\!t_3)\},\\
-\tilde E &= \{((1,\!t_1), (2,\!t_1)), ((1,\!t_2), (3,\!t_2)), ((2,\!t_3), (3,\!t_3))\},\\
-E'  &= \{((1,\!t_1), (1,\!t_2)), ((2,\!t_2), (2,\!t_3)), ((3,\!t_2), (3,\!t_3))\}.
+V & = \{(1,\!1998), (2,\!1998), (1,\!1999), (3,\!1999), (2,\!2018), (3,\!2018)\},\\
+\tilde E &= \{((1,\!1998), (2,\!1998)), ((1,\!1999), (3,\!1999)), ((2,\!2018), (3,\!2018))\},\\
+E'  &= \{((1,\!1998), (1,\!1999)), ((2,\!1999), (2,\!2018)), ((3,\!1999), (3,\!2018))\}.
 \end{align*}
 
 and corresponding block adjacency matrix is
@@ -759,9 +782,9 @@ and corresponding block adjacency matrix is
 \[
 \bm M_3 = \begin{pmatrix}
 0 & 1 & 1 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1/9 & 0 \\
 0 & 0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 1/9 \\
 0 & 0 & 0 & 0 & 0 & 1 \\
 0 & 0 & 0 & 0 & 0 & 0
 \end{pmatrix}
@@ -810,50 +833,69 @@ The graph containing all the edges and temporal nodes has adjacency matrix $\bm 
 \label{fig:static}
 \end{figure}
 
-
-We derive the block google matrix as a combination of block matrix $A$ and its transpose $A^T$.
-
-The block google matrix is defined as
+Notice that the lower triangular blocks of matrix $\bm M_n$ are zeros.
+This is because all the causal edges are time preserving. We consider the transpose of matrix $\bm M_n$, which reverse the direction of static edges and causal edges.
+Let $b \in [0,1]$ be a balance scalar. Then the block matrix
+$$
+b \bm M_n + (1-b) \bm M_n^T
+$$
+takes account of both the temporal walks and reversed temporal walks.
+We now derive the block Google matrix as
 
 \begin{lstlisting}
-function block_google_matrix(g::IntAdjacencyList; alpha = 0.85, balance = 0.75)
-  A = full(block_adjacency_matrix(g))
-  A = balance * A + (1-balance) * A'
-  N, N = size(A)
+function block_google_matrix(g; alpha = 0.85, balance = 0.75)
+  M = full(block_adjacency_matrix(g))
+  M = balance * M + (1-balance) * M'
+  N, N = size(M)
   p = ones(N)/N
   dangling_weights = p
-  dangling_nodes = find(x->x==0, sum(A,2))
-
+  dangling_nodes = find(x->x==0, sum(M,2))
   for node in dangling_nodes
-      A[node,:] = dangling_weights
+      M[node,:] = dangling_weights
   end
-  A ./= sum(A,2)
-  return alpha * A .+ (1- alpha) * p
+  M ./= sum(M,2)
+  return alpha * M .+ (1- alpha) * p
 end
 \end{lstlisting}
 
-We find the ranking for Figure \ref{}
+The function \texttt{block\_adjacency\_matrix} convert an evolving graph $g$ to a block adjacency matrix $\bm M$. Every row sum of the block Google matrix is equal to one. Each element of the dominant eigenvector of the block Google matrix
+represents the PageRank rating of a node.
 
+
+For Figure \ref{fig:katz_eg2}, we set $alpha$ be $0.85$ and $balance$ be $1.0$.
+Then the PageRank scores are
 \begin{lstlisting}
-9-element Array{Complex{Float64},1}:
- 0.12278
-0.254264
-0.0533627
- 0.36275
-0.350713
-0.406792
-0.0533627
-0.524112
-0.468848
+ TimeNode(A, 2) => 0.289123
+ TimeNode(A, 3) => 0.128054
+ TimeNode(B, 1) => 0.182477
+ TimeNode(B, 2) => 0.354335
+ TimeNode(B, 3) => 0.480941
+ TimeNode(C, 1) => 0.128054
+ TimeNode(C, 2) => 0.250931
 \end{lstlisting}
+and the sum of node scores at all three time stamps are
+\begin{lstlisting}
+ "A" => 0.417177
+ "B" => 1.01775
+ "C" => 0.378986
+\end{lstlisting}
+We see node $B$ is the most important node in an evolving graph.
+On the other extreme, if we set $balance$ to be $0.0$, we get the overall scores
+\begin{lstlisting}
+ "A" => 0.678502
+ "B" => 0.647353
+ "C" => 0.527927
+\end{lstlisting}
+Thus $A$ is the most important node in this case.
 
-One potential problem is the computational cost. Since the dimension of the block matrix
-is $|V| \times |T|$, where $|V|$ represents the number of nodes and $|T|$ represents the number of time stamps. The block matrix may become very large for an evolving graph with many time stamps.
-
+One potential problem with temporal PageRank is that the computational cost is expensive for large evolving graphs with many time stamps. The dimension of the block matrix
+is $|V| \times |T|$, where $|V|$ represents the number of nodes and $|T|$ represents the number of time stamps.
 \section{Experiments}
 \label{sec:experiments}
 
-We test the influence of time on evolvign graph centralities.
+We test the influence of time on evolving graph centralities.
+Justify use \texttt{IntAdjacencyList}.
+
 
 \subsection{Random Evolving Graphs}
 \label{sec:random}
